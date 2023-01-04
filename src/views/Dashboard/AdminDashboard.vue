@@ -38,18 +38,17 @@
           </v-col>
         </v-row>
       </v-container>
-
       <v-container>
         <v-row>
           <v-col>
-            <v-card height="350">
-              
-                <Chart />
-             
+            <v-card height="350" >
+              <Chart />
             </v-card>
           </v-col>
           <v-col>
-            <v-card height="350"></v-card>
+            <v-card height="350">
+              <Donut />
+            </v-card>
           </v-col>
           <v-col>
             <v-card height="200"></v-card>
@@ -63,12 +62,14 @@
   
   <script>
 import AdminNavbar from "../Navigation/AdminNavbar.vue";
-import Chart from '@/components/ChartComponent.vue'
+import Chart from "@/components/ChartComponent.vue";
+import Donut from "@/components/DonutComponent.vue"
 
 export default {
   components: {
     AdminNavbar,
-    Chart
+    Chart,
+    Donut
   },
 
   data: () => ({
@@ -93,7 +94,7 @@ export default {
         title: "Halcyon Days",
         artist: "Ellie Goulding",
       },
-    ]
+    ],
   }),
 };
 </script>
