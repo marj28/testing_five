@@ -73,70 +73,48 @@
           </v-list-item>
         </template>
       </v-list>
+      <v-divider></v-divider>
     </v-navigation-drawer>
     <v-app-bar color="#388E3C" dark app elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase">
         <v-btn text @click="$router.push({ name: 'AdminDashboard' })">
-          <span class="font-weight-bold"> CPEESO Admin </span>
+          <span class="font-weight-bold"> CPEESO Employer Module </span>
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-menu offset-y>
-        <v-list flat>
-          <v-list-item
-            v-for="link in links"
-            :key="link.text"
-            router
-            :to="link.route"
-            active-class="border"
-          >
-            <v-list-item-title>{{ link.text }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <v-div>
+       
+        <v-text-field
+          hide-details
+          prepend-icon="mdi-magnify"
+          single-line
+        ></v-text-field>
+      </v-div>
+      
       <v-btn text @click="$router.push({ name: 'LogInForm' })">
         <span>LOG OUT</span>
       </v-btn>
     </v-app-bar>
   </div>
 </template>
-
-
-<script>
+    
+    
+    <script>
 export default {
   data: () => ({
     drawer: null,
     items: [
-      { icon: "mdi-home", text: "Dashboard", route: "/AdminDashboard" },
+      { icon: "mdi-home", text: "Dashboard", route: "/EmployerDashboard" },
       {
-        icon: "mdi mdi-account",
-        text: "Forms",
-        route: "/ScholarshipApplication",
+        icon: "mdi-clipboard-check-outline",
+        text: "Job Posts",
+        route: "/EmployerJobPosts",
       },
       {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        "icon-ctr": "mdi-account-box",
-        text: "To Do's",
-        model: false,
-        children: [
-          {
-            icon: "mdi-clipboard-check-outline",
-            text: "For Approval",
-            route: "/YouTherecord",
-          },
-          {
-            icon: "mdi-clipboard-file-outline",
-            text: "For Recommendation",
-            route: "/YouTherecord",
-          },
-          {
-            icon: "mdi-clipboard-clock-outline",
-            text: "For Processing",
-            route: "/YouTherecord",
-          },
-        ],
+        icon: "mdi-clipboard-file-outline",
+        text: "Appointments",
+        route: "/EmployerAppointments",
       },
       {
         icon: "mdi-chevron-up",
@@ -161,3 +139,5 @@ export default {
   }),
 };
 </script>
+    <style>
+</style>

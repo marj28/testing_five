@@ -71,14 +71,16 @@
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+          
         </template>
       </v-list>
+      <v-divider></v-divider>
     </v-navigation-drawer>
     <v-app-bar color="#388E3C" dark app elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase">
         <v-btn text @click="$router.push({ name: 'AdminDashboard' })">
-          <span class="font-weight-bold"> CPEESO Admin </span>
+          <span class="font-weight-bold"> CPEESO Student Module </span>
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -101,40 +103,30 @@
     </v-app-bar>
   </div>
 </template>
-
-
-<script>
+  
+  
+  <script>
 export default {
   data: () => ({
     drawer: null,
     items: [
-      { icon: "mdi-home", text: "Dashboard", route: "/AdminDashboard" },
-      {
-        icon: "mdi mdi-account",
-        text: "Forms",
-        route: "/ScholarshipApplication",
-      },
+      { icon: "mdi-home", text: "Dashboard", route: "/StudentDashboard" },
       {
         icon: "mdi-chevron-up",
         "icon-alt": "mdi-chevron-down",
         "icon-ctr": "mdi-account-box",
-        text: "To Do's",
+        text: "Forms",
         model: false,
         children: [
           {
             icon: "mdi-clipboard-check-outline",
-            text: "For Approval",
-            route: "/YouTherecord",
+            text: "Scholarship ",
+            route: "/scholarship",
           },
           {
             icon: "mdi-clipboard-file-outline",
-            text: "For Recommendation",
-            route: "/YouTherecord",
-          },
-          {
-            icon: "mdi-clipboard-clock-outline",
-            text: "For Processing",
-            route: "/YouTherecord",
+            text: "Employment ",
+            route: "/skillssurvey",
           },
         ],
       },
@@ -161,3 +153,5 @@ export default {
   }),
 };
 </script>
+  <style>
+</style>

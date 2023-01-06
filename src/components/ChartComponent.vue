@@ -1,35 +1,53 @@
 <template>
-    <div class="example">
-      <apexcharts width="500" height="350" :options="chartOptions" :series="series"></apexcharts>
-    </div>
-  </template>
+  <div>
+    <apexcharts
+      height="70"
+      :options="chartOptions"
+      :series="series"
+    ></apexcharts>
+  </div>
+</template>
   
   <script>
-  /* eslint-disable */
-  import VueApexCharts from 'vue-apexcharts'
-  
-    export default {
-      name: 'Chart',
-      components: {
-        apexcharts: VueApexCharts,
-      },
-      data: function() {
-        return {
-          chartOptions: {
-            chart: {
-              id: 'basic-bar',
-              type: 'bar'
-            },
-            xaxis: {
-              categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-            }
+import VueApexCharts from "vue-apexcharts";
+
+export default {
+  name: "ChartComponent",
+  components: {
+    apexcharts: VueApexCharts,
+  },
+  data: function () {
+    return {
+      chartOptions: {
+        chart: {
+          id: "basic-bar",
+          type: "area",
+          sparkline: {
+            enabled: true,
           },
-          series: [{
-            name: 'series-1',
-            data: [30, 40, 45, 50, 49, 60, 70, 91]
-          }]
-        }
+        },
+        stroke: {
+          curve: "smooth",
+        },
+        colors: ["#DCE6EC"],
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+        },
       },
-    }
-  </script>
+      series: [
+        {
+          name: "series-1",
+          data: [30, 40, 45, 50, 49, 60, 70, 91],
+        },
+      ],
+    };
+  },
+};
+</script>
+<style scoped>
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
+}
+</style>
   
