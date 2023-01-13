@@ -97,7 +97,7 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn text @click="$router.push({ name: 'LogInForm' })">
+      <v-btn text @click="logout">
         <span>LOG OUT</span>
       </v-btn>
     </v-app-bar>
@@ -140,7 +140,7 @@ export default {
           {
             icon: "mdi-clipboard-check-outline",
             text: "User Info",
-            route: "/YouTherecord",
+            route: "/StudentProfile",
           },
           {
             icon: "mdi-clipboard-file-outline",
@@ -151,6 +151,13 @@ export default {
       },
     ],
   }),
+  methods: {
+        logout() {
+            console.log("Local storage clear")
+            localStorage.clear();
+            this.$router.replace({ name: 'LoginPage' });
+        },
+    }
 };
 </script>
   <style>

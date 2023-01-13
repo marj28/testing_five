@@ -79,7 +79,7 @@
       <v-app-bar color="#388E3C" dark app elevate-on-scroll>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title class="text-uppercase">
-          <v-btn text @click="$router.push({ name: 'AdminDashboard' })">
+          <v-btn text @click="$router.push({ name: 'ApplicantDashboard' })">
             <span class="font-weight-bold"> CPEESO Applicant Module </span>
           </v-btn>
         </v-toolbar-title>

@@ -50,7 +50,7 @@ const actions = {
 
 
   },
-  async Login({ commit }, payload) {
+  async Loginuser({ commit }, payload) {
 
     let res = await axios.post(`${process.env.VUE_APP_API_URL}/login.php`, payload);
 
@@ -60,7 +60,7 @@ const actions = {
     else if (res.data['auth'] == 'none')
       return 2;
     else if (res.data['auth'] == 'passed') {
-      localStorage.setItem('auth', JSON.stringify(res.data['controlno']));
+      localStorage.setItem('auth', JSON.stringify(res.data['email']));
       commit('setAuth', res.data);
 
       return 1;

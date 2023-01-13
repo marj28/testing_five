@@ -148,7 +148,7 @@ export default {
           {
             icon: "mdi-clipboard-check-outline",
             text: "User Info",
-            route: "/YouTherecord",
+            route: "/AdminProfile",
           },
           {
             icon: "mdi-clipboard-file-outline",

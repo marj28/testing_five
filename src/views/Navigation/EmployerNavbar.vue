@@ -74,11 +74,14 @@
         </template>
       </v-list>
       <v-divider></v-divider>
+      <v-btn text @click="logout">
+        <span>LOG OUT</span>
+      </v-btn>
     </v-navigation-drawer>
     <v-app-bar color="#388E3C" dark app elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase">
-        <v-btn text @click="$router.push({ name: 'AdminDashboard' })">
+        <v-btn text @click="$router.push({ name: 'EmployerDashboard' })">
           <span class="font-weight-bold"> CPEESO Employer Module </span>
         </v-btn>
       </v-toolbar-title>
@@ -92,9 +95,9 @@
         ></v-text-field>
       </v-div>
       
-      <v-btn text @click="$router.push({ name: 'LogInForm' })">
+      <!-- <v-btn text @click="$router.push({ name: 'LogInForm' })">
         <span>LOG OUT</span>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
   </div>
 </template>
@@ -126,17 +129,24 @@ export default {
           {
             icon: "mdi-clipboard-check-outline",
             text: "User Info",
-            route: "/YouTherecord",
+            route: "/EmployerProfile",
           },
           {
             icon: "mdi-clipboard-file-outline",
             text: "Log Out",
-            route: "/YouTherecord",
+            route: "LoginPage",
           },
         ],
       },
     ],
   }),
+  methods: {
+        logout() {
+            console.log("Local storage clear")
+            localStorage.clear();
+            this.$router.replace({ name: 'LoginPage' });
+        },
+    }
 };
 </script>
     <style>

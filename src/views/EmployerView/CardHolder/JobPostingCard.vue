@@ -15,7 +15,6 @@
               :headers="headers"
               :items="pending"
               hide-default-header
-              hide-default-footer
             >
             </v-data-table>
           </v-card-text>
@@ -37,32 +36,32 @@
           value: "name",
         },
         { text: "", value: "customer" },
-        { text: "ITEM", value: "item" },
+        // { text: "ITEM", value: "item" },
         { text: "TIMESTAMP)", value: "time" },
       ],
       pending: [
         {
           name: "Data Analyst",
           customer: "Full-Time",
-          item: "",
+          // item: "",
           time: "21",
         },
         {
           name: "Computer Programmer",
           customer: "Full-Time",
-          item: "",
+         // item: "",
           time: "21",
         },
         {
           name: "Network Technician",
           customer: "Full-Time",
-          item: "",
+         // item: "",
           time: "21",
         },
         {
           name: "Computer Technician",
           customer: "Full-Time",
-          item: "",
+         // item: "",
           time: "21",
         },
       ],

@@ -12,16 +12,23 @@ import Line from '../components/LineComponent.vue'
 //authentication
 import LoginPage from '@/authentication/LoginPage.vue'
 import RegistrationPage from '@/authentication/RegistrationPage.vue'
+import RegisterPage from '@/authentication/RegisterPage.vue'
 
 //Students View
 import ScholarshipForm from '../views/Forms/ScholarshipForm.vue'
 import SkillsSurvey from '../views/Forms/SkillsSurvey.vue'
+import StudentProfile from '../views/StudentView/StudentProfile.vue'
 
 //Employer View
 import JobPosts from '../views/EmployerView/JobPosts.vue'
 import EmpAppointment from '../views/EmployerView/EmpAppointment.vue'
+import EmployerProfile from '../views/EmployerView/EmployerProfile.vue'
 
 //Applicant View
+import ApplicantProfile from '../views/ApplicantView/ApplicantProfile.vue'
+
+//Admin View
+import AdminProfile from '../views/AdminView/AdminProfile.vue'
 
 Vue.use(VueRouter)
 
@@ -50,6 +57,11 @@ const routes = [
     path: '/registration',
     name: 'RegistrationPage',
     component: RegistrationPage
+  },
+  {
+    path: '/register',
+    name: 'RegisterPage',
+    component: RegisterPage
   },
   {
     path: '/admindashboard',
@@ -82,6 +94,11 @@ const routes = [
     name: 'SkillsSurvey',
     component: SkillsSurvey
   },
+  {
+    path: '/StudentProfile',
+    name: 'StudentProfile',
+    component: StudentProfile
+  },
   //employer_view
   {
     path: '/EmployerJobPosts',
@@ -94,10 +111,27 @@ const routes = [
     component: EmpAppointment
   },
   {
+    path: '/EmployerProfile',
+    name: 'EmployerProfile',
+    component: EmployerProfile
+  },
+  {
     path: '/line',
     name: 'Line',
     component: Line
-  }
+  },
+  //applicant_view
+  {
+    path: '/ApplicantProfile',
+    name: 'ApplicantProfile',
+    component: ApplicantProfile
+  },
+  //admin_view
+  {
+    path: '/AdminProfile',
+    name: 'AdminProfile',
+    component: AdminProfile
+  },
 
 ]
 
@@ -105,5 +139,16 @@ const router = new VueRouter({
   routes,
   mode :"history"
 })
+
+// router.beforeEach((to, from, next) => {
+
+//   if (to.name == 'AdminDashboard' && localStorage.getItem('auth') == null)
+//     next({ name: 'LoginPage' });
+//   else if (localStorage.getItem('auth') != null && (to.name == 'RegisterPage' || to.name == 'LoginPage'))
+//     next({ name: 'AdminDashboard' });
+//   else
+//     next();
+
+// });
 
 export default router
