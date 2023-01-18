@@ -44,6 +44,7 @@ const actions = {
 
   },
   async Registration({ commit }, payload) {
+    console.log("register start!")
     let res = await axios.post(`${process.env.VUE_APP_API_URL}/new_user.php`, payload);
     localStorage.setItem('auth', JSON.stringify(res.data.user));
     commit('setAuth', res.data.user[0]);

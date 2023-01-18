@@ -6,13 +6,16 @@
           <v-form @submit.prevent="submitHandler" ref="form">
             <v-container>
               <v-layout row wrap>
-                <v-card class="wrapper">
-                  <div class="text-center">
-                    <h2>PUBLIC EDUCATION AND EMPLOYMENT SERVICES OFFICE</h2>
+                <v-card class="mx-auto" style="margin-top: 150px">
+                  <div class="text-center pa-4">
+                    <h2 class="">
+                      PUBLIC EDUCATION AND EMPLOYMENT SERVICES OFFICE
+                    </h2>
                   </div>
 
-                  <v-row class="text-form">
-                    <v-col offset="1" md="10">
+                  <v-row class="text-form pa-6">
+                    <v-col>
+                      <!-- start snackbar -->
                       <v-snackbar v-model="snackbar" dark>
                         {{ text }}
 
@@ -28,41 +31,58 @@
                         </template>
                       </v-snackbar>
                       <!-- end of snacksbar -->
-                      <v-text-field
-                        class="custom-label-color"
-                        v-model="email"
-                        label="User Name"
-                        color="white"
-                        type="sample"
-                        prepend-inner-icon="mdi mdi-account mdi-green"
-                        required
-                      ></v-text-field>
+                      <v-col cols="12" sm="12" md="12">
+                        <v-text-field
+                          v-model="email"
+                          label="Email or Username"
+                          color="green"
+                          type="sample"
+                          prepend-inner-icon="mdi mdi-account mdi-green"
+                          required
+                          outlined
+                          dense
+                        ></v-text-field>
 
-                      <v-text-field
-                        v-model="password"
-                        class="custom-label-color"
-                        label="Password"
-                        color="white"
-                        type="password"
-                        prepend-inner-icon="mdi-key mdi-green"
-                        required
-                      ></v-text-field>
+                        <v-text-field
+                          v-model="password"
+                          label="Password"
+                          color="green"
+                          type="password"
+                          prepend-inner-icon="mdi-key mdi-green"
+                          required
+                          outlined
+                          dense
+                        ></v-text-field>
+                        <v-btn
+                          type="submit"
+                          color="green"
+                          dark
+                          @click="userlogin"
+                          block
+                        >
+                          <!-- <v-icon left>mdi-account-check</v-icon> -->
+                          LOG IN
+                        </v-btn>
+                      </v-col>
+                      <v-divider></v-divider>
+                      <v-col align="center" justify="space-around">
+                        <p>Don't have an Account?</p>
+                        <v-btn
+                          color="#fada07"
+                          class="text-center"
+                          dark
+                          @click="$router.push({ name: 'RegisterPage' })"
+                        >
+                          REGISTER
+                        </v-btn>
+                      </v-col>
                     </v-col>
                   </v-row>
 
                   <v-container>
                     <!--  <v-card-actions class="justify-center"> -->
                     <v-row>
-                      <v-col offset="2" size="9">
-                        <v-btn
-                          type="submit"
-                          color="blue"
-                          class="rounded-xl"
-                          @click="userlogin"
-                        >
-                          <v-icon left>mdi-account-check</v-icon>
-                          LOG IN
-                        </v-btn>
+                      <v-col offset="2" size="8">
                         <v-dialog v-model="dialog" max-width="290">
                           <v-card>
                             <v-card-title class="text-h5">
@@ -87,17 +107,6 @@
                           </v-card>
                         </v-dialog>
                       </v-col>
-
-                      <v-col
-                        offset=""
-                        size="9"
-                        @click="$router.push({ name: 'RegisterPage' })"
-                      >
-                        <v-btn color="green" class="rounded-xl">
-                          <v-icon left>mdi-account-check</v-icon>
-                          REGISTER
-                        </v-btn>
-                      </v-col>
                     </v-row>
                   </v-container>
                 </v-card>
@@ -113,8 +122,10 @@
 <script>
 /* eslint-disable */
 import { mapActions } from "vuex";
+
 export default {
   name: "App",
+  components: {},
   data: () => ({
     inputcheck: false,
     dialog: false,
@@ -168,14 +179,12 @@ input[type="sample"] {
 }
 
 input[type="password"] {
-  background: transparent;
   outline: none;
   color: rgb(28, 110, 4);
 }
 
 .custom-placeholer-color input::placeholder {
   color: rgb(28, 110, 4) !important;
-  opacity: 1;
 }
 
 .custom-label-color .v-label {
@@ -192,13 +201,8 @@ input[type="password"] {
   border-radius: 25px 25px 25px 25px;
 }
 
-.v-btn {
-  border-radius: 25px 25px 25px 25px;
-}
-
 h2 {
   color: rgb(28, 110, 4);
-  -webkit-text-stroke-color: rgb(0, 0, 0);
   margin-top: 20px;
 }
 
@@ -206,9 +210,8 @@ h2 {
   position: absolute;
   left: 50%;
   top: 250%;
-  width: 400px;
+  /* width: 400px; */
   transform: translate(-50%, -50%);
-  background: rgb(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 10px 10px 15px rgba(49, 47, 47, 0.15);
   box-shadow: 0 0 8px rgb(201, 181, 1);
@@ -222,11 +225,6 @@ h2 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-}
-
-.text-form {
-  margin-top: 20px;
-  color: rgb(28, 110, 4);
 }
 </style>
       

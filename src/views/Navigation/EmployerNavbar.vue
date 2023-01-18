@@ -6,11 +6,12 @@
       dark
       app
       height="1200"
+      width="280"
     >
       <v-layout column align-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
-            <img src="/img1.png" alt="" />
+            <img src="@/assets/download.png" alt="" />
           </v-avatar>
           <p class="white--text subheading mt-1 text-center">Username</p>
         </v-flex>
@@ -74,9 +75,6 @@
         </template>
       </v-list>
       <v-divider></v-divider>
-      <v-btn text @click="logout">
-        <span>LOG OUT</span>
-      </v-btn>
     </v-navigation-drawer>
     <v-app-bar color="#388E3C" dark app elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -87,17 +85,12 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-div>
-       
         <v-text-field
           hide-details
           prepend-icon="mdi-magnify"
           single-line
         ></v-text-field>
       </v-div>
-      
-      <!-- <v-btn text @click="$router.push({ name: 'LogInForm' })">
-        <span>LOG OUT</span>
-      </v-btn> -->
     </v-app-bar>
   </div>
 </template>
@@ -134,19 +127,19 @@ export default {
           {
             icon: "mdi-clipboard-file-outline",
             text: "Log Out",
-            route: "LoginPage",
+            route: "login",
           },
         ],
       },
     ],
   }),
   methods: {
-        logout() {
-            console.log("Local storage clear")
-            localStorage.clear();
-            this.$router.replace({ name: 'LoginPage' });
-        },
-    }
+    logout() {
+      console.log("Local storage clear");
+      localStorage.clear();
+      this.$router.replace({ name: "LoginPage" });
+    },
+  },
 };
 </script>
     <style>

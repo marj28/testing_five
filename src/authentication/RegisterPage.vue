@@ -2,85 +2,120 @@
   <div>
     <v-app id="inspire" class="background">
       <v-main class="d-flex justify-center align-center">
-        <v-col cols="10" lg="5" class="mx-auto">
+        <v-col cols="10" class="mx-auto">
           <v-form @submit.prevent="submitHandler" ref="form">
             <v-container>
               <v-layout row wrap>
-                <v-card class="wrapper">
-                  <div class="text-center">
+                <v-card class="mx-auto" style="margin-top: 150px">
+                  <div class="text-center pa-4">
                     <h2>PUBLIC EDUCATION AND EMPLOYMENT SERVICES OFFICE</h2>
                   </div>
-                  <v-row class="text-form">
-                    <v-col offset="1" md="10">
-                      <v-text-field
-                        class="textbox"
-                        v-model="first_name"
-                        type="text"
-                        label="First Name"
-                        prepend-inner-icon="mdi mdi-account mdi-green"
-                        required
-                      />
+                  <v-row class="text-form pa-6">
+                    <v-col>
+                      <!-- start snackbar -->
+                      <v-snackbar v-model="snackbar" dark>
+                        {{ text }}
 
-                      <v-text-field
-                        class="textbox"
-                        v-model="last_name"
-                        type="text"
-                        label="Last Name"
-                        prepend-inner-icon="mdi mdi-account mdi-green"
-                        required
-                      />
+                        <template v-slot:action="{ attrs }">
+                          <v-btn
+                            color="pink"
+                            text
+                            v-bind="attrs"
+                            @click="snackbar = false"
+                          >
+                            Close
+                          </v-btn>
+                        </template>
+                      </v-snackbar>
+                      <!-- end of snacksbar -->
+                      <v-col cols="12" sm="12" md="12">
+                        <v-text-field
+                          class="textbox"
+                          v-model="first_name"
+                          type="text"
+                          label="First Name"
+                          prepend-inner-icon="mdi mdi-account mdi-green"
+                          required
+                          color="green"
+                          outlined
+                          dense
+                        />
 
-                      <v-text-field
-                        class="textbox"
-                        v-model="email"
-                        type="email"
-                        label="Email"
-                        prepend-inner-icon="mdi mdi-account mdi-green"
-                        required
-                      />
+                        <v-text-field
+                          class="textbox"
+                          v-model="last_name"
+                          type="text"
+                          label="Last Name"
+                          prepend-inner-icon="mdi mdi-account mdi-green"
+                          required
+                          color="green"
+                          outlined
+                          dense
+                        />
 
-                      <v-text-field
-                        class="textbox"
-                        v-model="pw1"
-                        :rules="pwdRules"
-                        :type="passwordShow ? 'text' : 'password'"
-                        label="Password"
-                        placeholder="Password"
-                        prepend-inner-icon="mdi-key"
-                      />
+                        <v-text-field
+                          class="textbox"
+                          v-model="email"
+                          type="email"
+                          label="Email"
+                          prepend-inner-icon="mdi mdi-account mdi-green"
+                          required
+                          color="green"
+                          outlined
+                          dense
+                        />
 
-                      <v-text-field
-                        class="textbox"
-                        v-model="pw2"
-                        :rules="pwdConfirm"
-                        :type="passwordShow ? 'text' : 'password'"
-                        label="Confirm Password"
-                        placeholder="Password"
-                        prepend-inner-icon="mdi-key"
-                      />
+                        <v-text-field
+                          class="textbox"
+                          v-model="password"
+                          :rules="pwdRules"
+                          :type="passwordShow ? 'text' : 'password'"
+                          label="Password"
+                          prepend-inner-icon="mdi-key"
+                          color="green"
+                          outlined
+                          dense
+                        />
+
+                        <v-text-field
+                          class="textbox"
+                          v-model="pw2"
+                          :rules="pwdConfirm"
+                          :type="passwordShow ? 'text' : 'password'"
+                          label="Confirm Password"
+                          prepend-inner-icon="mdi-key"
+                          color="green"
+                          outlined
+                          dense
+                        />
+                        <v-col align="center" justify="space-around">
+                          <v-btn
+                            type="submit"
+                            color="green"
+                            class="text-center"
+                            @click="register"
+                            dark
+                            block
+                          >
+                            <v-icon left>mdi-account-check</v-icon>
+                            SIGN UP
+                          </v-btn>
+                        </v-col>
+                        <v-divider></v-divider>
+                        <v-col align="center" justify="space-around">
+                          <p>Already have an Account?</p>
+                          <v-btn
+                            color="#fada07"
+                            class="text-center"
+                            dark
+                            @click="$router.push({ name: 'LoginPage' })"
+                          >
+                            Log In
+                          </v-btn>
+                        </v-col>
+                      </v-col>
                     </v-col>
                   </v-row>
-                  <v-container>
-                    <v-row>
-                      <v-col offset="2" size="9">
-                        <v-btn
-                          color="blue"
-                          class="rounded-xl"
-                          @click="$router.push({ name: 'LoginPage' })"
-                        >
-                          <v-icon left>mdi-account-check</v-icon>
-                          LOG IN
-                        </v-btn>
-                      </v-col>
-
-                      <v-col offset="" size="9" @click="register">
-                        <v-btn type="submit" color="green" class="rounded-xl">
-                          <v-icon left>mdi-account-check</v-icon>
-                          SIGN UP
-                        </v-btn>
-                      </v-col>
-                    </v-row>
-                  </v-container>
                 </v-card>
               </v-layout>
             </v-container>
@@ -121,17 +156,19 @@ export default {
     return {
       dialog: false,
       loading: false,
+      snackbar : false,
+      text: `Please input fields`,
       selection: 1,
       first_name: "",
       last_name: "",
       email: "",
 
-      pw1: "",
+      password: "",
       pw2: "",
       pwdRules: [(v) => !!v || "Password required"],
       pwdConfirm: [
         (v) => !!v || "Confirm password",
-        (v) => v === this.pw1 || "Passwords do not match",
+        (v) => v === this.password || "Passwords do not match",
       ],
     };
   },
@@ -144,9 +181,13 @@ export default {
       data.append("first_name", this.first_name);
       data.append("last_name", this.last_name);
       data.append("email", this.email);
-      data.append("password", this.pw1);
-
-      this.Registration(data);
+      data.append("password", this.password);
+      
+      if(this.first_name.length == 0) {
+        this.snackbar = true;
+      }
+      else {
+        this.Registration(data);
       setTimeout(() => {
         this.loading = false;
         this.$router.push("/AdminDashboard");
@@ -155,12 +196,15 @@ export default {
       this.first_name = "";
       this.last_name = "";
       this.email = "";
-      this.pw1 = "";
+      this.password = "";
       this.pw2 = "";
       this.$refs.form.reset();
 
       this.loginCorrection = "Message";
       this.dialog = true;
+      }
+
+      
     },
   },
 };
@@ -176,14 +220,12 @@ input[type="sample"] {
 }
 
 input[type="password"] {
-  background: transparent;
   outline: none;
   color: rgb(28, 110, 4);
 }
 
 .custom-placeholer-color input::placeholder {
   color: rgb(28, 110, 4) !important;
-  opacity: 1;
 }
 
 .custom-label-color .v-label {
@@ -200,13 +242,8 @@ input[type="password"] {
   border-radius: 25px 25px 25px 25px;
 }
 
-.v-btn {
-  border-radius: 25px 25px 25px 25px;
-}
-
 h2 {
   color: rgb(28, 110, 4);
-  -webkit-text-stroke-color: rgb(0, 0, 0);
   margin-top: 20px;
 }
 
@@ -214,9 +251,8 @@ h2 {
   position: absolute;
   left: 50%;
   top: 250%;
-  width: 400px;
+  /* width: 400px; */
   transform: translate(-50%, -50%);
-  background: rgb(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 10px 10px 15px rgba(49, 47, 47, 0.15);
   box-shadow: 0 0 8px rgb(201, 181, 1);
@@ -232,10 +268,6 @@ h2 {
   background-position: center;
 }
 
-.text-form {
-  margin-top: 20px;
-  color: rgb(28, 110, 4);
-}
 </style>
       
       

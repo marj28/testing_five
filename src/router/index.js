@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
+// dashboard
 import AdminDashboard from '../views/Dashboard/AdminDashboard.vue'
 import StudentDashboard from '../views/Dashboard/StudentDashboard.vue'
 import EmployerDashboard from '../views/Dashboard/EmployerDashboard.vue'
@@ -15,8 +16,8 @@ import RegistrationPage from '@/authentication/RegistrationPage.vue'
 import RegisterPage from '@/authentication/RegisterPage.vue'
 
 //Students View
-import ScholarshipForm from '../views/Forms/ScholarshipForm.vue'
-import SkillsSurvey from '../views/Forms/SkillsSurvey.vue'
+import ScholarAppForm_Student from '../views/StudentView/CardHolder/ScholarAppForm_Student.vue'
+import SkillsSurveyForm_Student from '../views/StudentView/CardHolder/SkillsSurveyForm_Student.vue'
 import StudentProfile from '../views/StudentView/StudentProfile.vue'
 
 //Employer View
@@ -29,6 +30,13 @@ import ApplicantProfile from '../views/ApplicantView/ApplicantProfile.vue'
 
 //Admin View
 import AdminProfile from '../views/AdminView/AdminProfile.vue'
+import AdminForms from '../views/AdminView/AdminForms.vue'
+import SsForm from '../views/AdminView/CardHolder/SsForm.vue'
+import ScholarAppForm from '../views/AdminView/CardHolder/ScholarAppForm.vue'
+import EnterpriseDevelopment from '../views/AdminView/CardHolder/EnterpriseDevelopment.vue'
+import EstablishmentSurvey from '../views/AdminView/CardHolder/EstablishmentSurvey.vue'
+import EntrepreneurialProgram from '../views/AdminView/CardHolder/EntrepreneurialProgram.vue'
+import StudentList from '../views/AdminView/ListHolder/StudentList.vue'
 
 Vue.use(VueRouter)
 
@@ -85,14 +93,14 @@ const routes = [
   },
   //students_view
   {
-    path: '/scholarship',
-    name: 'ScholarshipForm',
-    component: ScholarshipForm
+    path: '/ScholarAppForm_Student',
+    name: 'ScholarAppForm_Student',
+    component: ScholarAppForm_Student
   },
   {
-    path: '/skillssurvey',
-    name: 'SkillsSurvey',
-    component: SkillsSurvey
+    path: '/SkillsSurveyForm_Student',
+    name: 'SkillsSurveyForm_Student',
+    component: SkillsSurveyForm_Student
   },
   {
     path: '/StudentProfile',
@@ -131,6 +139,41 @@ const routes = [
     path: '/AdminProfile',
     name: 'AdminProfile',
     component: AdminProfile
+  },
+  {
+    path: '/AdminForms',
+    name: 'AdminForms',
+    component: AdminForms
+  },
+  {
+    path: '/SsForm',
+    name: 'SsForm',
+    component: SsForm
+  },
+  {
+    path: '/ScholarAppForm',
+    name: 'ScholarAppForm',
+    component: ScholarAppForm
+  },
+  {
+    path: '/EnterpriseDevelopment',
+    name: 'EnterpriseDevelopment',
+    component: EnterpriseDevelopment
+  },
+  {
+    path: '/EstablishmentSurvey',
+    name: 'EstablishmentSurvey',
+    component: EstablishmentSurvey
+  },
+  {
+    path: '/EntrepreneurialProgram',
+    name: 'EntrepreneurialProgram',
+    component: EntrepreneurialProgram
+  },
+  {
+    path: '/StudentList',
+    name: 'StudentList',
+    component: StudentList
   },
 
 ]

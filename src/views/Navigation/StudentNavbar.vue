@@ -6,11 +6,12 @@
       dark
       app
       height="1200"
+      width="280"
     >
       <v-layout column align-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
-            <img src="/img1.png" alt="" />
+            <img src="@/assets/download.png" alt="" />
           </v-avatar>
           <p class="white--text subheading mt-1 text-center">Username</p>
         </v-flex>
@@ -71,7 +72,6 @@
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          
         </template>
       </v-list>
       <v-divider></v-divider>
@@ -84,22 +84,13 @@
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-menu offset-y>
-        <v-list flat>
-          <v-list-item
-            v-for="link in links"
-            :key="link.text"
-            router
-            :to="link.route"
-            active-class="border"
-          >
-            <v-list-item-title>{{ link.text }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-      <v-btn text @click="logout">
-        <span>LOG OUT</span>
-      </v-btn>
+      <v-div>
+        <v-text-field
+          hide-details
+          prepend-icon="mdi-magnify"
+          single-line
+        ></v-text-field>
+      </v-div>
     </v-app-bar>
   </div>
 </template>
@@ -121,12 +112,12 @@ export default {
           {
             icon: "mdi-clipboard-check-outline",
             text: "Scholarship ",
-            route: "/scholarship",
+            route: "/ScholarAppForm_Student",
           },
           {
             icon: "mdi-clipboard-file-outline",
             text: "Employment ",
-            route: "/skillssurvey",
+            route: "/SkillsSurveyForm_Student",
           },
         ],
       },
@@ -145,19 +136,19 @@ export default {
           {
             icon: "mdi-clipboard-file-outline",
             text: "Log Out",
-            route: "/YouTherecord",
+            route: "/login",
           },
         ],
       },
     ],
   }),
   methods: {
-        logout() {
-            console.log("Local storage clear")
-            localStorage.clear();
-            this.$router.replace({ name: 'LoginPage' });
-        },
-    }
+    logout() {
+      console.log("Local storage clear");
+      localStorage.clear();
+      this.$router.replace({ name: "LoginPage" });
+    },
+  },
 };
 </script>
   <style>

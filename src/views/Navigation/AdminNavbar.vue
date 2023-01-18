@@ -6,11 +6,12 @@
       dark
       app
       height="1200"
+      width="280"
     >
       <v-layout column align-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
-            <img src="/img1.png" alt="" />
+            <img src="@/assets/download.png" alt="" />
           </v-avatar>
           <p class="white--text subheading mt-1 text-center">Username</p>
         </v-flex>
@@ -82,22 +83,13 @@
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-menu offset-y>
-        <v-list flat>
-          <v-list-item
-            v-for="link in links"
-            :key="link.text"
-            router
-            :to="link.route"
-            active-class="border"
-          >
-            <v-list-item-title>{{ link.text }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-      <v-btn text @click="$router.push({ name: 'LogInForm' })">
-        <span>LOG OUT</span>
-      </v-btn>
+      <v-div>
+        <v-text-field
+          hide-details
+          prepend-icon="mdi-magnify"
+          single-line
+        ></v-text-field>
+      </v-div>
     </v-app-bar>
   </div>
 </template>
@@ -112,7 +104,7 @@ export default {
       {
         icon: "mdi mdi-account",
         text: "Forms",
-        route: "/ScholarshipApplication",
+        route: "/AdminForms",
       },
       {
         icon: "mdi-chevron-up",
@@ -142,6 +134,30 @@ export default {
         icon: "mdi-chevron-up",
         "icon-alt": "mdi-chevron-down",
         "icon-ctr": "mdi-account-box",
+        text: "List",
+        model: false,
+        children: [
+          {
+            icon: "mdi-clipboard-check-outline",
+            text: "Students",
+            route: "/StudentList",
+          },
+          {
+            icon: "mdi-clipboard-file-outline",
+            text: "Job Applicant",
+            route: "/ApplicantList",
+          },
+          {
+            icon: "mdi-clipboard-clock-outline",
+            text: "Employers",
+            route: "/EmployerList",
+          },
+        ],
+      },
+      {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        "icon-ctr": "mdi-account-box",
         text: "Profile",
         model: false,
         children: [
@@ -153,10 +169,11 @@ export default {
           {
             icon: "mdi-clipboard-file-outline",
             text: "Log Out",
-            route: "/YouTherecord",
+            route: "/login",
           },
         ],
       },
+      
     ],
   }),
 };

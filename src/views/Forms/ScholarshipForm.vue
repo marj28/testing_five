@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <StudentNavbar />
     <v-main>
       <v-card id="Employer">
         <v-card-title>
@@ -8,7 +7,7 @@
         </v-card-title>
         <v-stepper v-model="e1">
           <v-stepper-header style="font-size: 16px">
-            <v-stepper-step :complete="e1 > 1" step="1" style="height=">
+            <v-stepper-step :complete="e1 > 1" step="1" style="height=" autofocus>
               Personal Information
             </v-stepper-step>
 
@@ -38,6 +37,7 @@
                           required
                           dense
                           outlined
+                          autofocus
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="12" md="4">
@@ -281,7 +281,7 @@
                           </p>
                         </v-col>
                         <v-spacer></v-spacer>
-                        <v-text-field outlined label="Name of School">
+                        <v-text-field outlined autofocus label="Name of School">
                         </v-text-field>
                         <v-text-field outlined label="Year / Level">
                         </v-text-field>
@@ -378,11 +378,9 @@
 </template>
 
 <script>
-import StudentNavbar from "../Navigation/StudentNavbar.vue";
 
 export default {
   components: {
-    StudentNavbar,
   },
   data() {
     return {
@@ -415,6 +413,9 @@ export default {
     save(date) {
       this.$refs.menu.save(date);
     },
+    scrollup() {
+      window.scrollTo(0, 0);
+    }
   },
 };
 </script>

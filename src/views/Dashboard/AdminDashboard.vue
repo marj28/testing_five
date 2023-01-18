@@ -2,43 +2,22 @@
   <v-app id="inspire">
     <AdminNavbar />
     <v-main>
+      <StatusCard />
       <v-container>
         <v-row>
-          <v-col>
-            <v-card height="130" dark class="pa-2" color="#1B5E20">
-              <h5>Daily Applicants</h5>
-              <h4>57</h4>
-              <v-divider></v-divider>
-              <Chart />
+          <v-col 
+          cols="12"
+          sm="4"
+          xs="6"
+          md="6">
+            <v-card height="350" elevation="20">
+              <TodoChart />
             </v-card>
           </v-col>
-          <v-col>
-            <v-card height="130" dark class="pa-2" color="#1B5E20">
-              <h5>Open Jobs as Of</h5>
-              <h4>57</h4>
-              <v-divider></v-divider>
-              <Chart />
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card height="130" dark class="pa-2" color="#1B5E20 ">
-              <h5>Hired Applicants</h5>
-              <h4>57</h4>
-              <v-divider></v-divider>
-              <Chart />
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-
-      <v-container>
-        <v-row>
-          <v-col>
-            <v-card height="350">
-              <Line />
-            </v-card>
-          </v-col>
-          <v-col>
+          <v-col cols="12"
+          sm="4"
+          xs="6"
+          md="6">
             <v-card height="350" class="pa-0">
               <Donut />
             </v-card>
@@ -72,9 +51,10 @@
   <script>
 import AdminNavbar from "../Navigation/AdminNavbar.vue";
 import Chart from "@/components/ChartComponent.vue";
+import TodoChart from "@/components/TodoChart.vue"
 import Donut from "@/components/DonutComponent.vue";
 import Sample from "@/components/SampleComponent.vue";
-import Line from "@/components/LineComponent.vue";
+import StatusCard from "@/views/AdminView/StatusCard.vue";
 
 export default {
   components: {
@@ -82,32 +62,12 @@ export default {
     Chart,
     Donut,
     Sample,
-    Line,
+    StatusCard,
+    TodoChart
   },
 
   data: () => ({
-    items: [
-      {
-        color: "#2E7D32",
-        title: "Halcyon Days",
-        artist: "Ellie Goulding",
-      },
-      {
-        color: "#388E3C",
-        title: "Supermodel",
-        artist: "Foster the People",
-      },
-      {
-        color: "#43A047",
-        title: "Halcyon Days",
-        artist: "Ellie Goulding",
-      },
-      {
-        color: "#66BB6A",
-        title: "Halcyon Days",
-        artist: "Ellie Goulding",
-      },
-    ],
+    
   }),
 };
 </script>

@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <StudentNavbar />
     <v-main> 
         <v-card id="Employer">
         <v-card-title>
@@ -1062,11 +1061,9 @@
 </template>
 
 <script>
- import StudentNavbar from "../Navigation/StudentNavbar.vue";
 
 export default {
     components: {
-      StudentNavbar
     },
   data() {
     return {
