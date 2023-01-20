@@ -37,6 +37,13 @@ import EnterpriseDevelopment from '../views/AdminView/CardHolder/EnterpriseDevel
 import EstablishmentSurvey from '../views/AdminView/CardHolder/EstablishmentSurvey.vue'
 import EntrepreneurialProgram from '../views/AdminView/CardHolder/EntrepreneurialProgram.vue'
 import StudentList from '../views/AdminView/ListHolder/StudentList.vue'
+import ApplicantList from '../views/AdminView/ListHolder/ApplicantList.vue'
+import EmployerList from '../views/AdminView/ListHolder/EmployerList.vue'
+import ApprovalList from '../views/AdminView/ListHolder/ApprovalList.vue'
+import RecommendationList from '../views/AdminView/ListHolder/RecommendationList.vue'
+import ProcessingList from '../views/AdminView/ListHolder/ProcessingList.vue'
+import TrainingOffer from '../views/AdminView/StatusCard/TrainingOffer.vue'
+import DialogStudentList from '../views/AdminView/Dialog/DialogStudentList.vue'
 
 Vue.use(VueRouter)
 
@@ -175,6 +182,42 @@ const routes = [
     name: 'StudentList',
     component: StudentList
   },
+  {
+    path: '/ApplicantList',
+    name: 'ApplicantList',
+    component: ApplicantList
+  },
+  {
+    path: '/EmployerList',
+    name: 'EmployerList',
+    component: EmployerList
+  },
+  {
+    path: '/ApprovalList',
+    name: 'ApprovalList',
+    component: ApprovalList
+  },
+  {
+    path: '/RecommendationList',
+    name: 'RecommendationList',
+    component: RecommendationList
+  },
+  {
+    path: '/ProcessingList',
+    name: 'ProcessingList',
+    component: ProcessingList
+  },
+  {
+    path: '/TrainingOffer',
+    name: 'TrainingOffer',
+    component: TrainingOffer
+  },
+  {
+    path: '/DialogStudentList',
+    name: 'DialogStudentList',
+    component: DialogStudentList
+  },
+
 
 ]
 

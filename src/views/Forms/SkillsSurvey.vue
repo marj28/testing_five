@@ -263,10 +263,10 @@
                         <v-checkbox label="Same with Home Address"></v-checkbox>
                       </v-col>
                       <v-col cols="12" md="6" sm="6" style="margin-top: -35px">
-                        <v-radio-group row>
-                          <v-radio label="Owned"></v-radio>
-                          <v-radio label="Rented"></v-radio>
-                          <v-radio label="Staying with Relatives"></v-radio>
+                        <v-radio-group v-model="HomeStatus">
+                          <v-radio label="Owned" value="own"></v-radio>
+                          <v-radio label="Rented" value="rent"></v-radio>
+                          <v-radio label="Staying with Relatives" value="stay"></v-radio>
                         </v-radio-group>
                       </v-col>
 

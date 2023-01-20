@@ -7,7 +7,12 @@
         </v-card-title>
         <v-stepper v-model="e1">
           <v-stepper-header style="font-size: 16px">
-            <v-stepper-step :complete="e1 > 1" step="1" style="height=" autofocus>
+            <v-stepper-step
+              :complete="e1 > 1"
+              step="1"
+              style="height="
+              autofocus
+            >
               Personal Information
             </v-stepper-step>
 
@@ -334,8 +339,10 @@
                           Do you have brother's & sister's enjoying the same
                           scholarship program?
                         </p>
-                        <v-checkbox label="Yes"> </v-checkbox>
-                        <v-checkbox label="No"> </v-checkbox>
+                        <v-radio-group v-model="radios" mandatory>
+                          <v-radio label="Yes" value="Yes"></v-radio>
+                          <v-radio label="No" value="No"></v-radio>
+                        </v-radio-group>
                       </v-col>
                       <v-col cols="12" sm="12" md="6">
                         <p>If yes, kindly state their name(s):</p>
@@ -378,13 +385,11 @@
 </template>
 
 <script>
-
 export default {
-  components: {
-  },
+  components: {},
   data() {
     return {
-      e1: 1,
+      e1: 3,
       dialog: false,
       activePicker: null,
       date: null,
@@ -415,7 +420,7 @@ export default {
     },
     scrollup() {
       window.scrollTo(0, 0);
-    }
+    },
   },
 };
 </script>

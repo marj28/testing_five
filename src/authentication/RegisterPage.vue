@@ -2,14 +2,37 @@
   <div>
     <v-app id="inspire" class="background">
       <v-main class="d-flex justify-center align-center">
-        <v-col cols="10" class="mx-auto">
+        <v-col cols="10" md="4" class="mx-auto">
           <v-form @submit.prevent="submitHandler" ref="form">
             <v-container>
               <v-layout row wrap>
-                <v-card class="mx-auto" style="margin-top: 150px">
+                <v-card class="" style="margin-top: 150px">
                   <div class="text-center pa-4">
                     <h2>PUBLIC EDUCATION AND EMPLOYMENT SERVICES OFFICE</h2>
                   </div>
+                  <v-row class="text-center pa-2">
+                    <v-col cols="12" align="center">
+                      <v-btn
+                        type="submit"
+                        color="green"
+                        class="text-center"
+                        dark
+                        @click="(student = false), (employer = true)"
+                        >I am an Employer</v-btn
+                      >
+                    </v-col>
+                    <v-col cols="12" align="center" style="margin-bottom: 10px">
+                      <v-btn
+                        type="submit"
+                        color="success"
+                        class="text-center"
+                        outlined
+                        @click="(student = true), (employer = false)"
+                        >I am Student / Applicant</v-btn
+                      >
+                    </v-col>
+                  </v-row>
+                  <v-divider></v-divider>
                   <v-row class="text-form pa-6">
                     <v-col>
                       <!-- start snackbar -->
@@ -28,7 +51,117 @@
                         </template>
                       </v-snackbar>
                       <!-- end of snacksbar -->
-                      <v-col cols="12" sm="12" md="12">
+                      <!-- employer -->
+                      <v-col
+                        cols="12"
+                        sm="12"
+                        md="12"
+                        v-show="employer"
+                        style="margin-top: -50px"
+                      >
+                        <h4 class="text-center pa-2 green--text">
+                          Employer Registration
+                        </h4>
+                        <v-text-field
+                          class="textbox"
+                          v-model="first_name"
+                          type="text"
+                          label="Officer First Name"
+                          prepend-inner-icon="mdi mdi-account mdi-green"
+                          required
+                          color="green"
+                          outlined
+                          dense
+                        />
+
+                        <v-text-field
+                          class="textbox"
+                          v-model="last_name"
+                          type="text"
+                          label="Officer Last Name"
+                          prepend-inner-icon="mdi mdi-account mdi-green"
+                          required
+                          color="green"
+                          outlined
+                          dense
+                        />
+
+                        <v-text-field
+                          class="textbox"
+                          v-model="email"
+                          type="email"
+                          label="Business Email"
+                          prepend-inner-icon="mdi mdi-account mdi-green"
+                          required
+                          color="green"
+                          outlined
+                          dense
+                        />
+
+                        <v-text-field
+                          class="textbox"
+                          v-model="password"
+                          :rules="pwdRules"
+                          :type="passwordShow ? 'text' : 'password'"
+                          label="Password"
+                          prepend-inner-icon="mdi-key"
+                          color="green"
+                          outlined
+                          dense
+                        />
+
+                        <v-text-field
+                          class="textbox"
+                          v-model="pw2"
+                          :rules="pwdConfirm"
+                          :type="passwordShow ? 'text' : 'password'"
+                          label="Confirm Password"
+                          prepend-inner-icon="mdi-key"
+                          color="green"
+                          outlined
+                          dense
+                        />
+                        <v-col align="center" justify="space-around">
+                          <v-btn
+                            type="submit"
+                            color="green"
+                            class="text-center"
+                            @click="register"
+                            dark
+                            block
+                          >
+                            <v-icon left>mdi-account-check</v-icon>
+                            SIGN UP
+                          </v-btn>
+                        </v-col>
+                        <v-divider></v-divider>
+                        <v-col
+                          align="center"
+                          justify="space-around"
+                          style="margin-bottom: -40px"
+                        >
+                          <p>Already have an Account?</p>
+                          <v-btn
+                            color="#fada07"
+                            class="text-center"
+                            dark
+                            @click="$router.push({ name: 'LoginPage' })"
+                          >
+                            Log In
+                          </v-btn>
+                        </v-col>
+                      </v-col>
+                      <!-- student -->
+                      <v-col
+                        cols="12"
+                        sm="12"
+                        md="12"
+                        v-show="student"
+                        style="margin-top: -50px"
+                      >
+                        <h4 class="text-center pa-2 green--text">
+                          Student / Job Applicant Registration
+                        </h4>
                         <v-text-field
                           class="textbox"
                           v-model="first_name"
@@ -102,7 +235,11 @@
                           </v-btn>
                         </v-col>
                         <v-divider></v-divider>
-                        <v-col align="center" justify="space-around">
+                        <v-col
+                          align="center"
+                          justify="space-around"
+                          style="margin-bottom: -40px"
+                        >
                           <p>Already have an Account?</p>
                           <v-btn
                             color="#fada07"
@@ -156,7 +293,9 @@ export default {
     return {
       dialog: false,
       loading: false,
-      snackbar : false,
+      snackbar: false,
+      student: true,
+      employer: false,
       text: `Please input fields`,
       selection: 1,
       first_name: "",
@@ -182,37 +321,32 @@ export default {
       data.append("last_name", this.last_name);
       data.append("email", this.email);
       data.append("password", this.password);
-      
-      if(this.first_name.length == 0) {
+
+      if (this.first_name.length == 0) {
         this.snackbar = true;
-      }
-      else {
+      } else {
         this.Registration(data);
-      setTimeout(() => {
-        this.loading = false;
-        this.$router.push("/AdminDashboard");
-      }, 2000);
+        setTimeout(() => {
+          this.loading = false;
+          this.$router.push("/AdminDashboard");
+        }, 2000);
 
-      this.first_name = "";
-      this.last_name = "";
-      this.email = "";
-      this.password = "";
-      this.pw2 = "";
-      this.$refs.form.reset();
+        this.first_name = "";
+        this.last_name = "";
+        this.email = "";
+        this.password = "";
+        this.pw2 = "";
+        this.$refs.form.reset();
 
-      this.loginCorrection = "Message";
-      this.dialog = true;
+        this.loginCorrection = "Message";
+        this.dialog = true;
       }
-
-      
     },
   },
 };
-</script>
-
-    
+</script>    
       
-    <style scoped>
+<style scoped>
 input[type="sample"] {
   border-bottom: 1px solid rgb(28, 110, 4);
   outline: none;
@@ -239,7 +373,7 @@ input[type="password"] {
 }
 
 .v-sheet.v-card {
-  border-radius: 25px 25px 25px 25px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 h2 {
@@ -267,7 +401,6 @@ h2 {
   background-attachment: fixed;
   background-position: center;
 }
-
 </style>
       
       

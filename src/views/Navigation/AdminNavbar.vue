@@ -116,17 +116,17 @@ export default {
           {
             icon: "mdi-clipboard-check-outline",
             text: "For Approval",
-            route: "/YouTherecord",
+            route: "/ApprovalList",
           },
           {
             icon: "mdi-clipboard-file-outline",
             text: "For Recommendation",
-            route: "/YouTherecord",
+            route: "/RecommendationList",
           },
           {
             icon: "mdi-clipboard-clock-outline",
             text: "For Processing",
-            route: "/YouTherecord",
+            route: "/ProcessingList",
           },
         ],
       },

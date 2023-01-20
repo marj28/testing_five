@@ -4,7 +4,7 @@
     <v-main>
       <v-container width="500px">
         <v-simple-table fixed-header>
-          <template v-slot:default>
+          <template>
             <thead>
               <tr>
                 <th class="text-left">ID</th>
@@ -37,15 +37,14 @@
                     <v-icon
                       color="primary"
                       class="button"
-                     @click="$router.push({name: 'DialogStudentList'})"
-                      
+                      @click.stop="showDialogTrainingOffer = true"
                     >
                       mdi-eye
                     </v-icon>
-                    <!-- <DialogStudentList
-                      :visible="showDialogStudentList"
-                      @close="showDialogStudentList = false"
-                    /> -->
+                    <DialogTrainingOffer
+                      :visible="showDialogTrainingOffer"
+                      @close="showDialogTrainingOffer = false"
+                    />
                     <v-icon
                       dark
                       color="success"
@@ -63,7 +62,7 @@
                       dark
                       color="red"
                       outlined
-                      @click="deleteuser(user.id)"
+                      @click="deleteuser(user.first_name)"
                     >
                       mdi-delete-forever
                     </v-icon>
@@ -77,22 +76,20 @@
     </v-main>
   </v-app>
 </template>
-
-<script>
+  
+  <script>
 import AdminNavbar from "@/views/Navigation/AdminNavbar.vue";
-
-// import DialogStudentList from "@/views/AdminView/Dialog/DialogStudentList.vue";
-
+import DialogTrainingOffer from "@/views/AdminView/Dialog/DialogTrainingOffer.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
     AdminNavbar,
-    // DialogStudentList
+    DialogTrainingOffer,
   },
   data () {
     return {
-        // showDialogStudentList: false,
+        showDialogTrainingOffer: false,
         loading: false,
         dialog: false,
     }   
@@ -107,9 +104,9 @@ export default {
       setTimeout(() => (this.loading = false), 2000);
       //   this.$router.push("/NewUserPage");
     },
-    deleteuser(id) {
+    deleteuser(first_name) {
       let data = new FormData();
-      data.append("id", id);
+      data.append("first_name", first_name);
       this.Deleteuser(data).then((e) => {
         if (e == 0) this.dialog = true;
         else this.fetchUsers();
@@ -121,7 +118,7 @@ export default {
   },
 };
 </script>
-<style>
+  <style>
 .container {
   padding: 2rem 1rem;
 }

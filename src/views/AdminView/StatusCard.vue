@@ -47,7 +47,8 @@
       </v-col>
       <v-col cols="6" md="3">
         <v-card height="100" dark class="pa-2 rounded-lg" 
-        style="background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);">
+        style="background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);"
+        @click="$router.push({path: 'TrainingOffer'})">
           <h2 class="ma-1"> <v-icon
             dark
             right

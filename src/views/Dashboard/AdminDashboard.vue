@@ -10,7 +10,7 @@
           sm="4"
           xs="6"
           md="6">
-            <v-card height="350" elevation="20">
+            <v-card  elevation="20">
               <TodoChart />
             </v-card>
           </v-col>

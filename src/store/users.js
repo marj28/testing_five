@@ -37,8 +37,7 @@ const mutations = {
 const actions = {
   async fetchUsers({ commit }) {
 
-    let res = await axios.get(`${process.env.VUE_APP_API_URL}/users.php`);
-
+    let res = await axios.get(`${process.env.VUE_APP_API_URL}/usersall.php`);
     commit('setUsers', res.data.Users);
 
 

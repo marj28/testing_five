@@ -2,7 +2,7 @@
   <div>
     <v-app id="inspire" class="background">
       <v-main class="d-flex justify-center align-center">
-        <v-col cols="10" class="mx-auto">
+        <v-col cols="10" md="4" class="mx-auto">
           <v-form @submit.prevent="submitHandler" ref="form">
             <v-container>
               <v-layout row wrap>
@@ -65,7 +65,7 @@
                         </v-btn>
                       </v-col>
                       <v-divider></v-divider>
-                      <v-col align="center" justify="space-around">
+                      <v-col align="center" justify="space-around" style="margin-bottom:  -60px">
                         <p>Don't have an Account?</p>
                         <v-btn
                           color="#fada07"
