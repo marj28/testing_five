@@ -495,8 +495,8 @@
                           label="Accepts persons with disabilities (PWD):"
                           row
                         >
-                          <v-radio label="Yes"> </v-radio>
-                          <v-radio label="No"> </v-radio>
+                          <v-radio label="Yes" value="yes"> </v-radio>
+                          <v-radio label="No" value="no"> </v-radio>
                         </v-radio-group>
                       </v-col>
                       <v-col
@@ -511,6 +511,7 @@
                           multiple
                           dense
                           outlined
+                          chips
                         >
                         </v-select>
                       </v-col>
@@ -521,8 +522,8 @@
                         style="margin-top: -30px"
                       >
                         <v-radio-group label="Accepts returning OFWs: " row>
-                          <v-radio label="Yes"> </v-radio>
-                          <v-radio label="No"> </v-radio>
+                          <v-radio label="Yes" value="yes"> </v-radio>
+                          <v-radio label="No" value="no"> </v-radio>
                         </v-radio-group>
                       </v-col>
                       <v-col cols="12" sm="12" md="4">

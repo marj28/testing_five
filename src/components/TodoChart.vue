@@ -1,10 +1,14 @@
 <template>
-  <div> 
-    <apexcharts
+  <div>
+    <v-card class="pa-2" elevation="20">
+      <apexcharts
       height="300"
+      type="bar"
       :options="chartOptions"
-      :series="series"
+      :series="series" 
     ></apexcharts>
+    </v-card>
+    
   </div>
 </template>
     
@@ -22,8 +26,22 @@ export default {
         chart: {
           id: "basic-bar",
           type: "bar",
-          foreColor: 'green'
         },
+        responsive: [
+          {
+            breakpoint: 500,
+            options: {
+              plotOptions: {
+                bar: {
+                  horizontal: false,
+                },
+              },
+              legend: {
+                position: "bottom",
+              },
+            },
+          },
+        ],
         plotOptions: {
           bar: {
             borderRadius: 2,
@@ -31,10 +49,9 @@ export default {
           },
         },
         xaxis: {
-          size: 30,
           categories: ["For Approval", "For Recommendation", "For Processing"],
         },
-        colors: ["#1B5E20"]
+        colors: ["#1B5E20"],
       },
 
       series: [
@@ -48,9 +65,9 @@ export default {
 };
 </script>
   <style scoped>
-#chart {
+/* #chart {
   max-width: 650px;
   margin: 35px auto;
-}
+} */
 </style>
     

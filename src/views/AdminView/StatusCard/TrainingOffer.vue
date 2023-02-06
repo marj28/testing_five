@@ -2,24 +2,21 @@
   <v-app>
     <AdminNavbar />
     <v-main>
-      <v-container width="500px">
+      <v-container>
         <v-simple-table fixed-header>
           <template>
             <thead>
               <tr>
-                <th class="text-left">ID</th>
-                <th class="text-left">First Name</th>
-                <th class="text-left">Last Name</th>
-                <th class="text-left">Username</th>
-                <th class="text-left">Password</th>
+                
+                <th class="text-left">Training Title</th>
+                <th class="text-left">Nature of Training</th>
+                <th class="text-left">Place of Training</th>
+                <th class="text-left">Participant Count</th>
                 <th class="text-left">Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="user in users" v-bind:key="user.id">
-                <td>
-                  {{ user.id }}
-                </td>
                 <td>
                   {{ user.first_name }}
                 </td>

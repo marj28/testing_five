@@ -8,6 +8,7 @@
       height="1200"
       width="280"
     >
+    <v-container>
       <v-layout column align-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
@@ -21,6 +22,8 @@
 
         <v-flex class="mt-4 mb-4"> </v-flex>
       </v-layout>
+    </v-container>
+      
 
       <v-list shaped class="clickable">
         <template v-for="item in items">
@@ -86,9 +89,19 @@
       <v-div>
         <v-text-field
           hide-details
-          prepend-icon="mdi-magnify"
+          append-icon="mdi-magnify"
           single-line
+          outlined
+          dense
+          rounded
         ></v-text-field>
+        <!-- <v-icon class="button" dark>mdi-notif </v-icon> -->
+      </v-div>
+      <v-div class="ml-4">
+        <v-icon class="button" dark>mdi-bell-badge-outline </v-icon>
+      </v-div>
+      <v-div class="ml-4">
+        <v-icon class="button" dark>mdi-message-badge-outline </v-icon>
       </v-div>
     </v-app-bar>
   </div>
@@ -102,14 +115,14 @@ export default {
     items: [
       { icon: "mdi-home", text: "Dashboard", route: "/AdminDashboard" },
       {
-        icon: "mdi mdi-account",
+        icon: "mdi-form-select",
         text: "Forms",
         route: "/AdminForms",
       },
       {
         icon: "mdi-chevron-up",
         "icon-alt": "mdi-chevron-down",
-        "icon-ctr": "mdi-account-box",
+        "icon-ctr": "mdi-clipboard-check-outline",
         text: "To Do's",
         model: false,
         children: [
@@ -133,8 +146,32 @@ export default {
       {
         icon: "mdi-chevron-up",
         "icon-alt": "mdi-chevron-down",
-        "icon-ctr": "mdi-account-box",
-        text: "List",
+        "icon-ctr": "mdi-clipboard-file-outline",
+        text: "Listing",
+        model: false,
+        children: [
+          {
+            icon: "mdi-clipboard-check-outline",
+            text: "Student Programs",
+            route: "/StudentList",
+          },
+          {
+            icon: "mdi-clipboard-file-outline",
+            text: "Job Posting",
+            route: "/ApplicantList",
+          },
+          {
+            icon: "mdi-clipboard-clock-outline",
+            text: "Announcement",
+            route: "/EmployerList",
+          },
+        ],
+      },
+      {
+        icon: "mdi-chevron-up",
+        "icon-alt": "mdi-chevron-down",
+        "icon-ctr": "mdi-clipboard-file-outline",
+        text: "Users",
         model: false,
         children: [
           {
@@ -154,26 +191,9 @@ export default {
           },
         ],
       },
-      {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        "icon-ctr": "mdi-account-box",
-        text: "Profile",
-        model: false,
-        children: [
-          {
-            icon: "mdi-clipboard-check-outline",
-            text: "User Info",
-            route: "/AdminProfile",
-          },
-          {
-            icon: "mdi-clipboard-file-outline",
-            text: "Log Out",
-            route: "/login",
-          },
-        ],
-      },
-      
+      { icon: "mdi-account", text: "Profile", route: "/AdminProfile" },
+      { icon: "", text: "", route: "" },
+      { icon: "mdi-logout", text: "Log Out", route: "/login" },
     ],
   }),
 };

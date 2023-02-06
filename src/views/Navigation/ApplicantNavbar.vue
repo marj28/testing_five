@@ -8,19 +8,20 @@
       height="1200"
       width="280"
     >
-      <v-layout column align-center>
-        <v-flex class="mt-5">
-          <v-avatar size="100">
-            <img src="@/assets/download.png" alt="" />
-          </v-avatar>
-          <p class="white--text subheading mt-1 text-center">Username</p>
-        </v-flex>
-        <v-flex class="mt-5">
-          <h1 class="white--text subheading mt-1 text-center">User Title</h1>
-        </v-flex>
+      <v-container>
+        <v-layout column align-center>
+          <v-flex class="mt-5">
+            <v-avatar size="100">
+              <img src="@/assets/download.png" alt="" />
+            </v-avatar>
+            <p class="white--text subheading mt-1 text-center">Username</p>
+          </v-flex>
+          <v-flex class="mt-5">
+            <h1 class="white--text subheading mt-1 text-center">User Title</h1>
+          </v-flex>
 
-        <v-flex class="mt-4 mb-4"> </v-flex>
-      </v-layout>
+        </v-layout>
+      </v-container>
 
       <v-list shaped class="clickable">
         <template v-for="item in items">
@@ -74,7 +75,6 @@
           </v-list-item>
         </template>
       </v-list>
-      <v-divider></v-divider>
     </v-navigation-drawer>
     <v-app-bar color="#388E3C" dark app elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -87,9 +87,19 @@
       <v-div>
         <v-text-field
           hide-details
-          prepend-icon="mdi-magnify"
+          append-icon="mdi-magnify"
           single-line
+          outlined
+          dense
+          rounded
         ></v-text-field>
+        <!-- <v-icon class="button" dark>mdi-notif </v-icon> -->
+      </v-div>
+      <v-div class="ml-4">
+        <v-icon class="button" dark>mdi-bell-badge-outline </v-icon>
+      </v-div>
+      <v-div class="ml-4">
+        <v-icon class="button" dark>mdi-message-badge-outline </v-icon>
       </v-div>
     </v-app-bar>
   </div>
@@ -102,32 +112,29 @@ export default {
     drawer: null,
     items: [
       { icon: "mdi-home", text: "Dashboard", route: "/ApplicantDashboard" },
-      { icon: "mdi-home", text: "Job Applications", route: "/JobApplication" },
+      { icon: "mdi-application-settings", text: "Job Applications", route: "/JobApplication" },
+      // { icon: "mdi-clipboard-file-outline", text: "Available Jobs", route: "/JobApplication" },
       {
-        icon: "mdi-home",
+        icon: "mdi-application-settings-outline",
         text: "Training Applications",
         route: "/TrainingApplication",
       },
-      { icon: "mdi-home", text: "Print PDS", route: "/PrintDocument" },
-
+        // {
+        //   icon: "mdi-clipboard-check-outline",
+        //   text: "Available Trainings",
+        //   route: "/TrainingApplication",
+        // },
+      { icon: "mdi-printer-outline", text: "Print PDS", route: "/PrintDocument" },
       {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        "icon-ctr": "mdi-account-box",
+        icon: "mdi-account-box",
         text: "Profile",
-        model: false,
-        children: [
-          {
-            icon: "mdi-clipboard-check-outline",
-            text: "User Info",
-            route: "/ApplicantProfile",
-          },
-          {
-            icon: "mdi-clipboard-file-outline",
-            text: "Log Out",
-            route: "/login",
-          },
-        ],
+        route: "/ApplicantProfile",
+      },
+      { icon: "", text: "", route: "" },
+      {
+        icon: "mdi-logout",
+        text: "Log Out",
+        route: "/login",
       },
     ],
   }),

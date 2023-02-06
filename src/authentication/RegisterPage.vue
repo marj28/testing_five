@@ -8,27 +8,50 @@
               <v-layout row wrap>
                 <v-card class="" style="margin-top: 150px">
                   <div class="text-center pa-4">
-                    <h2>PUBLIC EDUCATION AND EMPLOYMENT SERVICES OFFICE</h2>
+                    <h2>PEESO</h2>
                   </div>
-                  <v-row class="text-center pa-2">
-                    <v-col cols="12" align="center">
+                  <v-row class="text-center pa-4">
+                    <v-col cols="12" sm="12" md="4">
                       <v-btn
                         type="submit"
                         color="green"
-                        class="text-center"
                         dark
-                        @click="(student = false), (employer = true)"
+                        small
+                        outlined
+                        @click="
+                          (student = false),
+                            (applicant = false),
+                            (employer = true)
+                        "
                         >I am an Employer</v-btn
                       >
                     </v-col>
-                    <v-col cols="12" align="center" style="margin-bottom: 10px">
+                    <v-col cols="12" sm="12" md="4">
                       <v-btn
                         type="submit"
                         color="success"
-                        class="text-center"
                         outlined
-                        @click="(student = true), (employer = false)"
-                        >I am Student / Applicant</v-btn
+                        small
+                        @click="
+                          (student = true),
+                            (employer = false),
+                            (applicant = false)
+                        "
+                        >I am a Student</v-btn
+                      >
+                    </v-col>
+                    <v-col cols="12" sm="12" md="4">
+                      <v-btn
+                        type="submit"
+                        color="success"
+                        small
+                        outlined
+                        @click="
+                          (student = false),
+                            (employer = false),
+                            (applicant = true)
+                        "
+                        >I am an Applicant</v-btn
                       >
                     </v-col>
                   </v-row>
@@ -62,11 +85,12 @@
                         <h4 class="text-center pa-2 green--text">
                           Employer Registration
                         </h4>
+
                         <v-text-field
                           class="textbox"
-                          v-model="first_name"
+                          v-model="business_name"
                           type="text"
-                          label="Officer First Name"
+                          label="Business Name"
                           prepend-inner-icon="mdi mdi-account mdi-green"
                           required
                           color="green"
@@ -76,9 +100,9 @@
 
                         <v-text-field
                           class="textbox"
-                          v-model="last_name"
+                          v-model="company_address"
                           type="text"
-                          label="Officer Last Name"
+                          label="Company Address"
                           prepend-inner-icon="mdi mdi-account mdi-green"
                           required
                           color="green"
@@ -86,47 +110,106 @@
                           dense
                         />
 
-                        <v-text-field
-                          class="textbox"
-                          v-model="email"
-                          type="email"
-                          label="Business Email"
-                          prepend-inner-icon="mdi mdi-account mdi-green"
-                          required
-                          color="green"
-                          outlined
-                          dense
-                        />
+                        <h5 class="mb-2 green--text" style="margin-top: -10px">
+                          Contact Person
+                        </h5>
+                        <v-row>
+                          <v-col cols="12" md="5">
+                            <v-text-field
+                              class="textbox"
+                              v-model="first_name"
+                              type="text"
+                              label="First Name"
+                              required
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="4">
+                            <v-text-field
+                              class="textbox"
+                              v-model="last_name"
+                              type="text"
+                              label="Last Name"
+                              required
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="3">
+                            <v-select
+                              :items="suffix"
+                              label="Suffix"
+                              outlined
+                              dense
+                            >
+                            </v-select>
+                          </v-col>
+                        </v-row>
+                        <v-row style="margin-top: -20px">
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="contactNo"
+                              type="email"
+                              label="Contact Number"
+                              required
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="email"
+                              type="email"
+                              label="Business Email"
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                        </v-row>
 
-                        <v-text-field
-                          class="textbox"
-                          v-model="password"
-                          :rules="pwdRules"
-                          :type="passwordShow ? 'text' : 'password'"
-                          label="Password"
-                          prepend-inner-icon="mdi-key"
-                          color="green"
-                          outlined
-                          dense
-                        />
+                        <v-divider class="mb-4"></v-divider>
+                        <v-row>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="password"
+                              :rules="pwdRules"
+                              :type="passwordShow ? 'text' : 'password'"
+                              label="Password"
+                              prepend-inner-icon="mdi-key"
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="pw2"
+                              :rules="pwdConfirm"
+                              :type="passwordShow ? 'text' : 'password'"
+                              label="Confirm Password"
+                              prepend-inner-icon="mdi-key"
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                        </v-row>
 
-                        <v-text-field
-                          class="textbox"
-                          v-model="pw2"
-                          :rules="pwdConfirm"
-                          :type="passwordShow ? 'text' : 'password'"
-                          label="Confirm Password"
-                          prepend-inner-icon="mdi-key"
-                          color="green"
-                          outlined
-                          dense
-                        />
                         <v-col align="center" justify="space-around">
                           <v-btn
                             type="submit"
                             color="green"
                             class="text-center"
-                            @click="register"
+                            @click="employerregister"
                             dark
                             block
                           >
@@ -140,7 +223,7 @@
                           justify="space-around"
                           style="margin-bottom: -40px"
                         >
-                          <p>Already have an Account?</p>
+                          <p>Already a Member?</p>
                           <v-btn
                             color="#fada07"
                             class="text-center"
@@ -152,6 +235,7 @@
                         </v-col>
                       </v-col>
                       <!-- student -->
+
                       <v-col
                         cols="12"
                         sm="12"
@@ -160,31 +244,56 @@
                         style="margin-top: -50px"
                       >
                         <h4 class="text-center pa-2 green--text">
-                          Student / Job Applicant Registration
+                          Student Registration
                         </h4>
-                        <v-text-field
-                          class="textbox"
-                          v-model="first_name"
-                          type="text"
-                          label="First Name"
-                          prepend-inner-icon="mdi mdi-account mdi-green"
-                          required
-                          color="green"
-                          outlined
-                          dense
-                        />
+                        <v-row>
+                          <v-col cols="12" md="3">
+                            <v-text-field
+                              class="textbox"
+                              v-model="last_name"
+                              type="text"
+                              label="Last Name"
+                              required
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="4">
+                            <v-text-field
+                              class="textbox"
+                              v-model="first_name"
+                              type="text"
+                              label="First Name"
+                              required
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="2">
+                            <v-text-field
+                              class="textbox"
+                              v-model="middle_initial"
+                              type="text"
+                              label="M.I."
+                              required
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
 
-                        <v-text-field
-                          class="textbox"
-                          v-model="last_name"
-                          type="text"
-                          label="Last Name"
-                          prepend-inner-icon="mdi mdi-account mdi-green"
-                          required
-                          color="green"
-                          outlined
-                          dense
-                        />
+                          <v-col cols="12" md="3">
+                            <v-select
+                              :items="suffix"
+                              label="Suffix"
+                              outlined
+                              dense
+                            >
+                            </v-select>
+                          </v-col>
+                        </v-row>
 
                         <v-text-field
                           class="textbox"
@@ -197,36 +306,41 @@
                           outlined
                           dense
                         />
+                        <v-row>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="password"
+                              :rules="pwdRules"
+                              :type="passwordShow ? 'text' : 'password'"
+                              label="Password"
+                              prepend-inner-icon="mdi-key"
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="pw2"
+                              :rules="pwdConfirm"
+                              :type="passwordShow ? 'text' : 'password'"
+                              label="Confirm Password"
+                              prepend-inner-icon="mdi-key"
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                        </v-row>
 
-                        <v-text-field
-                          class="textbox"
-                          v-model="password"
-                          :rules="pwdRules"
-                          :type="passwordShow ? 'text' : 'password'"
-                          label="Password"
-                          prepend-inner-icon="mdi-key"
-                          color="green"
-                          outlined
-                          dense
-                        />
-
-                        <v-text-field
-                          class="textbox"
-                          v-model="pw2"
-                          :rules="pwdConfirm"
-                          :type="passwordShow ? 'text' : 'password'"
-                          label="Confirm Password"
-                          prepend-inner-icon="mdi-key"
-                          color="green"
-                          outlined
-                          dense
-                        />
                         <v-col align="center" justify="space-around">
                           <v-btn
                             type="submit"
                             color="green"
                             class="text-center"
-                            @click="register"
+                            @click="studentregister"
                             dark
                             block
                           >
@@ -240,7 +354,7 @@
                           justify="space-around"
                           style="margin-bottom: -40px"
                         >
-                          <p>Already have an Account?</p>
+                          <p>Already a Member?</p>
                           <v-btn
                             color="#fada07"
                             class="text-center"
@@ -251,6 +365,118 @@
                           </v-btn>
                         </v-col>
                       </v-col>
+                      <!-- end student -->
+                      <!-- start applicant -->
+                      <v-col
+                        cols="12"
+                        sm="12"
+                        md="12"
+                        v-show="applicant"
+                        style="margin-top: -50px"
+                      >
+                        <h4 class="text-center pa-2 green--text">
+                          Job Applicant Registration
+                        </h4>
+                        <v-row>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="first_name"
+                              type="text"
+                              label="Applicant First Name"
+                              prepend-inner-icon="mdi mdi-account mdi-green"
+                              required
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="last_name"
+                              type="text"
+                              label="Last Name"
+                              prepend-inner-icon="mdi mdi-account mdi-green"
+                              required
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                        </v-row>
+
+                        <v-text-field
+                          class="textbox"
+                          v-model="email"
+                          type="email"
+                          label="Email"
+                          prepend-inner-icon="mdi mdi-account mdi-green"
+                          required
+                          color="green"
+                          outlined
+                          dense
+                        />
+                        <v-row>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="password"
+                              :rules="pwdRules"
+                              :type="passwordShow ? 'text' : 'password'"
+                              label="Password"
+                              prepend-inner-icon="mdi-key"
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                          <v-col cols="12" md="6" lg="6">
+                            <v-text-field
+                              class="textbox"
+                              v-model="pw2"
+                              :rules="pwdConfirm"
+                              :type="passwordShow ? 'text' : 'password'"
+                              label="Confirm Password"
+                              prepend-inner-icon="mdi-key"
+                              color="green"
+                              outlined
+                              dense
+                            />
+                          </v-col>
+                        </v-row>
+
+                        <v-col align="center" justify="space-around">
+                          <v-btn
+                            type="submit"
+                            color="green"
+                            class="text-center"
+                            @click="applicantregister"
+                            dark
+                            block
+                          >
+                            <v-icon left>mdi-account-check</v-icon>
+                            SIGN UP
+                          </v-btn>
+                        </v-col>
+                        <v-divider></v-divider>
+                        <v-col
+                          align="center"
+                          justify="space-around"
+                          style="margin-bottom: -40px"
+                        >
+                          <p>Already a Member?</p>
+                          <v-btn
+                            color="#fada07"
+                            class="text-center"
+                            dark
+                            @click="$router.push({ name: 'LoginPage' })"
+                          >
+                            Log In
+                          </v-btn>
+                        </v-col>
+                      </v-col>
+                      <!-- end applicant -->
                     </v-col>
                   </v-row>
                 </v-card>
@@ -296,6 +522,10 @@ export default {
       snackbar: false,
       student: true,
       employer: false,
+      applicant: false,
+
+      suffix: ["Junior", "Senior", "III", "N/A"],
+
       text: `Please input fields`,
       selection: 1,
       first_name: "",
@@ -314,7 +544,7 @@ export default {
 
   methods: {
     ...mapActions("users", ["Registration"]),
-    register() {
+    employerregister() {
       this.loading = true;
       let data = new FormData();
       data.append("first_name", this.first_name);
@@ -328,7 +558,63 @@ export default {
         this.Registration(data);
         setTimeout(() => {
           this.loading = false;
-          this.$router.push("/AdminDashboard");
+          this.$router.push("/EmployerDashboard");
+        }, 2000);
+
+        this.first_name = "";
+        this.last_name = "";
+        this.email = "";
+        this.password = "";
+        this.pw2 = "";
+        this.$refs.form.reset();
+
+        this.loginCorrection = "Message";
+        this.dialog = true;
+      }
+    },
+    studentregister() {
+      this.loading = true;
+      let data = new FormData();
+      data.append("first_name", this.first_name);
+      data.append("last_name", this.last_name);
+      data.append("email", this.email);
+      data.append("password", this.password);
+
+      if (this.first_name.length == 0) {
+        this.snackbar = true;
+      } else {
+        this.Registration(data);
+        setTimeout(() => {
+          this.loading = false;
+          this.$router.push("/StudentDashboard");
+        }, 2000);
+
+        this.first_name = "";
+        this.last_name = "";
+        this.email = "";
+        this.password = "";
+        this.pw2 = "";
+        this.$refs.form.reset();
+
+        this.loginCorrection = "Message";
+        this.dialog = true;
+      }
+    },
+    applicantregister() {
+      this.loading = true;
+      let data = new FormData();
+      data.append("first_name", this.first_name);
+      data.append("last_name", this.last_name);
+      data.append("email", this.email);
+      data.append("password", this.password);
+
+      if (this.first_name.length == 0) {
+        this.snackbar = true;
+      } else {
+        this.Registration(data);
+        setTimeout(() => {
+          this.loading = false;
+          this.$router.push("/ApplicantDashboard");
         }, 2000);
 
         this.first_name = "";

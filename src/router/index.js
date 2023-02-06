@@ -19,14 +19,27 @@ import RegisterPage from '@/authentication/RegisterPage.vue'
 import ScholarAppForm_Student from '../views/StudentView/CardHolder/ScholarAppForm_Student.vue'
 import SkillsSurveyForm_Student from '../views/StudentView/CardHolder/SkillsSurveyForm_Student.vue'
 import StudentProfile from '../views/StudentView/StudentProfile.vue'
+import ScholarshipApplied_Page from '../views/StudentView/ScholarshipApplied_Page.vue'
+import ScholarshipAvail_Page from '../views/StudentView/ScholarshipAvail_Page.vue'
+import StudentAnnouncement_Page from '../views/StudentView/StudentAnnouncement_Page.vue'
+
 
 //Employer View
 import JobPosts from '../views/EmployerView/JobPosts.vue'
 import EmpAppointment from '../views/EmployerView/EmpAppointment.vue'
 import EmployerProfile from '../views/EmployerView/EmployerProfile.vue'
+import AddJobPost from '../views/EmployerView/AddJobPost.vue'
+import EmployerApplicant from '../views/EmployerView/EmpApplicant.vue'
+
 
 //Applicant View
 import ApplicantProfile from '../views/ApplicantView/ApplicantProfile.vue'
+import AvailableJobs_Specific from '../views/ApplicantView/AvailableJobs_Specific.vue'
+import AvailableTraining_Page from '../views/ApplicantView/AvailableTraining_Page.vue'
+import AppliedJobs_Page from '../views/ApplicantView/AppliedJobs_Page.vue'
+import AvailableJobs_Page from '../views/ApplicantView/AvailableJobs_Page.vue'
+import ApplicantAnnouncement_Page from '../views/ApplicantView/ApplicantAnnouncement_Page.vue'
+
 
 //Admin View
 import AdminProfile from '../views/AdminView/AdminProfile.vue'
@@ -43,6 +56,9 @@ import ApprovalList from '../views/AdminView/ListHolder/ApprovalList.vue'
 import RecommendationList from '../views/AdminView/ListHolder/RecommendationList.vue'
 import ProcessingList from '../views/AdminView/ListHolder/ProcessingList.vue'
 import TrainingOffer from '../views/AdminView/StatusCard/TrainingOffer.vue'
+import OpenJobs from '../views/AdminView/StatusCard/OpenJobs.vue'
+import HiredApplicants from '../views/AdminView/StatusCard/HiredApplicants.vue'
+import DailyApplicants from '../views/AdminView/StatusCard/DailyApplicants.vue'
 import DialogStudentList from '../views/AdminView/Dialog/DialogStudentList.vue'
 
 Vue.use(VueRouter)
@@ -56,10 +72,7 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue')
   },
   
   //authentication
@@ -114,6 +127,21 @@ const routes = [
     name: 'StudentProfile',
     component: StudentProfile
   },
+  {
+    path: '/ScholarshipApplied',
+    name: 'ScholarshipApplied',
+    component: ScholarshipApplied_Page
+  },
+  {
+    path: '/ScholarshipAvail',
+    name: 'ScholarshipAvail',
+    component: ScholarshipAvail_Page
+  },
+  {
+    path: '/StudentAnnouncement',
+    name: 'StudentAnnouncement',
+    component: StudentAnnouncement_Page
+  },
   //employer_view
   {
     path: '/EmployerJobPosts',
@@ -126,6 +154,11 @@ const routes = [
     component: EmpAppointment
   },
   {
+    path: '/EmployerApplicant',
+    name: 'EmployerApplicant',
+    component: EmployerApplicant
+  },
+  {
     path: '/EmployerProfile',
     name: 'EmployerProfile',
     component: EmployerProfile
@@ -135,11 +168,41 @@ const routes = [
     name: 'Line',
     component: Line
   },
+  {
+    path: '/AddJobPost',
+    name: 'AddJobPost',
+    component: AddJobPost
+  },
   //applicant_view
   {
     path: '/ApplicantProfile',
     name: 'ApplicantProfile',
     component: ApplicantProfile
+  },
+  {
+    path: '/AvailableJobs_Specific/:key?',
+    name: 'AvailableJobs_Specific',
+    component: AvailableJobs_Specific
+  },
+  {
+    path: '/ApplicantAnnouncement',
+    name: 'ApplicantAnnouncement',
+    component: ApplicantAnnouncement_Page
+  },
+  {
+    path: '/AvailableTraining',
+    name: 'AvailableTraining',
+    component: AvailableTraining_Page
+  },
+  {
+    path: '/AvailableJobs',
+    name: 'AvailableJobs',
+    component: AvailableJobs_Page
+  },
+  {
+    path: '/AppliedJobs',
+    name: 'AppliedJobs',
+    component: AppliedJobs_Page
   },
   //admin_view
   {
@@ -213,7 +276,22 @@ const routes = [
     component: TrainingOffer
   },
   {
-    path: '/DialogStudentList',
+    path: '/OpenJobs',
+    name: 'OpenJobs',
+    component: OpenJobs
+  },
+  {
+    path: '/HiredApplicants',
+    name: 'HiredApplicants',
+    component: HiredApplicants
+  },
+  {
+    path: '/DailyApplicants',
+    name: 'DailyApplicants',
+    component: DailyApplicants
+  },
+  {
+    path: '/DialogStudentList/:id?',
     name: 'DialogStudentList',
     component: DialogStudentList
   },

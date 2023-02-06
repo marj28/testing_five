@@ -8,6 +8,7 @@
       height="1200"
       width="280"
     >
+    <v-container>
       <v-layout column align-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
@@ -21,6 +22,8 @@
 
         <v-flex class="mt-4 mb-4"> </v-flex>
       </v-layout>
+    </v-container>
+      
 
       <v-list shaped class="clickable">
         <template v-for="item in items">
@@ -74,7 +77,6 @@
           </v-list-item>
         </template>
       </v-list>
-      <v-divider></v-divider>
     </v-navigation-drawer>
     <v-app-bar color="#388E3C" dark app elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -87,9 +89,19 @@
       <v-div>
         <v-text-field
           hide-details
-          prepend-icon="mdi-magnify"
+          append-icon="mdi-magnify"
           single-line
+          outlined
+          dense
+          rounded
         ></v-text-field>
+        <!-- <v-icon class="button" dark>mdi-notif </v-icon> -->
+      </v-div>
+      <v-div class="ml-4">
+        <v-icon class="button" dark>mdi-bell-badge-outline </v-icon>
+      </v-div>
+      <v-div class="ml-4">
+        <v-icon class="button" dark>mdi-message-badge-outline </v-icon>
       </v-div>
     </v-app-bar>
   </div>
@@ -113,24 +125,13 @@ export default {
         route: "/EmployerAppointments",
       },
       {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        "icon-ctr": "mdi-account-box",
-        text: "Profile",
-        model: false,
-        children: [
-          {
-            icon: "mdi-clipboard-check-outline",
-            text: "User Info",
-            route: "/EmployerProfile",
-          },
-          {
-            icon: "mdi-clipboard-file-outline",
-            text: "Log Out",
-            route: "login",
-          },
-        ],
+        icon: "mdi-clipboard-file-outline",
+        text: "Applicants",
+        route: "/EmployerApplicant",
       },
+      { icon: "mdi-account-box", text: "Profile", route: "/EmployerProfile" },
+      { icon: "", text: "", route: "" },
+      { icon: "mdi-logout", text: "Log Out", route: "/login" },
     ],
   }),
   methods: {

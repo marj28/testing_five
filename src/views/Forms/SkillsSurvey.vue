@@ -502,13 +502,14 @@
                               Are you an OFW?
                             </p>
                             <v-radio-group>
-                              <v-radio label="Yes"></v-radio>
+                              <v-radio label="Yes" value="yes"></v-radio>
                               <v-text-field
                                 label="Specify Country: "
                                 outlined
                               ></v-text-field>
                               <v-radio
                                 label="No"
+                                value="no"
                                 style="margin-top: -15px"
                               ></v-radio>
                             </v-radio-group>
@@ -518,7 +519,7 @@
                               Are you a former OFW?
                             </p>
                             <v-radio-group>
-                              <v-radio label="Yes"></v-radio>
+                              <v-radio label="Yes" value="yes"></v-radio>
                               <v-text-field
                                 label="Latest Country of Deployment: "
                                 outlined
@@ -529,6 +530,7 @@
                               ></v-text-field>
                               <v-radio
                                 label="No"
+                                value="no"
                                 style="margin-top: -15px"
                               ></v-radio>
                             </v-radio-group>
@@ -540,21 +542,22 @@
                           Are you a 4Ps beneficiary?
                         </p>
                         <v-radio-group>
-                          <v-radio label="Yes"></v-radio>
+                          <v-radio label="Yes" value="yes"></v-radio>
                           <v-text-field
                             label="Please provide Household ID No.: "
                             outlined
                           ></v-text-field>
                           <v-radio
                             label="No"
+                            value="no"
                             style="margin-top: -15px"
                           ></v-radio>
                         </v-radio-group>
                         <v-spacer></v-spacer>
                         <p class="font-weight-bold">First Time Job Seeker?</p>
                         <v-radio-group>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio label="Yes" value="yes"></v-radio>
+                          <v-radio label="No" value="no"></v-radio>
                         </v-radio-group>
                       </v-col>
                     </v-row>
@@ -577,8 +580,8 @@
                       <v-col cols="12" sm="6" md="3">
                         <h3>Currently in School?</h3>
                         <v-radio-group row>
-                          <v-radio label="Yes"></v-radio>
-                          <v-radio label="No"></v-radio>
+                          <v-radio label="Yes" value="yes"></v-radio>
+                          <v-radio label="No" value="no"></v-radio>
                           <v-text-field
                             row
                             outlined
@@ -600,9 +603,9 @@
                           label="Can Perform Mathematical Operation?"
                         ></v-checkbox>
                         <v-radio-group>
-                          <v-radio label="Addition"></v-radio>
-                          <v-radio label="Multiplication"></v-radio>
-                          <v-radio label="Subtraction"></v-radio>
+                          <v-radio label="Addition" value="a"></v-radio>
+                          <v-radio label="Multiplication" value="m"></v-radio>
+                          <v-radio label="Subtraction" value="s"></v-radio>
                         </v-radio-group>
                       </v-col>
                       <v-row cols="12" sm="2" md="12" class="ma-2" id="move">
@@ -1017,8 +1020,8 @@
                       <v-col cols="12" sm="12" md="12">
                         <h4>Preferred Occupation</h4>
                         <v-radio-group row>
-                          <v-radio label="Part-time"></v-radio>
-                          <v-radio label="Full-time"></v-radio>
+                          <v-radio label="Part-time" value="PartTime"></v-radio>
+                          <v-radio label="Full-time" value="FullTime"></v-radio>
                         </v-radio-group>
                         <v-text-field outlined></v-text-field>
                       </v-col>

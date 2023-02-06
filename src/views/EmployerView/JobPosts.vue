@@ -2,7 +2,6 @@
   <v-app>
     <EmployerNavbar />
     <v-main >
-      <StatusCard />
       <JobPostingCard />
     </v-main>
   </v-app>

@@ -3,13 +3,13 @@
     <ApplicantNavbar />
     <v-main>
       <StatusCard />
-      <v-divider light></v-divider>
-      <v-row>
-        <v-col cols="12" md="6">
-          <AppointmentCard />
+      <v-divider light class="test"></v-divider>
+      <v-row class="pa-2">
+        <v-col cols="12" md="6" sm="6">
+          <AvailableJobs />
         </v-col>
-        <v-col>
-          <JobPostingCard />
+        <v-col cols="12" md="6">
+          <AvailableTraining />
         </v-col>
       </v-row>
     </v-main>
@@ -22,15 +22,15 @@ import ApplicantNavbar from "../Navigation/ApplicantNavbar.vue";
 import StatusCard from "@/views/ApplicantView/StatusCard.vue";
 
 
-import AppointmentCard from "@/views/EmployerView/CardHolder/AppointmentCard.vue";
-import JobPostingCard from "@/views/EmployerView/CardHolder/JobPostingCard.vue";
+import AvailableJobs from "@/views/ApplicantView/CardHolder/AvailableJobs.vue";
+import AvailableTraining from "@/views/ApplicantView/CardHolder/AvailableTraining.vue";
 
 export default {
   components: {
     ApplicantNavbar,
     StatusCard,
-    AppointmentCard,
-    JobPostingCard,
+    AvailableJobs,
+    AvailableTraining,
   },
 
   data: () => ({
@@ -45,5 +45,10 @@ export default {
 
 body {
   font-family: Roboto, sans-serif;
+}
+.test {
+  border-width: 1px !important;
+  border-color: green !important;
+  height: 100%;
 }
 </style>

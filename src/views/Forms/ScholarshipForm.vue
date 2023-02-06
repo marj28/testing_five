@@ -389,7 +389,7 @@ export default {
   components: {},
   data() {
     return {
-      e1: 3,
+      e1: 1,
       dialog: false,
       activePicker: null,
       date: null,

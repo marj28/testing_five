@@ -9,7 +9,7 @@
                 <v-card class="mx-auto" style="margin-top: 150px">
                   <div class="text-center pa-4">
                     <h2 class="">
-                      PUBLIC EDUCATION AND EMPLOYMENT SERVICES OFFICE
+                      PEESO
                     </h2>
                   </div>
 
@@ -66,15 +66,15 @@
                       </v-col>
                       <v-divider></v-divider>
                       <v-col align="center" justify="space-around" style="margin-bottom:  -60px">
-                        <p>Don't have an Account?</p>
-                        <v-btn
-                          color="#fada07"
-                          class="text-center"
+                        New User?
+                        <subtitle-2
+                          color="yellow"
+                          class="btn yellow--text"
                           dark
                           @click="$router.push({ name: 'RegisterPage' })"
                         >
                           REGISTER
-                        </v-btn>
+                      </subtitle-2>
                       </v-col>
                     </v-col>
                   </v-row>

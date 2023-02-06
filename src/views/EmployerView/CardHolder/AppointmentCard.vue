@@ -1,21 +1,32 @@
 <template>
     <div>
-        <v-col md="12" class="pa-2">
+        <v-col md="12" class="pa-4">
           <v-card outlined color="#1B5E20">
-            <v-card-title class="subtitle-2" 
-              ><span style="border-bottom: 1px solid white; color: white"
-                >Appointments<v-icon right small color="white"
-                  >mdi-open-in-new</v-icon
-                >
-              </span>
-            </v-card-title>
+            <v-card-title class="subtitle-2">
+          APPOINTMENTS
+          <v-spacer></v-spacer
+          ><v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
+            outlined
+            rounded
+            dark
+            dense
+          ></v-text-field>
+          <v-spacer></v-spacer>
+          <AddAppointment
+            :visible="showAddAppointment"
+            @close="showAddAppointment = true"
+          />
+        </v-card-title>
             <v-card-text>
               <v-data-table
                 class=""
                 :headers="headers"
-                :items="pending"
-                hide-default-header
-               
+                :items="pending"               
               >
               </v-data-table>
             </v-card-text>
@@ -24,40 +35,69 @@
       </div>
 </template>
 <script>
+import AddAppointment from "@/views/EmployerView/AddAppointment.vue"
 
   export default {
     components: {
+      AddAppointment
   },
     data: () => ({
       headers: [
         {
-          text: "",
+          text: "JOB POST",
           align: "left",
           value: "name",
         },
-        { text: "", value: "customer" },
-        // { text: "ITEM", value: "item" },
-        { text: "TIMESTAMP)", value: "time" },
+        { text: "APPOINTMENT", value: "type_appointment" },
+        { text: "DATE", value: "date" },
+        { text: "TIME", value: "time" },
+        { text: "LOCATION", value: "location" },
+        { text: "NUMBER OF APPLICANTS", value: "no_applicants" },
       ],
       pending: [
           {
-            name: "Talent Interview",
-            customer: "Full-Time",
-            // item: "",
-            time: "21",
+            name: "Computer Programmer",
+            type_appointment: "Initial Interview",
+            date: "January 31, 2023",
+            time: "8:00 AM - 9:00 AM",
+            location: "City Hall of Tagum - Atrium",
+            no_applicants: "45",
           },
           {
-            name: "Talent Onboarding",
-            customer: "Full-Time",
-            // item: "",
-            time: "21",
+            name: "Computer Programmer",
+            type_appointment: "Initial Interview",
+            date: "January 31, 2023",
+            time: "8:00 AM - 9:00 AM",
+            location: "City Hall of Tagum - Atrium",
+            no_applicants: "45",
           },
           {
-            name: "Talent Offboarding",
-            customer: "Full-Time",
-            // item: "",
-            time: "21",
-          }
+            name: "Computer Programmer",
+            type_appointment: "Initial Interview",
+            date: "January 31, 2023",
+            time: "8:00 AM - 9:00 AM",
+            location: "City Hall of Tagum - Atrium",
+            no_applicants: "45",
+           
+          },
+          {
+            name: "Computer Programmer",
+            type_appointment: "Initial Interview",
+            date: "January 31, 2023",
+            time: "8:00 AM - 9:00 AM",
+            location: "City Hall of Tagum - Atrium",
+            no_applicants: "45",
+           
+          },
+          {
+            name: "Computer Programmer",
+            type_appointment: "Initial Interview",
+            date: "January 31, 2023",
+            time: "8:00 AM - 9:00 AM",
+            location: "City Hall of Tagum - Atrium",
+            no_applicants: "45",
+            
+          },
         ],
     }),
   };

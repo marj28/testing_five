@@ -1,11 +1,11 @@
 <template>
   <div>
     <apexchart
-      width="450"
-      height="350"
+      height="300"
       type="pie"
       :options="options"
       :series="series"
+      foreColor="black"
     ></apexchart>
   </div>
 </template>
@@ -21,14 +21,21 @@ export default {
   data: function () {
     return {
       options: {
-        labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        theme: {
+          mode: "light",
+          monochrome: {
+            enabled: true,
+            color: "#4CBB17",
+            shadeTo: "light",
+            shadeIntensity: 0.65,
+          },
+        },
         responsive: [
           {
-            breakpoint: 480,
+            breakpoint: 600,
             options: {
-              chart: {
-                width: 200,
-              },
+              chart: {},
               legend: {
                 position: "bottom",
               },
@@ -37,6 +44,7 @@ export default {
         ],
       },
       series: [44, 55, 41, 17, 15],
+      
     };
   },
 };

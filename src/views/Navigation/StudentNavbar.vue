@@ -2,12 +2,13 @@
   <div>
     <v-navigation-drawer
       v-model="drawer"
-      color="#1B5E20"
+      color="#0B4619"
       dark
       app
       height="1200"
       width="280"
     >
+    <v-container>
       <v-layout column align-center>
         <v-flex class="mt-5">
           <v-avatar size="100">
@@ -18,9 +19,9 @@
         <v-flex class="mt-5">
           <h1 class="white--text subheading mt-1 text-center">User Title</h1>
         </v-flex>
-
-        <v-flex class="mt-4 mb-4"> </v-flex>
       </v-layout>
+    </v-container>
+      
 
       <v-list shaped class="clickable">
         <template v-for="item in items">
@@ -63,6 +64,7 @@
             route
             :to="item.route"
           >
+          
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -74,12 +76,11 @@
           </v-list-item>
         </template>
       </v-list>
-      <v-divider></v-divider>
     </v-navigation-drawer>
     <v-app-bar color="#388E3C" dark app elevate-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase">
-        <v-btn text @click="$router.push({ name: 'AdminDashboard' })">
+        <v-btn text @click="$router.push({ name: 'StudentDashboard' })">
           <span class="font-weight-bold"> CPEESO Student Module </span>
         </v-btn>
       </v-toolbar-title>
@@ -87,9 +88,19 @@
       <v-div>
         <v-text-field
           hide-details
-          prepend-icon="mdi-magnify"
+          append-icon="mdi-magnify"
           single-line
+          outlined
+          dense
+          rounded
         ></v-text-field>
+        <!-- <v-icon class="button" dark>mdi-notif </v-icon> -->
+      </v-div>
+      <v-div class="ml-4">
+        <v-icon class="button" dark>mdi-bell-badge-outline </v-icon>
+      </v-div>
+      <v-div class="ml-4">
+        <v-icon class="button" dark>mdi-message-badge-outline </v-icon>
       </v-div>
     </v-app-bar>
   </div>
@@ -102,44 +113,12 @@ export default {
     drawer: null,
     items: [
       { icon: "mdi-home", text: "Dashboard", route: "/StudentDashboard" },
-      {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        "icon-ctr": "mdi-account-box",
-        text: "Forms",
-        model: false,
-        children: [
-          {
-            icon: "mdi-clipboard-check-outline",
-            text: "Scholarship ",
-            route: "/ScholarAppForm_Student",
-          },
-          {
-            icon: "mdi-clipboard-file-outline",
-            text: "Employment ",
-            route: "/SkillsSurveyForm_Student",
-          },
-        ],
-      },
-      {
-        icon: "mdi-chevron-up",
-        "icon-alt": "mdi-chevron-down",
-        "icon-ctr": "mdi-account-box",
-        text: "Profile",
-        model: false,
-        children: [
-          {
-            icon: "mdi-clipboard-check-outline",
-            text: "User Info",
-            route: "/StudentProfile",
-          },
-          {
-            icon: "mdi-clipboard-file-outline",
-            text: "Log Out",
-            route: "/login",
-          },
-        ],
-      },
+      { icon: "mdi-clipboard-check-outline", text: "Programs Applied", route: "/ScholarshipApplied" },
+      { icon: "mdi-clipboard-file-outline", text: "Available Programs", route: "/ScholarshipAvail" },
+      { icon: "mdi-bullhorn-outline", text: "Announcement", route: "/StudentAnnouncement" },
+      { icon: "mdi-account-box", text: "Profile", route: "/StudentProfile" },
+      { icon: "", text: "", route: "" },
+      { icon: "mdi-logout", text: "Log Out", route: "/login" },
     ],
   }),
   methods: {

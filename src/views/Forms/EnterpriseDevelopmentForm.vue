@@ -316,7 +316,7 @@
                       <v-col cols="12" sm="12" md="12">
                         <p class="font-weight-bold">Employment Information:</p>
                       </v-col>
-                      <v-row cols="12" sm="12" md="2" id="step2">
+                      <v-row cols="12" sm="12" md="2" id="step2" class="pa-2">
                         <v-checkbox
                           v-model="ex4"
                           label="Employed"
@@ -328,12 +328,12 @@
                         </v-checkbox>
                         <v-col style="margin-top: 20px">
                           <v-radio-group>
-                            <v-radio label="Wage Employed"></v-radio>
-                            <v-radio label="Self-Employed"></v-radio>
+                            <v-radio label="Wage Employed" value="wage"></v-radio>
+                            <v-radio label="Self-Employed" value="self"></v-radio>
                           </v-radio-group>
                         </v-col>
                       </v-row>
-                      <v-row cols="12" sm="3" md="10" id="step2">
+                      <v-row cols="12" sm="12" md="10" id="step2">
                         <v-checkbox
                           v-model="ex4"
                           label="Unemployed"
@@ -346,16 +346,16 @@
                         </v-checkbox>
                         <v-col>
                           <v-radio-group row>
-                            <v-radio label="Fresh Graduate"></v-radio>
-                            <v-radio label="Finished Contract"></v-radio>
-                            <v-radio label="Resigned"></v-radio>
-                            <v-radio label="Terminated"></v-radio>
-                            <v-radio label="Retiree"></v-radio>
-                            <v-radio label="Others: "></v-radio>
+                            <v-radio label="Fresh Graduate" value="Fresh Graduate"></v-radio>
+                            <v-radio label="Finished Contract" value="Finished Contract"></v-radio>
+                            <v-radio label="Resigned" value="Resigned"></v-radio>
+                            <v-radio label="Terminated" value="Terminated"></v-radio>
+                            <v-radio label="Retiree" value="Retiree"></v-radio>
+                            <v-radio label="Others: " value="Others"></v-radio>
                           </v-radio-group>
                         </v-col>
                       </v-row>
-                      <v-row cols="12" sm="12" md="6">
+                      <v-row cols="12" sm="12" md="12">
                         <v-container>
                           <v-col>
                             <p
@@ -365,8 +365,8 @@
                               Are you looking for work (Local)?
                             </p>
                             <v-radio-group row>
-                              <v-radio label="Yes"></v-radio>
-                              <v-radio label="No"></v-radio>
+                              <v-radio label="Yes" value="yes"></v-radio>
+                              <v-radio label="No" value="no"></v-radio>
                             </v-radio-group>
                           </v-col>
                           <v-col cols="12" sm="12" md="12">
@@ -387,8 +387,8 @@
                               Are you looking for work (Abroad)?
                             </p>
                             <v-radio-group row>
-                              <v-radio label="Yes"></v-radio>
-                              <v-radio label="No"></v-radio>
+                              <v-radio label="Yes" value="yes"></v-radio>
+                              <v-radio label="No" value="no"></v-radio>
                             </v-radio-group>
                           </v-col>
                           <v-col cols="12" sm="12" md="12">
@@ -561,9 +561,9 @@
                   <v-container fluid md="12">
                     <v-col md="12">
                       <v-row style="margin-top: 10px">
-                        <v-text-field label="" outlined></v-text-field>
+                        <v-text-field label="Training / Vocational Course" outlined></v-text-field>
                         <v-text-field label="Duration" outlined></v-text-field>
-                        <v-text-field label="" outlined></v-text-field>
+                        <v-text-field label="Training Provider" outlined></v-text-field>
                       </v-row>
                     </v-col>
                   </v-container>

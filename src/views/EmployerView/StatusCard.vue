@@ -1,37 +1,72 @@
 <template>
-    <v-container>
-        <v-row>
-          <v-col>
-            <v-card
-              height="130"
-              dark
-              class="pa-2"
-              color="#1B5E20"
-            >
-              <h5>Job Posts</h5>
-              <h4>57</h4>
-              <v-divider></v-divider>
-              <Chart />
+        <v-row cols="12" class="pa-4">
+          <v-col cols="6" md="3">
+            <v-card height="100" dark class="pa-2 rounded-lg" 
+        style="background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);"
+        @click="$router.push({ path: 'EmployerJobPosts' })">
+              
+              <h2 class="ma-1"> <v-icon
+            dark
+            right
+            size="40"
+          >
+          mdi-post
+          </v-icon> 
+          57 </h2>
+          <p class="ma-4"> Active Job Posts</p>
+              <!-- <Chart /> -->
             </v-card>
           </v-col>
-          <v-col>
-            <v-card height="130" dark class="pa-2" color="#1B5E20">
-              <h5>Talents</h5>
-              <h4>57</h4>
-              <v-divider></v-divider>
-              <Chart />
+          <v-col cols="6" md="3">
+            <v-card height="100" dark class="pa-2 rounded-lg" 
+        style="background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);"
+        @click="$router.push({ path: 'EmployerApplicant' })">
+        
+        <h2 class="ma-1"> <v-icon
+            dark
+            right
+            size="40"
+          >
+          mdi-account-circle-outline
+          </v-icon> 
+          57 </h2>
+          <p class="ma-4">Applicants List</p>
+              <!-- <Chart /> -->
             </v-card>
           </v-col>
-          <v-col>
-            <v-card height="130" dark class="pa-2" color="#1B5E20 ">
-              <h5>Hired Talents</h5>
-              <h4>2</h4>
-              <v-divider></v-divider>
-              <Chart />
+          <v-col cols="6" md="3">
+            <v-card height="100" dark class="pa-2 rounded-lg" 
+        style="background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);"
+        @click="$router.push({ path: 'EmployerApplicant' })">
+        
+        <h2 class="ma-1"> <v-icon
+            dark
+            right
+            size="40"
+          >
+          mdi-account-check-outline
+          </v-icon> 
+          57 </h2>
+          <p class="ma-4"> Hired Applicants</p>
+            </v-card>
+          </v-col>
+          <v-col cols="6" md="3">
+            <v-card height="100" dark class="pa-2 rounded-lg" 
+        style="background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);"
+        @click="$router.push({ path: 'EmployerAppointments' })">
+        
+        <h2 class="ma-1"> <v-icon
+            dark
+            right
+            size="40"
+          >
+          mdi-account-check-outline
+          </v-icon> 
+          57 </h2>
+          <p class="ma-4"> Appointments</p>
             </v-card>
           </v-col>
         </v-row>
-      </v-container>
 </template>
 
 <script>

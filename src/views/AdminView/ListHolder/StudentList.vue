@@ -37,8 +37,7 @@
                     <v-icon
                       color="primary"
                       class="button"
-                     @click="$router.push({name: 'DialogStudentList'})"
-                      
+                      @click="$router.push({ name: 'DialogStudentList', params: { id: user.id } }) "
                     >
                       mdi-eye
                     </v-icon>
@@ -49,12 +48,7 @@
                     <v-icon
                       dark
                       color="success"
-                      @click="
-                        $router.push({
-                          name: 'UpdateShit',
-                          params: { id: user.id },
-                        })
-                      "
+                      @click="$router.push({ name: 'DialogStudentList', params: { id: user.id } }) "
                     >
                       mdi-pencil
                     </v-icon>
@@ -90,12 +84,12 @@ export default {
     AdminNavbar,
     // DialogStudentList
   },
-  data () {
+  data() {
     return {
-        // showDialogStudentList: false,
-        loading: false,
-        dialog: false,
-    }   
+      // showDialogStudentList: false,
+      loading: false,
+      dialog: false,
+    };
   },
   computed: {
     ...mapGetters("users", { users: "getUsers" }),

@@ -3,46 +3,30 @@
     <AdminNavbar />
     <v-main>
       <StatusCard />
-      <v-container>
-        <v-row>
-          <v-col 
-          cols="12"
-          sm="4"
-          xs="6"
-          md="6">
-            <v-card  elevation="20">
-              <TodoChart />
-            </v-card>
-          </v-col>
-          <v-col cols="12"
-          sm="4"
-          xs="6"
-          md="6">
-            <v-card height="350" class="pa-0">
-              <Donut />
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-      <v-container>
-        <v-row>
-          <v-col>
-            <v-card height="350">
-              <Chart />
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card height="350">
-              <Chart />
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card height="350">
-              <Donut />
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
+      <v-divider class="test"></v-divider>
+
+      <v-row class="pa-4">
+        <v-col cols="12" md="6">
+          <TodoChart />
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-card class="pa-2" elevation="20">
+            <Donut />
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-row class="pa-4">
+        <v-col cols="12" md="6" sm="12">
+          <Chart />
+        </v-col>
+        <v-col cols="6" md="3" sm="6">
+          <Chart />
+        </v-col>
+        <v-col cols="6" md="3" sm="6">
+          <Chart />
+        </v-col>
+      </v-row>
     </v-main>
     <router-view> </router-view>
   </v-app>
@@ -51,7 +35,7 @@
   <script>
 import AdminNavbar from "../Navigation/AdminNavbar.vue";
 import Chart from "@/components/ChartComponent.vue";
-import TodoChart from "@/components/TodoChart.vue"
+import TodoChart from "@/components/TodoChart.vue";
 import Donut from "@/components/DonutComponent.vue";
 import Sample from "@/components/SampleComponent.vue";
 import StatusCard from "@/views/AdminView/StatusCard.vue";
@@ -63,12 +47,10 @@ export default {
     Donut,
     Sample,
     StatusCard,
-    TodoChart
+    TodoChart,
   },
 
-  data: () => ({
-    
-  }),
+  data: () => ({}),
 };
 </script>
 <style scoped>
@@ -76,5 +58,10 @@ export default {
 
 body {
   font-family: Roboto, sans-serif;
+}
+.test {
+  border-width: 1px !important;
+  border-color: green !important;
+  height: 100%;
 }
 </style>

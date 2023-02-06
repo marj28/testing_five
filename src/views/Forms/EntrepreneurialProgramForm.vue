@@ -325,8 +325,8 @@
                         </v-checkbox>
                         <v-col style="margin-top: 20px">
                           <v-radio-group>
-                            <v-radio label="Wage Employed"></v-radio>
-                            <v-radio label="Self-Employed"></v-radio>
+                            <v-radio label="Wage Employed" value="Wage Employed"></v-radio>
+                            <v-radio label="Self-Employed" value="Self-Employed"></v-radio>
                           </v-radio-group>
                         </v-col>
                       </v-row>
@@ -343,12 +343,12 @@
                         </v-checkbox>
                         <v-col>
                           <v-radio-group row>
-                            <v-radio label="Fresh Graduate"></v-radio>
-                            <v-radio label="Finished Contract"></v-radio>
-                            <v-radio label="Resigned"></v-radio>
-                            <v-radio label="Terminated"></v-radio>
-                            <v-radio label="Retiree"></v-radio>
-                            <v-radio label="Others: "></v-radio>
+                            <v-radio label="Fresh Graduate" value="Fresh Graduate"></v-radio>
+                            <v-radio label="Finished Contract" value="Finished Contract"></v-radio>
+                            <v-radio label="Resigned" value="Resigned"></v-radio>
+                            <v-radio label="Terminated" value="Terminated"></v-radio>
+                            <v-radio label="Retiree" value="Retiree"></v-radio>
+                            <v-radio label="Others: " value="Others"></v-radio>
                           </v-radio-group>
                         </v-col>
                       </v-row>
@@ -362,8 +362,8 @@
                               Are you looking for work (Local)?
                             </p>
                             <v-radio-group row>
-                              <v-radio label="Yes"></v-radio>
-                              <v-radio label="No"></v-radio>
+                              <v-radio label="Yes" value="Yes"></v-radio>
+                              <v-radio label="No" value="No"></v-radio>
                             </v-radio-group>
                           </v-col>
                           <v-col cols="12" sm="12" md="12">
@@ -384,8 +384,8 @@
                               Are you looking for work (Abroad)?
                             </p>
                             <v-radio-group row>
-                              <v-radio label="Yes"></v-radio>
-                              <v-radio label="No"></v-radio>
+                              <v-radio label="Yes" value="Yes"></v-radio>
+                              <v-radio label="No" value="No"></v-radio>
                             </v-radio-group>
                           </v-col>
                           <v-col cols="12" sm="12" md="12">

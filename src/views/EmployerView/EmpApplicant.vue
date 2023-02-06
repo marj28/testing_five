@@ -2,7 +2,7 @@
     <v-app>
       <EmployerNavbar />
       <v-main >
-        <AppointmentCard />
+        <ApplicantCard />
       </v-main>
     </v-app>
       
@@ -11,16 +11,15 @@
     <script>
     
   import EmployerNavbar from "../Navigation/EmployerNavbar.vue";
-  import AppointmentCard from "@/views/EmployerView/CardHolder/AppointmentCard.vue";
+  import ApplicantCard from "@/views/EmployerView/CardHolder/ApplicantCard.vue";
   
     export default {
       components: {
       EmployerNavbar,
-      AppointmentCard
+      ApplicantCard
     },
       data: () => ({
        
       }),
     };
     </script>
-    
