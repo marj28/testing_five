@@ -114,7 +114,6 @@
                                       label="Nature of Work"
                                       outlined
                                       small-chips
-                                      multiple
                                       dense
                                       color="green"
                                     >
@@ -663,6 +662,11 @@ export default {
     dialog: false,
     dialog1: false,
     dialogDelete: false,
+    elementary: false,
+    high_school: false,
+    strand: false,
+    course: false,
+    college: false,
     e1: 1,
     headers: [
       { text: "Position Title", value: "position_title" },
@@ -672,6 +676,36 @@ export default {
       { text: "Number of Applicants", value: "number_needed" },
       { text: "Job Post Status", value: "switch1" },
       { text: "Actions", value: "actions", sortable: false },
+    ],
+    natureofwork: [
+      "Full-time",
+      "Contractual",
+      "Part-time",
+    ],
+    stranditems: [
+      "Accountancy, Business and Management (ABM) Strand",
+      "Science, Technology, Engineering, and Mathematics (STEM) Strand",
+      "Humanities and Social Science (HUMSS) Strand",
+      "General Academic Strand (GAS)",
+      "Arts and Design Track",
+      "Sports Track",
+      "Agricultural-Fishery Arts (AFA) Strand",
+      "Home Economics (HE) Strand",
+      "Industrial Arts (IA) Strand",
+      "Information and Communications Technology (ICT) Strand",
+    ],
+    pwd: ["Visual", "Hearing", "Speech", "Physical", "Mental", "Others"],
+    courseitems: [
+      "Business Administration",
+      "Education",
+      "Engineering",
+      "Information Technology",
+      "Medicine",
+      "Agriculture",
+      "Psychology",
+      "Maritime",
+      "Service Trades",
+      "Architecture",
     ],
     desserts: [],
     editedIndex: -1,

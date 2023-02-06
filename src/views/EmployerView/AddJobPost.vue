@@ -238,6 +238,7 @@
                         :items="stranditems"
                         label="Strand"
                         outlined
+                        color="green"
                         dense
                       >
                       </v-select>
@@ -454,46 +455,8 @@
 export default {
   data: () => ({
     show: false,
-    elementary: false,
-    high_school: false,
-    strand: false,
-    course: false,
-    college: false,
     dialog: false,
     e1: 1,
-    natureofwork: [
-      "Permanent",
-      "Contractual",
-      "Project-based",
-      "Internship / OJT",
-      "Part-time",
-      "Work-from-Home / Online Job",
-    ],
-    pwd: ["Visual", "Hearing", "Speech", "Physical", "Mental", "Others"],
-    stranditems: [
-      "Accountancy, Business and Management (ABM) Strand",
-      "Science, Technology, Engineering, and Mathematics (STEM) Strand",
-      "Humanities and Social Science (HUMSS) Strand",
-      "General Academic Strand (GAS)",
-      "Arts and Design Track",
-      "Sports Track",
-      "Agricultural-Fishery Arts (AFA) Strand",
-      "Home Economics (HE) Strand",
-      "Industrial Arts (IA) Strand",
-      "Information and Communications Technology (ICT) Strand",
-    ],
-    courseitems: [
-      "Business Administration",
-      "Education",
-      "Engineering",
-      "Information Technology",
-      "Medicine",
-      "Agriculture",
-      "Psychology",
-      "Maritime",
-      "Service Trades",
-      "Architecture",
-    ],
   }),
 };
 </script>

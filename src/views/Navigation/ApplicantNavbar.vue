@@ -112,12 +112,11 @@ export default {
     drawer: null,
     items: [
       { icon: "mdi-home", text: "Dashboard", route: "/ApplicantDashboard" },
-      { icon: "mdi-application-settings", text: "Job Applications", route: "/JobApplication" },
-      // { icon: "mdi-clipboard-file-outline", text: "Available Jobs", route: "/JobApplication" },
+      { icon: "mdi-application-settings", text: "Job Applications", route: "/AppliedJobs" },
       {
         icon: "mdi-application-settings-outline",
         text: "Training Applications",
-        route: "/TrainingApplication",
+        route: "/AppliedTraining",
       },
         // {
         //   icon: "mdi-clipboard-check-outline",

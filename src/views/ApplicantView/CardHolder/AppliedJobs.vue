@@ -3,7 +3,7 @@
       <v-col md="12" class="pa-4">
         <v-card color="#1B5E20">
           <v-card-title class="subtitle-2">
-            JOB POSTING
+            MY JOB APPLICATIONS
             <v-spacer></v-spacer>
             <v-spacer></v-spacer>
             <v-text-field
@@ -58,20 +58,18 @@
                           </v-col>
                           <v-col cols="12" sm="6" md="6">
                             <v-text-field
-                              v-model="editedItem.applicant_needed"
-                              label="Applicant Needed"
-                              disabled
-                            ></v-text-field>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="6">
-                            <v-text-field
                               v-model="editedItem.statusofemployment"
                               label="Status of Employment"
                               disabled
                             ></v-text-field>
                           </v-col>
-                        </v-row>
-                        <v-row>
+                          <v-col cols="12" sm="6" md="6">
+                            <v-text-field
+                              v-model="editedItem.dateofapplication"
+                              label="Date of Application"
+                              disabled
+                            ></v-text-field>
+                          </v-col>
                           <v-col cols="12" sm="12" md="12">
                             <v-textarea
                               auto-grow
@@ -90,9 +88,9 @@
                       <v-btn color="green darken-1" text @click="close">
                         Back
                       </v-btn>
-                      <v-btn color="green darken-1" text  @click.stop="dialog1 = true" value="save">
+                      <!-- <v-btn color="green darken-1" text  @click.stop="dialog1 = true" value="save">
                         Apply
-                      </v-btn>
+                      </v-btn> -->
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -103,7 +101,7 @@
             </v-data-table>
           </v-card-text>
   
-          <v-dialog v-model="dialog1" max-width="290">
+          <!-- <v-dialog v-model="dialog1" max-width="290">
             <v-card>
               <v-card-title class="text-h5" color="success"> APPLY TO THIS JOB </v-card-title>
               <v-divider color="success"></v-divider>
@@ -125,7 +123,7 @@
                 </v-btn>
               </v-card-actions>
             </v-card>
-          </v-dialog>
+          </v-dialog> -->
         </v-card>
       </v-col>
     </div>
@@ -136,7 +134,7 @@
     data: () => ({
       search: "",
       dialog: false,
-      dialog1: false,
+      // dialog1: false,
       headers: [
         {
           text: "COMPANY NAME",
@@ -146,8 +144,8 @@
         },
         { text: "POSITION", value: "position" },
         { text: "JOB LOCATION", value: "job_location" },
-        { text: "APPLICANT NEEDED", align: "center", value: "applicant_needed" },
         { text: "STATUS OF EMPLOYMENT", value: "statusofemployment" },
+        { text: "DATE OF APPLICATION", align: "center", value: "dateofapplication" },
         { text: "Action", align: "center", value: "actions", sortable: false },
       ],
       desserts: [],
@@ -156,13 +154,13 @@
         company_name: "",
         position: "",
         job_location: "",
-        applicant_needed: "",
+        dateofapplication: "",
         statusofemployment: "",
       },
     }),
     computed: {
       formTitle() {
-        return this.editedIndex === -1 ? "New Item" : "View Job Post";
+        return this.editedIndex === -1 ? "New Item" : "View Job Application";
       },
     },
     watch: {
@@ -180,7 +178,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -188,7 +186,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -196,7 +194,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -204,7 +202,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -212,7 +210,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -220,7 +218,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -228,7 +226,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -236,7 +234,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -244,7 +242,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },
@@ -253,7 +251,7 @@
             company_name: "AlfaLink",
             position: "Computer Programmer",
             job_location: "Tagum City",
-            applicant_needed: "85",
+            dateofapplication: "11-28-2022",
             statusofemployment: "Full-Time",
             job_details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut eu sem integer vitae justo eget magna fermentum. Eu feugiat pretium nibh ipsum consequat. Commodo sed egestas egestas fringilla. Aliquet bibendum enim facilisis gravida neque convallis. Sem integer vitae justo eget magna fermentum. Orci ac auctor augue mauris. Erat nam at lectus urna duis. Imperdiet massa tincidunt nunc pulvinar sapien. Sed sed risus pretium quam vulputate dignissim suspendisse in. Lectus arcu bibendum at varius vel. Cursus sit amet dictum sit. Sagittis purus sit amet volutpat consequat mauris nunc congue.",
           },

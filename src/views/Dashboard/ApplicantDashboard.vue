@@ -5,11 +5,12 @@
       <StatusCard />
       <v-divider light class="test"></v-divider>
       <v-row class="pa-2">
-        <v-col cols="12" md="6" sm="6">
+        <v-col cols="12" md="8" sm="8">
           <AvailableJobs />
-        </v-col>
-        <v-col cols="12" md="6">
           <AvailableTraining />
+        </v-col>
+        <v-col cols="12" md="4">
+          <ApplicantAnnouncement />
         </v-col>
       </v-row>
     </v-main>
@@ -24,6 +25,7 @@ import StatusCard from "@/views/ApplicantView/StatusCard.vue";
 
 import AvailableJobs from "@/views/ApplicantView/CardHolder/AvailableJobs.vue";
 import AvailableTraining from "@/views/ApplicantView/CardHolder/AvailableTraining.vue";
+import ApplicantAnnouncement from "../ApplicantView/CardHolder/ApplicantAnnouncement.vue";
 
 export default {
   components: {
@@ -31,6 +33,7 @@ export default {
     StatusCard,
     AvailableJobs,
     AvailableTraining,
+    ApplicantAnnouncement
   },
 
   data: () => ({

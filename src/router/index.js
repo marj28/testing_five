@@ -34,8 +34,8 @@ import EmployerApplicant from '../views/EmployerView/EmpApplicant.vue'
 
 //Applicant View
 import ApplicantProfile from '../views/ApplicantView/ApplicantProfile.vue'
-import AvailableJobs_Specific from '../views/ApplicantView/AvailableJobs_Specific.vue'
 import AvailableTraining_Page from '../views/ApplicantView/AvailableTraining_Page.vue'
+import AppliedTraining_Page from '../views/ApplicantView/AppliedTraining_Page.vue'
 import AppliedJobs_Page from '../views/ApplicantView/AppliedJobs_Page.vue'
 import AvailableJobs_Page from '../views/ApplicantView/AvailableJobs_Page.vue'
 import ApplicantAnnouncement_Page from '../views/ApplicantView/ApplicantAnnouncement_Page.vue'
@@ -180,11 +180,6 @@ const routes = [
     component: ApplicantProfile
   },
   {
-    path: '/AvailableJobs_Specific/:key?',
-    name: 'AvailableJobs_Specific',
-    component: AvailableJobs_Specific
-  },
-  {
     path: '/ApplicantAnnouncement',
     name: 'ApplicantAnnouncement',
     component: ApplicantAnnouncement_Page
@@ -203,6 +198,11 @@ const routes = [
     path: '/AppliedJobs',
     name: 'AppliedJobs',
     component: AppliedJobs_Page
+  },
+  {
+    path: '/AppliedTraining',
+    name: 'AppliedTraining',
+    component: AppliedTraining_Page
   },
   //admin_view
   {
