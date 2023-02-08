@@ -16,7 +16,7 @@
                   <v-row class="text-form pa-6">
                     <v-col>
                       <!-- start snackbar -->
-                      <v-snackbar v-model="snackbar" dark>
+                      <v-snackbar v-model="snackbar" :top="'top'" :color="alertColor">
                         {{ text }}
 
                         <template v-slot:action="{ attrs }">
@@ -67,14 +67,14 @@
                       <v-divider></v-divider>
                       <v-col align="center" justify="space-around" style="margin-bottom:  -60px">
                         New User?
-                        <subtitle-2
+                        <div
                           color="yellow"
-                          class="btn yellow--text"
+                          class="btn yellow--text subtitle-2"
                           dark
                           @click="$router.push({ name: 'RegisterPage' })"
                         >
                           REGISTER
-                      </subtitle-2>
+                      </div>
                       </v-col>
                     </v-col>
                   </v-row>
@@ -116,6 +116,7 @@
         </v-col>
       </v-main>
     </v-app>
+  
   </div>
 </template>
 
@@ -127,6 +128,7 @@ export default {
   name: "App",
   components: {},
   data: () => ({
+    alertColor: 'success',
     inputcheck: false,
     dialog: false,
     passwordShow: false,
@@ -135,7 +137,10 @@ export default {
     loginCorrection: "",
     snackbar: false,
     text: `Please input fields`,
-  }),
+  }), 
+  created() {              
+   
+  },
   methods: {
     ...mapActions("users", ["Loginuser"]),
     submitHandler() {
@@ -144,7 +149,46 @@ export default {
         setTimeout(() => {}, 3000);
       }
     },
+    userReg() {
+      this.$createUserWithEmailAndPassword(this.$FBAUTH, this.email, this.password)
+      .then((userCredintials) =>  {
+        console.log(userCredintials)
+        this.alertColor = 'success'
+            this.snackbar = true
+            this.text = "Registration Successful!"
+            ///redirect somewhere
+       
+      }).catch(error=> {
+        console.log(error.message)
+        if(error.message == "Firebase: Error (auth/invalid-email).") {
+           // alert("Pretty error message!")
+           this.alertColor = 'error'
+            this.snackbar = true
+            this.text = "Pretty error message!"
+        }
+      })
+    },
+    userSignin() {
+      this.$signInWithEmailAndPassword(this.$FBAUTH, this.email, this.password)
+      .then((userCredintials) =>  {
+        console.log(userCredintials)
+        this.alertColor = 'success'
+            this.snackbar = true
+            this.text = "Registration Successful!"
+            ///redirect somewhere
+      }).catch(error=> {
+        console.log(error.message)
+        if(error.message == "Firebase: Error (auth/invalid-email).") {
+           // alert("Pretty error message!")
+           this.alertColor = 'error'
+            this.snackbar = true
+            this.text = "Pretty error message!"
+        }
+      })
+    },
     userlogin() {
+      this.userReg()
+      return
       let data = new FormData();
       data.append("email", this.email);
       data.append("password", this.password);

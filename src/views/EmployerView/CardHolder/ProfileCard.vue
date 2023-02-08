@@ -65,6 +65,15 @@
               <v-card-text>
                 <v-container>
                   <v-row>
+                    <v-col cols="12" sm="12" md="12" lg="12">
+                      <v-radio-group label="Establishment Type" row>
+                        <v-spacer></v-spacer>
+                        <v-radio color="success" label="Private" value="private"></v-radio>
+                        <v-spacer></v-spacer>
+                        <v-radio color="success" label="Government" value="government"></v-radio>
+                        <v-spacer></v-spacer>
+                      </v-radio-group>
+                    </v-col>
                     <v-col cols="12" sm="12" md="4">
                       <v-text-field
                         label="Business Name"
@@ -671,11 +680,16 @@
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <v-btn color="green darken-1" text @click="dialog = false" >
+              <v-btn color="green darken-1" text @click="dialog = false">
                 Discard
               </v-btn>
 
-              <v-btn color="green darken-1" text @click="dialog = false" type="submit">
+              <v-btn
+                color="green darken-1"
+                text
+                @click="dialog = false"
+                type="submit"
+              >
                 Save
               </v-btn>
             </v-card-actions>
