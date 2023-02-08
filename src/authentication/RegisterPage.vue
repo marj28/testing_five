@@ -236,7 +236,8 @@
                         </v-col>
                       </v-col>
                       <!-- student -->
-
+                      
+                      <student-form :message="'Hello world!'"/>
                       <v-col
                         cols="12"
                         sm="12"
@@ -244,7 +245,6 @@
                         v-show="student"
                         style="margin-top: -50px"
                       >
-                      <!-- <student-form :message="'Hello world!'"/> -->
                         <h4 class="text-center pa-2 green--text">
                           Student Registration
                         </h4>
