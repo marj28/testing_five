@@ -1,24 +1,19 @@
 <template>
   <v-app>
-    <EmployerNavbar />
+    <employer-navbar />
     <v-main >
-      <JobPostingCard />
+      <job-posting-card />
     </v-main>
   </v-app>
     
   </template>
   
   <script>
-  
-import EmployerNavbar from "../Navigation/EmployerNavbar.vue";
 import StatusCard from "@/views/EmployerView/StatusCard.vue"
-import JobPostingCard from "@/views/EmployerView/CardHolder/JobPostingCard.vue"
 
   export default {
     components: {
-    EmployerNavbar,
     StatusCard,
-    JobPostingCard
   },
     data: () => ({
       headers: [

@@ -69,11 +69,9 @@
 </template>
 
 <script>
-import Chart from "@/components/ChartComponent.vue";
 
 export default {
   components: {
-    Chart,
   },
 };
 </script>

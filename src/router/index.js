@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 // dashboard
 import AdminDashboard from '../views/Dashboard/AdminDashboard.vue'
@@ -8,11 +7,8 @@ import StudentDashboard from '../views/Dashboard/StudentDashboard.vue'
 import EmployerDashboard from '../views/Dashboard/EmployerDashboard.vue'
 import ApplicantDashboard from '../views/Dashboard/ApplicantDashboard.vue'
 
-import Line from '../components/LineComponent.vue'
-
 //authentication
 import LoginPage from '@/authentication/LoginPage.vue'
-import RegistrationPage from '@/authentication/RegistrationPage.vue'
 import RegisterPage from '@/authentication/RegisterPage.vue'
 
 //Students View
@@ -39,7 +35,9 @@ import AppliedTraining_Page from '../views/ApplicantView/AppliedTraining_Page.vu
 import AppliedJobs_Page from '../views/ApplicantView/AppliedJobs_Page.vue'
 import AvailableJobs_Page from '../views/ApplicantView/AvailableJobs_Page.vue'
 import ApplicantAnnouncement_Page from '../views/ApplicantView/ApplicantAnnouncement_Page.vue'
-
+import CBTEDForm_Page from '../Applicant/TrainingForms/CBTEDForm_Page.vue'
+import CEEOForm_Page from '../Applicant/TrainingForms/CEEOForm_Page.vue'
+import UpdateForm_Page from '../Applicant/TrainingForms/UpdateForm_Page.vue'
 
 //Admin View
 import AdminProfile from '../views/AdminView/AdminProfile.vue'
@@ -64,33 +62,18 @@ import DialogStudentList from '../views/AdminView/Dialog/DialogStudentList.vue'
 Vue.use(VueRouter)
 
 const routes = [
+    //authentication
   {
     path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue')
-  },
-  
-  //authentication
-  {
-    path: '/login',
     name: 'LoginPage',
     component: LoginPage
-  },
-  {
-    path: '/registration',
-    name: 'RegistrationPage',
-    component: RegistrationPage
-  },
+  }, 
   {
     path: '/register',
     name: 'RegisterPage',
     component: RegisterPage
   },
+  //dashboard 
   {
     path: '/admindashboard',
     name: 'AdminDashboard',
@@ -164,11 +147,6 @@ const routes = [
     component: EmployerProfile
   },
   {
-    path: '/line',
-    name: 'Line',
-    component: Line
-  },
-  {
     path: '/AddJobPost',
     name: 'AddJobPost',
     component: AddJobPost
@@ -204,6 +182,22 @@ const routes = [
     name: 'AppliedTraining',
     component: AppliedTraining_Page
   },
+  {
+    path: '/CBTEDForm_Page',
+    name: 'CBTEDForm_Page',
+    component: CBTEDForm_Page
+  },
+  {
+    path: '/CEEOForm_Page',
+    name: 'CEEOForm_Page',
+    component: CEEOForm_Page
+  },
+  {
+    path: '/UpdateForm_Page',
+    name: 'UpdateForm_Page',
+    component: UpdateForm_Page
+  },
+  
   //admin_view
   {
     path: '/AdminProfile',

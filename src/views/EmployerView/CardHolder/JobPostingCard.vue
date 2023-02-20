@@ -10,7 +10,7 @@
             class=""
           >
             <template v-slot:top>
-              <v-toolbar flat dark color="#1B5E20" >
+              <v-toolbar flat dark color="#1B5E20">
                 <v-toolbar-title>JOB POSTING </v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-text-field
@@ -25,7 +25,7 @@
                 ></v-text-field>
                 <v-spacer></v-spacer>
 
-                <v-dialog v-model="dialog" max-width="550px">
+                <v-dialog v-model="dialog" max-width="550px" persistent>
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
                       color="success"
@@ -42,11 +42,10 @@
                     <v-row>
                       <v-col>
                         <v-card-title>
-                        <span class="text-h5">Create Job Post</span>
-                      </v-card-title>
-                      
+                          <span class="text-h5">Create Job Post</span>
+                        </v-card-title>
                       </v-col>
-                      
+
                       <v-stepper v-model="e1">
                         <v-stepper-header style="font-size: 14px">
                           <v-stepper-step
@@ -65,7 +64,7 @@
                             step="2"
                             color="warning"
                           >
-                            Education
+                            Preferrence
                           </v-stepper-step>
 
                           <v-divider></v-divider>
@@ -85,6 +84,26 @@
                             <v-card class="">
                               <v-card-text>
                                 <v-row>
+                                  <v-col cols="12" sm="12" md="6">
+                                    <v-select
+                                      :items="purposeofvacancy"
+                                      label="Purpose of Vacancy"
+                                      outlined
+                                      dense
+                                      color="green"
+                                    >
+                                    </v-select>
+                                  </v-col>
+                                  <v-col cols="12" sm="12" md="6">
+                                    <v-select
+                                      :items="classificationofvacancy"
+                                      label="Classification of Vacancy"
+                                      outlined
+                                      dense
+                                      color="green"
+                                    >
+                                    </v-select>
+                                  </v-col>
                                   <v-col cols="12" sm="12" md="12">
                                     <v-text-field
                                       label="Position Title"
@@ -113,7 +132,6 @@
                                       v-model="editedItem.natureofwork"
                                       label="Nature of Work"
                                       outlined
-                                      small-chips
                                       dense
                                       color="green"
                                     >
@@ -193,238 +211,90 @@
                               <v-card-text>
                                 <v-row>
                                   <v-col cols="12" sm="12" md="12">
+                                    <v-select
+                                      :items="educational_level"
+                                      label="Educational Level"
+                                      outlined
+                                      dense
+                                      color="green"
+                                    >
+                                    </v-select>
+                                  </v-col>
+                                  <v-col cols="12" sm="12" md="12">
+                                    <v-text-field
+                                      label="Course Requirement"
+                                      v-model="editedItem.position_title"
+                                      required
+                                      outlined
+                                      dense
+                                      color="green"
+                                    >
+                                    </v-text-field>
+                                  </v-col>
+                                  <v-col
+                                    cols="12"
+                                    sm="12"
+                                    md="12"
+                                    style="margin-top: -30px"
+                                  >
                                     <v-radio-group
-                                      label="Educational Level: "
+                                      label="Accepts persons with disabilities (PWD):"
                                       row
-                                      v-model="editedItem.educational_level"
+                                      v-model="editedItem.pwd"
                                     >
                                       <v-radio
-                                        label="Elementary"
-                                        value="Elementary"
-                                        color="green"
-                                        @change="
-                                          (elementary = true),
-                                            (high_school = false),
-                                            (college = false)
-                                        "
-                                      >
-                                      </v-radio>
-                                      <v-radio
-                                        label="High School"
-                                        value="High_School"
-                                        color="green"
-                                        @change="
-                                          (elementary = false),
-                                            (high_school = true),
-                                            (college = false)
-                                        "
-                                      >
-                                      </v-radio>
-                                      <v-radio
-                                        label="College"
-                                        value="College"
-                                        color="green"
-                                        @change="
-                                          (elementary = false),
-                                            (high_school = false),
-                                            (college = true)
-                                        "
-                                      >
-                                      </v-radio>
-                                    </v-radio-group>
-                                  </v-col>
-
-                                  <!-- start elementary -->
-                                  <v-col
-                                    cols="12"
-                                    sm="12"
-                                    md="12"
-                                    v-show="elementary"
-                                    style="margin-top: -40px"
-                                  >
-                                    <v-radio-group
-                                      label="Education Status: "
-                                      v-model="editedItem.education_status"
-                                    >
-                                      <v-radio
-                                        label="Graduate"
-                                        value="Graduate"
+                                        label="Yes"
+                                        value="yes"
                                         color="green"
                                       >
                                       </v-radio>
                                       <v-radio
-                                        label="Undergraduate"
-                                        value="Undergraduate"
+                                        label="No"
+                                        value="no"
                                         color="green"
                                       >
                                       </v-radio>
                                     </v-radio-group>
-                                    <v-col cols="12" sm="12" md="12">
-                                      <v-text-field
-                                        label="Language / Dialect Spoken:  "
-                                        v-model="editedItem.language"
-                                        required
-                                        dense
-                                        outlined
-                                        color="green"
-                                      >
-                                      </v-text-field>
-                                    </v-col>
-                                  </v-col>
-                                  <!-- end elementary -->
-
-                                  <!-- start high_school -->
-                                  <v-col
-                                    cols="12"
-                                    sm="12"
-                                    md="12"
-                                    v-show="high_school"
-                                    style="margin-top: -40px"
-                                  >
-                                    <v-radio-group
-                                      label="Education Status: "
-                                      v-model="editedItem.education_status"
-                                    >
-                                      <v-radio
-                                        label="Graduate"
-                                        value="Graduate"
-                                        color="green"
-                                        @change="strand = true"
-                                      >
-                                      </v-radio>
-                                      <v-radio
-                                        label="Undergraduate"
-                                        value="Undergraduate"
-                                        color="green"
-                                        @change="strand = false"
-                                      >
-                                      </v-radio>
-                                    </v-radio-group>
-
                                     <v-col
-                                      cols="12"
-                                      md="12"
-                                      sm="12"
-                                      lg="12"
-                                      v-show="strand"
-                                    >
-                                      <v-select
-                                        :items="stranditems"
-                                        v-model="editedItem.strand"
-                                        label="Strand"
-                                        outlined
-                                        dense
-                                      >
-                                      </v-select>
-                                    </v-col>
-                                    <v-col cols="12" sm="12" md="12">
-                                      <v-text-field
-                                        label="Language / Dialect Spoken:  "
-                                        v-model="editedItem.language"
-                                        required
-                                        dense
-                                        outlined
-                                        color="green"
-                                      >
-                                      </v-text-field>
-                                    </v-col>
-                                  </v-col>
-                                  <!-- end high_school -->
-
-                                  <!-- start college -->
-                                  <v-col
                                     cols="12"
                                     sm="12"
                                     md="12"
-                                    v-show="college"
-                                    style="margin-top: -40px"
+                                    style="margin-top: -30px"
                                   >
-                                    <v-radio-group
-                                      label="Education Status: "
-                                      v-model="editedItem.education_status"
+                                    <v-select
+                                      :items="pwd"
+                                      label="If 'yes': "
+                                      multiple
+                                      dense
+                                      color="green"
+                                      outlined
+                                      small-chips
+                                      v-model="editedItem.pwd_1"
                                     >
-                                      <v-radio
-                                        label="Graduate"
-                                        value="Graduate"
-                                        color="green"
-                                        @change="course = true"
-                                      >
-                                      </v-radio>
-                                      <v-radio
-                                        label="Undergraduate"
-                                        value="Undergraduate"
-                                        color="green"
-                                        @change="course = false"
-                                      >
-                                      </v-radio>
-                                    </v-radio-group>
-
-                                    <v-col
-                                      cols="12"
-                                      md="12"
-                                      sm="12"
-                                      lg="12"
-                                      v-show="course"
-                                    >
-                                      <v-select
-                                        :items="courseitems"
-                                        v-model="editedItem.course"
-                                        label="Course"
-                                        outlined
-                                        dense
-                                        color="green"
-                                      >
-                                      </v-select>
-                                    </v-col>
-                                    <v-row>
-                                      <v-col cols="12" sm="12" md="6">
-                                        <v-text-field
-                                          label="Licensed: "
-                                          required
-                                          dense
-                                          outlined
-                                          color="green"
-                                          v-model="editedItem.licensed"
-                                        >
-                                        </v-text-field>
-                                      </v-col>
-                                      <v-col cols="12" sm="12" md="6">
-                                        <v-text-field
-                                          label="Eligibility:  "
-                                          required
-                                          dense
-                                          outlined
-                                          color="green"
-                                          v-model="editedItem.eligibility"
-                                        >
-                                        </v-text-field>
-                                      </v-col>
-                                      <v-col cols="12" sm="12" md="6">
-                                        <v-text-field
-                                          label="Certification: "
-                                          v-model="editedItem.certification"
-                                          required
-                                          dense
-                                          outlined
-                                          color="green"
-                                        >
-                                        </v-text-field>
-                                      </v-col>
-                                      <v-col cols="12" sm="12" md="6">
-                                        <v-text-field
-                                          label="Language / Dialect Spoken:  "
-                                          v-model="editedItem.language"
-                                          required
-                                          dense
-                                          outlined
-                                          color="green"
-                                        >
-                                        </v-text-field>
-                                      </v-col>
-                                    </v-row>
+                                    </v-select>
                                   </v-col>
-
-                                  <!-- end college -->
+                                  </v-col>
+                                  <v-col cols="12" sm="12" md="12">
+                                    <v-select
+                                      :items="sex_preference"
+                                      label="Sex Preference"
+                                      outlined
+                                      dense
+                                      color="green"
+                                    >
+                                    </v-select>
+                                  </v-col>
+                                  <!-- <v-col cols="12" sm="12" md="12">
+                                    <v-textarea
+                                      label="Job Description"
+                                      v-model="editedItem.job_description"
+                                      required
+                                      outlined
+                                      dense
+                                      color="green"
+                                    >
+                                    </v-textarea>
+                                  </v-col> -->
                                 </v-row>
                               </v-card-text>
                             </v-card>
@@ -479,6 +349,16 @@
                                   </v-col>
                                   <v-col cols="12" sm="12" md="12">
                                     <v-text-field
+                                      label="Required License: "
+                                      v-model="editedItem.other_qualification"
+                                      required
+                                      outlined
+                                      dense
+                                      color="green"
+                                    ></v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="12" md="12">
+                                    <v-text-field
                                       label="Other qualifications: "
                                       v-model="editedItem.other_qualification"
                                       required
@@ -487,49 +367,20 @@
                                       color="green"
                                     ></v-text-field>
                                   </v-col>
-                                  <v-col
-                                    cols="12"
-                                    sm="12"
-                                    md="12"
-                                    style="margin-top: -30px"
-                                  >
-                                    <v-radio-group
-                                      label="Accepts persons with disabilities (PWD):"
-                                      row
-                                      v-model="editedItem.pwd"
-                                    >
-                                      <v-radio
-                                        label="Yes"
-                                        value="yes"
-                                        color="green"
-                                      >
-                                      </v-radio>
-                                      <v-radio
-                                        label="No"
-                                        value="no"
-                                        color="green"
-                                      >
-                                      </v-radio>
-                                    </v-radio-group>
-                                  </v-col>
-                                  <v-col
-                                    cols="12"
-                                    sm="12"
-                                    md="12"
-                                    style="margin-top: -30px"
-                                  >
+                                  <v-col cols="12" sm="12" md="12">
                                     <v-select
-                                      :items="pwd"
-                                      label="If 'yes': "
+                                      :items="employability_skills"
+                                      label="Employability Skills"
+                                      outlined
                                       multiple
+                                      small-chips
                                       dense
                                       color="green"
-                                      outlined
-                                      small-chips
-                                      v-model="editedItem.pwd_1"
                                     >
                                     </v-select>
                                   </v-col>
+                                  
+                                  
                                   <v-col
                                     cols="12"
                                     sm="12"
@@ -668,6 +519,50 @@ export default {
     course: false,
     college: false,
     e1: 1,
+    employability_skills: [
+      "Planning and Organizing",
+      "Social Perceptiveness",
+      "innovation",
+      "Multi-tasking",
+      "Work Standards/Ethics",
+      "Stress Tolerance",
+      "Self Motivation",
+      "Problem Sensitivity",
+      "Creative Problem Solving",
+      "Teamwork",
+      "Decision Making",
+      "Critical Thinking",
+      "Math Function Skill",
+      "English Function Skill",
+      "English Comprehension",
+    ],
+    sex_preference: [ 
+      "Male",
+      "Female",
+      "No preference"
+    ],
+    educational_level:[
+      "Elementary Level",
+      "Elementary Graduate",
+      "Junior High School Level",
+      "Junior High School Level Graduate",
+      "Senior High School Level",
+      "Junior High School Graduate",
+      "TechVoc Level",
+      "TechVoc Graduate",
+      "College Level",
+      "College Graduate",
+      "Graduate/Post Graduate Studies"
+    ],
+    purposeofvacancy: ["Additional Manpower", "Replacement", "Expansion"],
+    classificationofvacancy: [
+      "Administrative",
+      "Clerical",
+      "Managerial",
+      "Manual Labour",
+      "Supervisory",
+      "Technical",
+    ],
     headers: [
       { text: "Position Title", value: "position_title" },
       { text: "Place of Work", value: "placeofwork" },
@@ -678,9 +573,11 @@ export default {
       { text: "Actions", value: "actions", sortable: false },
     ],
     natureofwork: [
-      "Full-time",
+      "Permanent",
       "Contractual",
       "Part-time",
+      "Project-based",
+      "Internship/OJT",
     ],
     stranditems: [
       "Accountancy, Business and Management (ABM) Strand",
@@ -897,160 +794,3 @@ export default {
 };
 </script>
 
-
-<!-- <template>
-  <v-app>
-    <div>
-      <v-col md="12" class="pa-4">
-        <v-card outlined color="#1B5E20">
-          <v-card-title class="subtitle-2">
-            JOB POSTING
-            <v-spacer></v-spacer
-            ><v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-              outlined
-              rounded
-              dark
-              dense
-            ></v-text-field>
-            <v-spacer></v-spacer>
-            
-            <AddJobPost
-              :visible="showAddJobPost"
-              @close="showAddJobPost = true"
-            />
-          </v-card-title>
-
-          <v-card-text>
-            <v-data-table :headers="headers" :items="content" :search="search">
-              <template slot="item.switch1" slot-scope="{ item }">
-                <v-switch
-                  v-model="item.switch1"
-                  color="success"
-                  dense
-                ></v-switch>
-              </template>
-              <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2" @click="$router.push({ path: 'AddJobPost' })">
-                  mdi-pencil
-                </v-icon>
-                <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-              </template>
-            </v-data-table>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </div>
-  </v-app>
-</template>
-
-<script>
-import AddJobPost from "@/views/EmployerView/AddJobPost.vue";
-export default {
-  components: { AddJobPost },
-  data: () => ({
-    AddJobPost: false,
-    search: "",
-    headers: [
-      {
-        text: "POSITION",
-        align: "left",
-        value: "position",
-      },
-      { text: "JOB LOCATION", value: "location" },
-      { text: "NO. OF APPLICANT NEEDED", value: "number_needed" },
-      { text: "STATUS OF EMPLOYMENT", value: "type" },
-      { text: "NUMBER OF APPLICANTS", value: "number_applicants" },
-      { text: "JOB POST STATUS", value: "switch1" },
-      { text: "Action", value: "actions", sortable: false },
-    ],
-    content: [
-      {
-        position: "Data Analyst",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Full-Time",
-        number_applicants: "57",
-        switch1: false,
-      },
-      {
-        position: "Computer Progammer",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Part-Time",
-        number_applicants: "57",
-        switch1: true,
-      },
-      {
-        position: "Network Technician",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Full-Time",
-        number_applicants: "57",
-        switch1: true,
-      },
-      {
-        position: "Computer Technician",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Part-Time",
-        number_applicants: "57",
-        switch1: false,
-      },
-      {
-        position: "Data Analyst",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Full-Time",
-        number_applicants: "57",
-        switch1: true,
-      },
-      {
-        position: "Computer Progammer",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Part-Time",
-        number_applicants: "57",
-        switch1: true,
-      },
-      {
-        position: "Network Technician",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Full-Time",
-        number_applicants: "57",
-        switch1: true,
-      },
-      {
-        position: "Computer Technician",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Part-Time",
-        number_applicants: "57",
-        switch1: false,
-      },
-      {
-        position: "Network Technician",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Full-Time",
-        number_applicants: "57",
-        switch1: true,
-      },
-      {
-        position: "Computer Technician",
-        location: "Tagum City",
-        number_needed: "21",
-        type: "Part-Time",
-        number_applicants: "57",
-        switch1: false,
-      },
-    ],
-  }),
-};
-</script>
-   -->

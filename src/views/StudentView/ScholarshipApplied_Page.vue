@@ -1,19 +1,15 @@
 <template>
     <v-app>
-      <StudentNavbar />
+      <student-navbar />
       <v-main>
-        <ScholarshipApplied />
+        <scholarship-applied />
       </v-main>
     </v-app>
   </template>
     
     <script>
-  import StudentNavbar from "../Navigation/StudentNavbar.vue";
-  import ScholarshipApplied from "@/views/StudentView/CardHolder/ScholarshipApplied.vue";
   export default {
     components: {
-      StudentNavbar,
-      ScholarshipApplied,
     },
   };
   </script>

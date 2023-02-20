@@ -42,6 +42,18 @@
               <v-card-text>
                 <v-row>
                   <v-col cols="12" sm="12" md="12">
+                    <v-select
+                        :items="purposeofvacancy"
+                        label="Purpose of Vacancy"
+                        outlined
+                        dense
+                        multiple
+                        small-chips
+                        color="green"
+                      >
+                      </v-select>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="12">
                     <v-text-field
                       label="Position Title"
                       required
@@ -457,6 +469,11 @@ export default {
     show: false,
     dialog: false,
     e1: 1,
+    purposeofvacancy: [
+      "Additional Manpower",
+      "Replacement",
+      "Expansion"
+    ],
   }),
 };
 </script>

@@ -65,7 +65,7 @@
                         </v-btn>
                       </v-col>
                       <v-divider></v-divider>
-                      <v-col align="center" justify="space-around" style="margin-bottom:  -60px">
+                      <v-col align="center" justify="space-around" style="margin-bottom:  -90px">
                         New User?
                         <div
                           color="yellow"
@@ -149,45 +149,45 @@ export default {
         setTimeout(() => {}, 3000);
       }
     },
-    userReg() {
-      this.$createUserWithEmailAndPassword(this.$FBAUTH, this.email, this.password)
-      .then((userCredintials) =>  {
-        console.log(userCredintials)
-        this.alertColor = 'success'
-            this.snackbar = true
-            this.text = "Registration Successful!"
-            ///redirect somewhere
+    // userReg() {
+    //   this.$createUserWithEmailAndPassword(this.$FBAUTH, this.email, this.password)
+    //   .then((userCredintials) =>  {
+    //     console.log(userCredintials)
+    //     this.alertColor = 'success'
+    //         this.snackbar = true
+    //         this.text = "Registration Successful!"
+    //         ///redirect somewhere
        
-      }).catch(error=> {
-        console.log(error.message)
-        if(error.message == "Firebase: Error (auth/invalid-email).") {
-           // alert("Pretty error message!")
-           this.alertColor = 'error'
-            this.snackbar = true
-            this.text = "Pretty error message!"
-        }
-      })
-    },
+    //   }).catch(error=> {
+    //     console.log(error.message)
+    //     if(error.message == "Firebase: Error (auth/invalid-email).") {
+    //        // alert("Pretty error message!")
+    //        this.alertColor = 'error'
+    //         this.snackbar = true
+    //         this.text = "Pretty error message!"
+    //     }
+    //   })
+    // },
     userSignin() {
       this.$signInWithEmailAndPassword(this.$FBAUTH, this.email, this.password)
       .then((userCredintials) =>  {
         console.log(userCredintials)
         this.alertColor = 'success'
             this.snackbar = true
-            this.text = "Registration Successful!"
+            this.text = "Successful Login!"
             ///redirect somewhere
       }).catch(error=> {
         console.log(error.message)
         if(error.message == "Firebase: Error (auth/invalid-email).") {
            // alert("Pretty error message!")
-           this.alertColor = 'error'
+           this.alertColor = 'warning'
             this.snackbar = true
-            this.text = "Pretty error message!"
+            this.text = "Please input fields!"
         }
       })
     },
     userlogin() {
-      this.userReg()
+      this.userSignin()
       return
       let data = new FormData();
       data.append("email", this.email);

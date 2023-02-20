@@ -2,7 +2,7 @@
   <div>
     <v-navigation-drawer
       v-model="drawer"
-      color="#0B4619"
+      color="#1B5E20"
       dark
       app
       height="1200"

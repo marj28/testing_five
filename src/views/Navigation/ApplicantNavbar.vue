@@ -118,11 +118,6 @@ export default {
         text: "Training Applications",
         route: "/AppliedTraining",
       },
-        // {
-        //   icon: "mdi-clipboard-check-outline",
-        //   text: "Available Trainings",
-        //   route: "/TrainingApplication",
-        // },
       { icon: "mdi-printer-outline", text: "Print PDS", route: "/PrintDocument" },
       {
         icon: "mdi-account-box",

@@ -1,19 +1,15 @@
 <template>
   <v-app>
-    <StudentNavbar />
+    <student-navbar />
     <v-main>
-      <StudentAnnouncement />
+      <student-announcement />
     </v-main>
   </v-app>
 </template>
   
   <script>
-import StudentNavbar from "../Navigation/StudentNavbar.vue";
-import StudentAnnouncement from "@/views/StudentView/CardHolder/StudentAnnouncement.vue";
 export default {
   components: {
-    StudentNavbar,
-    StudentAnnouncement,
   },
 };
 </script>

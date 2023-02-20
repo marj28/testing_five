@@ -32,19 +32,19 @@
           <v-divider></v-divider>
 
           <v-stepper-step
-            :complete="e1 > 1.1"
-            step="1.1"
+            :complete="e1 > 2"
+            step="2"
             style="height="
             color="warning"
           >
-            Personal
+            Employment
             <v-spacer></v-spacer>
             Information
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step :complete="e1 > 2" step="2" color="warning">
+          <v-stepper-step :complete="e1 > 3" step="3" color="warning">
             Educational
             <v-spacer></v-spacer>
             Background
@@ -52,7 +52,7 @@
 
           <v-divider></v-divider>
 
-          <v-stepper-step :complete="e1 > 3" step="3" color="warning">
+          <v-stepper-step :complete="e1 > 4" step="4" color="warning">
             Client's
             <v-spacer></v-spacer>
             Classification
@@ -60,7 +60,7 @@
 
           <v-divider></v-divider>
 
-          <v-stepper-step :complete="e1 > 4" step="4" color="warning">
+          <v-stepper-step :complete="e1 > 5" step="5" color="warning">
             Technical/Vocational
             <v-spacer></v-spacer>
             and Other Training
@@ -68,7 +68,7 @@
 
           <v-divider></v-divider>
 
-          <v-stepper-step :complete="e1 > 5" step="5" color="warning">
+          <v-stepper-step :complete="e1 > 6" step="6" color="warning">
             Eligibility/
             <v-spacer></v-spacer>
             Professional License
@@ -76,24 +76,21 @@
 
           <v-divider></v-divider>
 
-          <v-stepper-step :complete="e1 > 6" step="6" color="warning">
+          <v-stepper-step :complete="e1 > 7" step="7" color="warning">
             Other Skills
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step :complete="e1 > 7" step="7" color="warning">
-            Preferred
-            <v-spacer></v-spacer>
-            Intervention
+          <v-stepper-step :complete="e1 > 8" step="8" color="warning">
+            Requirements
           </v-stepper-step>
-
         </v-stepper-header>
 
         <v-stepper-items>
           <!-- First Stepper -->
           <v-stepper-content step="1">
-            <v-card class="mb-12" color="grey lighten-4" id="step1">
+            <v-card id="step1">
               <v-card-text>
                 <v-container>
                   <v-row>
@@ -274,90 +271,6 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col
-                      cols="12"
-                      md="2"
-                      sm="12"
-                      class="font-weight-bold"
-                      style="margin-top: -35px"
-                    >
-                      <p>Current Address</p>
-                    </v-col>
-                    <v-col cols="12" md="3" sm="6" style="margin-top: -35px">
-                      <v-checkbox
-                        label="Same with Home Address"
-                        @click="samewithaddress = false"
-                        color="success"
-                      ></v-checkbox>
-                    </v-col>
-                    <v-col cols="12" md="6" sm="6" style="margin-top: -35px">
-                      <v-radio-group row v-model="HomeStatus" color="success">
-                        <v-radio
-                          label="Owned"
-                          value="own"
-                          color="success"
-                        ></v-radio>
-                        <v-radio
-                          label="Rented"
-                          value="rent"
-                          color="success"
-                        ></v-radio>
-                        <v-radio
-                          label="Staying with Relatives"
-                          value="stay"
-                          color="success"
-                        ></v-radio>
-                      </v-radio-group>
-                    </v-col>
-
-                    <v-row v-show="samewithaddress" class="pa-2">
-                      <v-col cols="12" md="2" sm="12">
-                        <v-text-field
-                          label="Region"
-                          required
-                          outlined
-                          dense
-                          color="success"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" md="2" sm="12">
-                        <v-text-field
-                          label="Province"
-                          required
-                          outlined
-                          dense
-                          color="success"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" md="2" sm="12">
-                        <v-text-field
-                          label="Municipality / City"
-                          required
-                          outlined
-                          dense
-                          color="success"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" md="2" sm="12">
-                        <v-text-field
-                          label="Barangay"
-                          required
-                          outlined
-                          dense
-                          color="success"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" md="4" sm="12">
-                        <v-text-field
-                          label="House No. / Street / Village"
-                          required
-                          outlined
-                          dense
-                          color="success"
-                        ></v-text-field>
-                      </v-col>
-                    </v-row>
-
                     <v-col cols="12" md="3" sm="12">
                       <v-text-field
                         label="Contact Number"
@@ -402,7 +315,7 @@
               </v-card-text>
             </v-card>
 
-            <v-btn id="v-btn-c" color="success" @click="e1 = 1.1">
+            <v-btn id="v-btn-c" color="success" @click="e1 = 2">
               Continue
             </v-btn>
 
@@ -411,9 +324,9 @@
             </v-btn>
           </v-stepper-content>
 
-          <!-- One.one Stepper -->
-          <v-stepper-content step="1.1">
-            <v-card class="mb-12" color="grey lighten-4" id="step2">
+          <!-- Second Stepper -->
+          <v-stepper-content step="2">
+            <v-card id="step2">
               <v-card-text>
                 <v-container fluid>
                   <v-row>
@@ -428,7 +341,6 @@
                           value="Employed"
                           hide-details
                           class="font-weight-bold"
-                          style="margin-top: -20px"
                           @click="(employed = true), (unemployed = false)"
                         >
                         </v-radio>
@@ -466,23 +378,7 @@
                                 class="pa-2"
                                 style="margin-top: -30px; margin-left: 20px"
                                 outlined
-                                label="Major Industry Group"
-                                dense
-                                color="success"
-                              ></v-text-field>
-                              <v-text-field
-                                class="pa-2"
-                                style="margin-top: -30px; margin-left: 20px"
-                                outlined
                                 label="Occupation"
-                                dense
-                                color="success"
-                              ></v-text-field>
-                              <v-text-field
-                                class="pa-2"
-                                style="margin-top: -30px; margin-left: 20px"
-                                outlined
-                                label="Rank"
                                 dense
                                 color="success"
                               ></v-text-field>
@@ -507,16 +403,7 @@
                                 color="success"
                                 multiple
                                 small-chips
-                                :items="[
-                                  'Fisherman/Fisherfolk',
-                                  'Vebdor/Retailer',
-                                  'Home-based worker',
-                                  'Transport',
-                                  'Domestic Worker',
-                                  'Freelancer',
-                                  'Artisan/Craft Worker',
-                                  'Others',
-                                ]"
+                                :items="selfemployed"
                                 label="Please Specify"
                                 required
                                 outlined
@@ -532,7 +419,7 @@
                           value="Unemployed"
                           hide-details
                           class="font-weight-bold"
-                          style="margin-top: -20px"
+                          style=""
                           @change="(unemployed = true), (employed = false)"
                         ></v-radio>
 
@@ -590,11 +477,52 @@
                     </v-col>
 
                     <v-col cols="12" sm="12" md="3">
-                      <v-container>
-                        <v-col>
-                          <p style="margin-top: -60px" class="font-weight-bold">
-                            Are you an OFW?
+                      <p class="font-weight-bold">
+                        Have you attended Pre-Employment Seminar for Local
+                        Applicants (PESLA)?
+                      </p>
+                      <v-radio-group row>
+                        <v-radio
+                          label="Yes"
+                          value="yes"
+                          @click="pesla = false"
+                          class="ma-2 pa-2"
+                          color="success"
+                        ></v-radio>
+
+                        <v-radio
+                          label="No"
+                          value="no"
+                          @click="pesla = true"
+                          class="ma-2 pa-2"
+                          color="success"
+                        ></v-radio>
+                        <v-container v-show="pesla">
+                          <p class="font-weight-bold">PESLA DETAILS</p>
+                          <p>
+                            We encourage you to attend PESLA. PEESO conducts
+                            free PESLA every Frida, 1pm at Pagbabago Hall, 2nd
+                            Floor, Center for Justice and Transformation
+                            Building (Old SP Building), Tagum City. For more
+                            information, message PEESO Tagum City Facebook page.
                           </p>
+                          <p class="font-weight-bold">
+                            Willing to attend PESLA?
+                          </p>
+                          <v-radio-group row>
+                            <v-radio label="Yes" value="yes" color="success">
+                            </v-radio>
+                            <v-radio label="No" value="no" color="success">
+                            </v-radio>
+                          </v-radio-group>
+                        </v-container>
+                      </v-radio-group>
+                    </v-col>
+
+                    <v-col cols="12" sm="12" md="3">
+                      <v-row>
+                        <v-col>
+                          <p class="font-weight-bold">Are you an OFW?</p>
                           <v-radio-group row>
                             <v-radio
                               label="Yes"
@@ -621,9 +549,6 @@
                               color="success"
                             ></v-radio>
                           </v-radio-group>
-                        </v-col>
-
-                        <v-col>
                           <p style="" class="font-weight-bold">
                             Are you a former OFW?
                           </p>
@@ -661,13 +586,11 @@
                             ></v-radio>
                           </v-radio-group>
                         </v-col>
-                      </v-container>
+                      </v-row>
                     </v-col>
 
                     <v-col cols="12" sm="12" md="3">
-                      <p style="margin-top: -25px" class="font-weight-bold">
-                        Are you a 4Ps beneficiary?
-                      </p>
+                      <p class="font-weight-bold">Are you a 4Ps beneficiary?</p>
                       <v-radio-group row>
                         <v-radio
                           label="Yes"
@@ -715,15 +638,15 @@
               </v-card-text>
             </v-card>
 
-            <v-btn id="v-btn-c" color="success" @click="e1 = 2">
+            <v-btn id="v-btn-c" color="success" @click="e1 = 3">
               Continue
             </v-btn>
             <v-btn @click="e1 = 1" class="ma-2"> Back </v-btn>
           </v-stepper-content>
 
           <!-- Second Stepper -->
-          <v-stepper-content step="2">
-            <v-card class="mb-12" color="grey lighten-4">
+          <v-stepper-content step="3">
+            <v-card >
               <v-card-text>
                 <v-container fluid>
                   <v-row>
@@ -1068,15 +991,15 @@
               </v-card-text>
             </v-card>
 
-            <v-btn id="v-btn-c" color="success" @click="e1 = 3">
+            <v-btn id="v-btn-c" color="success" @click="e1 = 4">
               Continue
             </v-btn>
-            <v-btn @click="e1 = 1.1" class="ma-2"> Back </v-btn>
+            <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
           </v-stepper-content>
 
-          <!-- Third Stepper -->
-          <v-stepper-content step="3">
-            <v-card class="mb-12" color="grey lighten-4">
+          <!-- Fourth Stepper -->
+          <v-stepper-content step="4">
+            <v-card>
               <v-card-text>
                 <v-container fluid>
                   <v-row>
@@ -1161,171 +1084,6 @@
               </v-card-text>
             </v-card>
 
-            <v-btn id="v-btn-c" color="success" @click="e1 = 4">
-              Continue
-            </v-btn>
-            <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
-          </v-stepper-content>
-
-          <!-- Fourth Stepper -->
-          <v-stepper-content step="4">
-            <v-card class="mb-12" color="grey lighten-4">
-              <v-card-text>
-                <v-container fluid>
-                  <v-row>
-                    <v-col cols="12" sm="12" md="12" class="ma-2">
-                      <h4>
-                        Include courses takens as part of college education.
-                      </h4>
-                    </v-col>
-                    <v-row>
-                      <v-col cols="12" sm="12" md="3">
-                        <v-text-field
-                          label="TRAINING/VOCATIONAL COURSE"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="HOURS OF TRAINING"
-                          outlined
-                          dense
-                          color="success"
-                          type="number"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="3">
-                        <v-text-field
-                          label="TRAINING INSTITUTION"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="SKILLS ACQUIRED"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="CERTIFICATE RECEIVED"
-                          hint="NC I, NC II, NC III, NC IV, etc"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="3">
-                        <v-text-field
-                          label="TRAINING/VOCATIONAL COURSE"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="HOURS OF TRAINING"
-                          outlined
-                          dense
-                          color="success"
-                          type="number"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="3">
-                        <v-text-field
-                          label="TRAINING INSTITUTION"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="SKILLS ACQUIRED"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="CERTIFICATE RECEIVED"
-                          hint="NC I, NC II, NC III, NC IV, etc"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="3">
-                        <v-text-field
-                          label="TRAINING/VOCATIONAL COURSE"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="HOURS OF TRAINING"
-                          outlined
-                          dense
-                          color="success"
-                          type="number"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="3">
-                        <v-text-field
-                          label="TRAINING INSTITUTION"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="SKILLS ACQUIRED"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="2">
-                        <v-text-field
-                          label="CERTIFICATE RECEIVED"
-                          hint="NC I, NC II, NC III, NC IV, etc"
-                          outlined
-                          dense
-                          color="success"
-                        >
-                        </v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-            </v-card>
-
             <v-btn id="v-btn-c" color="success" @click="e1 = 5">
               Continue
             </v-btn>
@@ -1334,39 +1092,185 @@
 
           <!-- Fifth Stepper -->
           <v-stepper-content step="5">
-            <v-card class="mb-12" color="grey lighten-4">
-              <v-card-text>
-                <v-container fluid>
+            <v-card class="mb-6">
+              <v-col cols="12" md="12" sm="12">
+                <h4 class="green--text">
+                  Technical / Vocational and Other Trainings
+                </h4>
+                <div v-for="(item, index) in form" :key="item">
                   <v-row>
-                    <v-col cols="12" sm="12" md="9">
-                     
-                      <v-text-field label="ELIGIBILITY (Civil Service)" outlined dense color="success"> </v-text-field>
+                    <v-col cols="12" md="2">
+                      <v-text-field
+                        outlined
+                        label="Training / Vocational Course"
+                        dense
+                        color="success"
+                        v-model="item.training_course"
+                        autofocus
+                      >
+                      </v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="3">
-                      <v-text-field label="Date Taken" outlined dense color="success" type="date"> </v-text-field>
+                    <v-col cols="12" md="2">
+                      <v-text-field
+                        outlined
+                        label="Hours of Training"
+                        type="number"
+                        dense
+                        color="success"
+                        v-model="item.hours_training"
+                      >
+                      </v-text-field>
                     </v-col>
-                    </v-row>
-                    <v-row>
-                    <v-col cols="12" sm="12" md="9">
-                      <v-text-field label="PROFESSIONAL" outlined dense color="success"> </v-text-field>
+                    <v-col cols="12" md="2">
+                      <v-text-field
+                        outlined
+                        label="Training Institition"
+                        dense
+                        color="success"
+                        v-model="item.training_institution"
+                      >
+                      </v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="3">
-                      <v-text-field label="Date Taken" outlined dense color="success" type="date"> </v-text-field>
+                    <v-col cols="12" md="2">
+                      <v-text-field
+                        outlined
+                        label="Skills Acquired"
+                        dense
+                        color="success"
+                        v-model="item.skills_acquired"
+                      >
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="2">
+                      <v-text-field
+                        outlined
+                        label="Certificate Acquired"
+                        dense
+                        color="success"
+                        v-model="item.certificate_acquired"
+                      >
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="2">
+                      <v-btn
+                        color="error"
+                        outlined
+                        @click="VocationalTrainingRemoveRow(index)"
+                      >
+                        Remove
+                      </v-btn>
+                      <v-btn color="warning" @click="VocationalTrainingAddRow">
+                        Add
+                      </v-btn>
                     </v-col>
                   </v-row>
-                </v-container>
-              </v-card-text>
+                </div>
+                <!-- <v-btn padding-top="3px"  @click="saveItem" color="success">
+                Save Item
+              </v-btn> -->
+              </v-col>
             </v-card>
 
             <v-btn id="v-btn-c" color="success" @click="e1 = 6">
               Continue
             </v-btn>
-            <v-btn @click="e1 = 4" class="ma-2"> Back </v-btn>
+            <v-btn @click="e1 = 4" class="ma-2" outlined color="success">
+              Back
+            </v-btn>
           </v-stepper-content>
 
           <!-- Sixth Stepper -->
           <v-stepper-content step="6">
-            <v-card class="mb-12" color="grey lighten-4">
+            <v-card class="mb-6">
+              <v-col cols="12" md="12" sm="12">
+                <h4 class="green--text">Eligibility</h4>
+                <div v-for="(item, index) in forms" :key="item">
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <v-text-field
+                        outlined
+                        label="Eligibility Name"
+                        dense
+                        color="success"
+                        v-model="item.eligibility"
+                        autofocus
+                      >
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="4">
+                      <v-text-field
+                        outlined
+                        label="Date Taken"
+                        type="date"
+                        dense
+                        color="success"
+                        v-model="item.Elgbtdate_taken"
+                      >
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="2">
+                      <v-btn
+                        color="error"
+                        outlined
+                        @click="ElgbtRemoveRow(index)"
+                      >
+                        Remove
+                      </v-btn>
+                      <v-btn color="warning" @click="ElgbtAddRow"> Add </v-btn>
+                    </v-col>
+                  </v-row>
+                </div>
+              </v-col>
+              <v-col cols="12" md="12" sm="12">
+                <h4 class="green--text">Professional License</h4>
+                <div v-for="(item, index) in forms2" :key="item">
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <v-text-field
+                        outlined
+                        label="Professional License"
+                        dense
+                        color="success"
+                        v-model="item.professional"
+                        autofocus
+                      >
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="4">
+                      <v-text-field
+                        outlined
+                        label="Date Taken"
+                        type="date"
+                        dense
+                        color="success"
+                        v-model="item.PLdate_taken"
+                      >
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="2">
+                      <v-btn
+                        color="error"
+                        outlined
+                        @click="ElgbtRemoveRow(index)"
+                      >
+                        Remove
+                      </v-btn>
+                      <v-btn color="warning" @click="ElgbtAddRow"> Add </v-btn>
+                    </v-col>
+                  </v-row>
+                </div>
+              </v-col>
+            </v-card>
+
+            <v-btn id="v-btn-c" color="success" @click="e1 = 7">
+              Continue
+            </v-btn>
+            <v-btn @click="e1 = 5" class="ma-2"> Back </v-btn>
+          </v-stepper-content>
+
+          <!-- Seventh Stepper -->
+          <v-stepper-content step="7">
+            <v-card>
               <v-card-text>
                 <v-container fluid>
                   <v-row>
@@ -1375,7 +1279,10 @@
                     </p>
                     <v-col cols="12" sm="12" md="3" class="ma-2">
                       <v-checkbox-group>
-                        <v-checkbox label="Auto Mechanic" color="success"></v-checkbox>
+                        <v-checkbox
+                          label="Auto Mechanic"
+                          color="success"
+                        ></v-checkbox>
                         <v-checkbox
                           label="Beautician"
                           style="margin-top: -10px"
@@ -1405,8 +1312,10 @@
                     </v-col>
                     <v-col cols="12" sm="12" md="3" class="ma-2">
                       <v-checkbox-group>
-                        <v-checkbox label="Electrician"
-                        color="success"></v-checkbox>
+                        <v-checkbox
+                          label="Electrician"
+                          color="success"
+                        ></v-checkbox>
                         <v-checkbox
                           label="Embroidery"
                           style="margin-top: -10px"
@@ -1414,7 +1323,8 @@
                         ></v-checkbox>
                         <v-checkbox
                           label="Gardening"
-                          style="margin-top: -10px" color="success"
+                          style="margin-top: -10px"
+                          color="success"
                         ></v-checkbox>
                         <v-checkbox
                           label="Masonry"
@@ -1435,8 +1345,10 @@
                     </v-col>
                     <v-col cols="12" sm="12" md="3" class="ma-2">
                       <v-checkbox-group>
-                        <v-checkbox label="Photography"
-                        color="success"></v-checkbox>
+                        <v-checkbox
+                          label="Photography"
+                          color="success"
+                        ></v-checkbox>
                         <v-checkbox
                           label="Plumbing"
                           style="margin-top: -10px"
@@ -1457,127 +1369,234 @@
                           style="margin-top: -10px"
                           color="success"
                         ></v-checkbox>
-                        <v-text-field label="Others" outlined dense color="success"></v-text-field>
+                        <v-text-field
+                          label="Others"
+                          outlined
+                          dense
+                          color="success"
+                        ></v-text-field>
                       </v-checkbox-group>
+                    </v-col>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="12" md="6" sm="6">
+                      <v-select
+                        :items="employability_skills"
+                        label="Employability Skills"
+                        required
+                        outlined
+                        dense
+                        multiple
+                        color="success"
+                        persistent-hint
+                        hint="Top 3 skills that you possess"
+                      >
+                      </v-select>
+                    </v-col>
+                    <v-col cols="12" md="6" sm="6">
+                      <v-select
+                        :items="employability_skills"
+                        label="Employability Skills"
+                        required
+                        outlined
+                        dense
+                        multiple
+                        color="success"
+                        persistent-hint
+                        hint="Skills you don't have/least possess"
+                      >
+                      </v-select>
                     </v-col>
                   </v-row>
                 </v-container>
               </v-card-text>
             </v-card>
 
-            <v-btn id="v-btn-c" color="success" @click="e1 = 7">
+            <v-btn id="v-btn-c" color="success" @click="e1 = 8">
               Continue
             </v-btn>
-            <v-btn @click="e1 = 5" class="ma-2"> Back </v-btn>
-          </v-stepper-content>
-
-          <!-- Seventh Stepper -->
-          <v-stepper-content step="7">
-            <v-card class="mb-12" color="grey lighten-4">
-              <v-card-text>
-                <v-container fluid>
-                  <v-row>
-                    <v-col cols="12" sm="12" md="4" class="ma-2">
-                      <p class="font-weight-bold">Preffered Intervention</p>
-                      <v-checkbox-group>
-                        <v-checkbox label="Livelihood" color="success"></v-checkbox>
-                        <v-checkbox
-                          label="Skills Training"
-                          style="margin-top: -10px"
-                          color="success"
-                        ></v-checkbox>
-                        <v-checkbox
-                          label="Employment Facilitation"
-                          style="margin-top: -10px"
-                          color="success"
-                        ></v-checkbox>
-                      </v-checkbox-group>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="6" class="ma-2">
-                      <v-checkbox-group>
-                        <v-checkbox label="Reintegration Program" color="success"></v-checkbox>
-                        <v-checkbox
-                          label="Productivity Toolbox"
-                          style="margin-top: -10px"
-                          color="success"
-                        ></v-checkbox>
-                        <v-checkbox
-                          label="ECP Benefits"
-                          style="margin-top: -10px"
-                          color="success"
-                        ></v-checkbox>
-                      </v-checkbox-group>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-            </v-card>
-
-            
             <v-btn @click="e1 = 6" class="ma-2"> Back </v-btn>
-            <v-btn
-              class="ma-2"
-              color="success"
-              value="save"
-              type="submit"
-            >
-              Save
-            </v-btn>
           </v-stepper-content>
 
-          <!-- Eight Stepper -->
-          <!-- <v-stepper-content step="8">
-            <v-card class="mb-12" color="grey lighten-4">
+          <!-- Eighth Stepper -->
+          <v-stepper-content step="8">
+            <v-card>
               <v-card-text>
                 <v-container fluid>
                   <v-row>
-                    <v-col cols="12" sm="12" md="12">
-                      <h4>Preferred Occupation</h4>
-                      <v-radio-group row>
-                        <v-radio label="Part-time" value="PartTime"></v-radio>
-                        <v-radio label="Full-time" value="FullTime"></v-radio>
-                      </v-radio-group>
-                      <v-text-field outlined></v-text-field>
-                    </v-col>
+                    <v-col cols="12" sm="12" md="6">
+                      <v-file-input
+                        v-model="files"
+                        color="green accent-4"
+                        counter
+                        label="Resume"
+                        multiple
+                        dense
+                        placeholder="Select your files"
+                        prepend-icon="mdi-paperclip"
+                        outlined
+                        :show-size="1000"
+                      >
+                        <template v-slot:selection="{ index, text }">
+                          <v-chip
+                            v-if="index < 2"
+                            color="green accent-4"
+                            dark
+                            label
+                            small
+                          >
+                            {{ text }}
+                          </v-chip>
 
-                    <v-col cols="12" sm="12" md="12">
-                      <h4>Preferred Work Location</h4>
+                          <span
+                            v-else-if="index === 2"
+                            class="text-overline grey--text text--darken-3 mx-2"
+                          >
+                            +{{ files.length - 2 }} File(s)
+                          </span>
+                        </template>
+                      </v-file-input>
                     </v-col>
-                    <v-col cols="12" sm="6" md="6">
-                      <v-checkbox label="Local (Specify Cities/Municipalities)">
-                      </v-checkbox>
-                      <v-text-field outlined md="4"></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="6">
-                      <v-checkbox label="Overseas (Specify Countries)">
-                      </v-checkbox>
-                      <v-text-field outlined md="4"></v-text-field>
+                    <v-col cols="12" sm="12" md="6">
+                      <v-file-input
+                        v-model="files"
+                        color="green accent-4"
+                        counter
+                        label="Application Letter"
+                        multiple
+                        dense
+                        placeholder="Select your files"
+                        prepend-icon="mdi-paperclip"
+                        outlined
+                        :show-size="1000"
+                      >
+                        <template v-slot:selection="{ index, text }">
+                          <v-chip
+                            v-if="index < 2"
+                            color="green accent-4"
+                            dark
+                            label
+                            small
+                          >
+                            {{ text }}
+                          </v-chip>
+
+                          <span
+                            v-else-if="index === 2"
+                            class="text-overline grey--text text--darken-3 mx-2"
+                          >
+                            +{{ files.length - 2 }} File(s)
+                          </span>
+                        </template>
+                      </v-file-input>
                     </v-col>
                   </v-row>
                 </v-container>
               </v-card-text>
             </v-card>
 
-            <v-btn @click="e1 = 7" class="ma-2"> Back </v-btn>
-            <v-btn
-              class="ma-2"
-              color="success"
-              @click="dialog = false"
-              value="save"
-            >
+            <v-btn id="v-btn-c" color="success" @click.stop="dialog = true">
               Save
             </v-btn>
-          </v-stepper-content> -->
+            <v-btn @click="e1 = 7" class="ma-2"> Back </v-btn>
+          </v-stepper-content>
         </v-stepper-items>
       </v-stepper>
+      <v-row>
+        <v-dialog v-model="dialog" max-width="290">
+          <v-card>
+            <v-card-title class="text-h5"> UNSAVED CHANGES </v-card-title>
+
+            <v-card-text>
+              You have made changes in your profile. Do you want to save or
+              discard it?
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn color="green darken-1" text @click="dialog = false">
+                Discard
+              </v-btn>
+
+              <v-btn
+                color="green darken-1"
+                text
+                @click="dialog = false"
+                type="submit"
+              >
+                Save
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-row>
     </v-col>
   </div>
 </template>
   <script>
+import { reactive } from "vue";
 export default {
-  components: {},
+  components: {
+    reactive,
+  },
+  setup() {
+    const form = reactive([
+      {
+        training_course: "",
+        hours_training: "",
+        training_institution: "",
+        skills_acquired: "",
+        certificate_acquired: "",
+      },
+    ]);
+    const VocationalTrainingAddRow = () => {
+      form.push({
+        training_course: "",
+        hours_training: "",
+        training_institution: "",
+        skills_acquired: "",
+        certificate_acquired: "",
+      });
+    };
+    const VocationalTrainingRemoveRow = (index) => {
+      if (form.length > 1) {
+        form.splice(index, 1);
+      }
+    };
+    const forms = reactive([{ eligibility: "", date_taken: "" }]);
+    const PLAddRow = () => {
+      forms.push({ eligibility: "", Elgbtdate_taken: "" });
+    };
+    const PLRemoveRow = (index) => {
+      if (forms.length > 1) {
+        forms.splice(index, 1);
+      }
+    };
+    const forms2 = reactive([{ professional: "", date_taken: "" }]);
+    const ElgbtAddRow = () => {
+      forms.push({ professional: "", PLdate_taken: "" });
+    };
+    const ElgbtRemoveRow = (index) => {
+      if (forms2.length > 1) {
+        forms2.splice(index, 1);
+      }
+    };
+    return {
+      form,
+      forms,
+      forms2,
+      VocationalTrainingAddRow,
+      VocationalTrainingRemoveRow,
+      PLAddRow,
+      PLRemoveRow,
+      ElgbtAddRow,
+      ElgbtRemoveRow,
+    };
+  },
   data: () => ({
     e1: 1,
+    pesla: false,
     employed: false,
     unemployed: false,
     wage_employed: false,
@@ -1606,6 +1625,23 @@ export default {
     enabled: false,
     samewithaddress: true,
 
+    employability_skills: [
+      "Planning and Organizing",
+      "Social Perceptiveness",
+      "Innovation",
+      "Multi-Tasking",
+      "Work Standards/Ethics",
+      "Stress Tolerance",
+      "Self-Motivation",
+      "Problem Sensitivity",
+      "Creative Problem Solving",
+      "Teamwork",
+      "Decision Making",
+      "Critical Thinking",
+      "Math Function Skills",
+      "English Function Skills",
+      "English Comprehension",
+    ],
     disabilities: [
       "None",
       "Visual",
@@ -1631,6 +1667,16 @@ export default {
       "Islam",
       "Iglesia ni Cristo",
       "Seventh-day Adventist",
+    ],
+    selfemployed: [
+      "Fisherman/Fisherfolk",
+      "Vebdor/Retailer",
+      "Home-based worker",
+      "Transport",
+      "Domestic Worker",
+      "Freelancer",
+      "Artisan/Craft Worker",
+      "Farmer",
     ],
   }),
   watch: {

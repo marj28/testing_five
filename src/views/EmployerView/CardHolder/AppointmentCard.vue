@@ -42,6 +42,8 @@ import AddAppointment from "@/views/EmployerView/AddAppointment.vue"
       AddAppointment
   },
     data: () => ({
+      search: "",
+      showAddAppointment: false,
       headers: [
         {
           text: "JOB POST",

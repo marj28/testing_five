@@ -1,18 +1,14 @@
 <template>
     <v-app>
-      <ApplicantNavbar />
+      <applicant-navbar />
       <v-main>
-      <AppliedJobs />
+      <applied-jobs />
       </v-main>
     </v-app>
   </template>
   <script>
-  import ApplicantNavbar from "../Navigation/ApplicantNavbar.vue";
-  import AppliedJobs from "../ApplicantView/CardHolder/AppliedJobs.vue"
   export default {
     components: {
-      ApplicantNavbar,
-      AppliedJobs,
     },
   };
   </script>

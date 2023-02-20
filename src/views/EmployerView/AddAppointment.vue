@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="show" max-width="600px">
+  <v-dialog v-model="show" max-width="600px" persistent>
     <template v-slot:activator="{ on, attrs }">
       <v-btn color="success" dark v-bind="attrs" v-on="on">
         <v-icon> mdi-plus </v-icon>
@@ -13,7 +13,6 @@
       </v-card-title>
       <v-divider color="green"></v-divider>
 
-      <v-card class="mb-12">
         <v-card-text>
           <v-container fluid>
             <v-row>
@@ -115,7 +114,6 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-    </v-card>
   </v-dialog>
 </template>
   <script>

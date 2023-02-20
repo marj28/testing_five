@@ -1,23 +1,6 @@
 <template>
   <div>
     <v-col>
-      <v-card outlined color="#1B5E20">
-        <v-card-title
-          class="d-flex flex-column justify-space-between align-center"
-        >
-          <v-avatar size="100">
-            <img src="@/assets/download.png" />
-          </v-avatar>
-        </v-card-title>
-        <v-card-text
-          class="d-flex flex-column justify-space-between align-center"
-          style="color: white"
-        >
-          <p class="font-weight-black">Employer Name</p>
-          <p class="font-weight-bold">Employer Position</p>
-          <p class="font-weight-medium">Company Name and Address</p>
-        </v-card-text>
-      </v-card>
       <v-stepper v-model="e1">
         <v-stepper-header style="font-size: 14px">
           <v-stepper-step
@@ -26,34 +9,18 @@
             style="height="
             color="warning"
           >
-            Establishment Details
+            Agency Details
           </v-stepper-step>
 
           <v-divider></v-divider>
 
           <v-stepper-step :complete="e1 > 2" step="2" color="warning">
-            Establishment Contact Details
+            Agency Contact Details
           </v-stepper-step>
 
           <v-divider></v-divider>
 
           <v-stepper-step :complete="e1 > 3" step="3" color="warning">
-            Pre-Pandemic
-            <v-spacer></v-spacer>
-            Employment Situation
-          </v-stepper-step>
-
-          <v-divider></v-divider>
-
-          <v-stepper-step :complete="e1 > 4" step="4" color="warning">
-            Post-Lockdown
-            <v-spacer></v-spacer>
-            Employment Situation
-          </v-stepper-step>
-
-          <v-divider></v-divider>
-
-          <v-stepper-step :complete="e1 > 5" step="5" color="warning">
             Requirements
           </v-stepper-step>
         </v-stepper-header>
@@ -65,33 +32,24 @@
               <v-card-text>
                 <v-container>
                   <v-row>
-                    <v-col cols="12" sm="12" md="12" lg="12">
-                      <v-radio-group label="Establishment Type" row>
-                        <v-spacer></v-spacer>
-                        <v-radio color="success" label="Private" value="private"></v-radio>
-                        <v-spacer></v-spacer>
-                        <v-radio color="success" label="Government" value="government"></v-radio>
-                        <v-spacer></v-spacer>
-                      </v-radio-group>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="4">
+                    <v-col cols="12" sm="12" md="8">
                       <v-text-field
-                        label="Business Name"
+                        label="Agency Name"
                         required
                         outlined
                         dense
                         color="green"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="4">
-                      <v-text-field
-                        label="Trade Name"
-                        required
-                        outlined
-                        dense
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
+                    <!-- <v-col cols="12" sm="12" md="4">
+                        <v-text-field
+                          label="Trade Name"
+                          required
+                          outlined
+                          dense
+                          color="green"
+                        ></v-text-field>
+                      </v-col> -->
                     <v-col cols="12" sm="12" md="4">
                       <v-text-field
                         label="Acronym / Abbreviation"
@@ -101,17 +59,17 @@
                         color="green"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="3">
+                    <v-col cols="12" sm="6" md="6">
                       <v-select
-                        :items="btype"
-                        label="Office Status"
+                        :items="agency_type"
+                        label="Agency Type"
                         outlined
                         dense
                         color="green"
                       >
                       </v-select>
                     </v-col>
-                    <v-col cols="12" sm="12" md="3">
+                    <!-- <v-col cols="12" sm="12" md="3">
                       <v-text-field
                         label="Tax Identification Number"
                         required
@@ -119,8 +77,8 @@
                         dense
                         color="green"
                       ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="3">
+                    </v-col> -->
+                    <!-- <v-col cols="12" sm="12" md="3">
                       <v-select
                         :items="etype"
                         label="Employer Type"
@@ -132,8 +90,8 @@
                         color="green"
                       >
                       </v-select>
-                    </v-col>
-                    <v-col cols="12" sm="12x" md="3">
+                    </v-col> -->
+                    <v-col cols="12" sm="6" md="6">
                       <v-select
                         :items="totalworkforce"
                         label="Total Work Force"
@@ -143,7 +101,7 @@
                       >
                       </v-select>
                     </v-col>
-                    <v-col cols="12" sm="12" md="3">
+                    <!-- <v-col cols="12" sm="12" md="3">
                       <v-text-field
                         label="Major Industry Group"
                         required
@@ -151,27 +109,17 @@
                         dense
                         color="green"
                       ></v-text-field>
-                    </v-col>
+                    </v-col> -->
                     <v-col cols="12" sm="6" md="3">
                       <v-text-field
-                        label="Street/Village"
+                        label="Province"
                         required
                         outlined
                         dense
                         color="green"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="6" md="2">
-                      <v-text-field
-                        label="Barangay"
-                        type="address"
-                        required
-                        outlined
-                        dense
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="2">
+                    <v-col cols="12" sm="6" md="3">
                       <v-text-field
                         label="Municipal/City"
                         type="address"
@@ -181,9 +129,19 @@
                         color="green"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="6" md="2">
+                    <v-col cols="12" sm="6" md="3">
                       <v-text-field
-                        label="Province"
+                        label="Barangay"
+                        type="address"
+                        required
+                        outlined
+                        dense
+                        color="green"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6" md="3">
+                      <v-text-field
+                        label="Street/Village"
                         type="address"
                         required
                         outlined
@@ -206,22 +164,25 @@
             </v-btn>
           </v-stepper-content>
 
-          <!-- Second Stepper -->
-          <v-stepper-content step="2">
+           <!-- Second Stepper -->
+           <v-stepper-content step="2">
             <v-card class="mb-12" color="grey lighten-4">
               <v-card-text>
                 <v-container fluid>
                   <v-row>
-                    <v-col cols="12" sm="12" md="12">
-                      <v-text-field
-                        label="Name of Owner / President (Full Name)"
-                        required
+                    <v-col cols="12" sm="2" md="2">
+                      <v-select
+                        :items="title"
+                        label="Title"
                         outlined
                         dense
+                        multiple
+                        small-chips
                         color="green"
-                      ></v-text-field>
+                      >
+                      </v-select>
                     </v-col>
-                    <v-col cols="12" sm="12" md="6">
+                    <v-col cols="12" sm="10" md="10">
                       <v-text-field
                         label="Contact Person (Full Name)"
                         required
@@ -230,7 +191,7 @@
                         color="green"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="6">
+                    <v-col cols="12" sm="3" md="3">
                       <v-text-field
                         label="Position"
                         required
@@ -239,7 +200,7 @@
                         color="green"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="3">
+                    <v-col cols="12" sm="3" md="3">
                       <v-text-field
                         label="Telephone Number"
                         required
@@ -249,7 +210,7 @@
                         color="green"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="3">
+                    <v-col cols="12" sm="3" md="3">
                       <v-text-field
                         label="Mobile Number"
                         required
@@ -259,7 +220,7 @@
                         color="green"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="3">
+                    <!-- <v-col cols="12" sm="3" md="3">
                       <v-text-field
                         label="Fax Number"
                         required
@@ -267,8 +228,8 @@
                         dense
                         color="green"
                       ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="3">
+                    </v-col> -->
+                    <v-col cols="12" sm="3" md="3">
                       <v-text-field
                         label="E-mail Address"
                         required
@@ -291,232 +252,6 @@
 
           <!-- Third Stepper -->
           <v-stepper-content step="3">
-            <v-card class="mb-12" color="grey lighten-4">
-              <v-card-text>
-                <v-container fluid>
-                  <v-row>
-                    <v-col cols="12" sm="12" md="12">
-                      Please indicate the number of reporting workers in the
-                      establishment
-                      <bold class="font-weight-bold"
-                        >before implementation of GCQ/ECQ</bold
-                      >
-                    </v-col>
-                    <v-col cols="12" sm="12" md="12" class="font-weight-bold">
-                      Number of Workers:
-                    </v-col>
-                    <v-col cols="12" md="4" sm="6">
-                      <v-text-field
-                        label="Male"
-                        required
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="12" md="4" sm="6">
-                      <v-text-field
-                        label="Female"
-                        required
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="4">
-                      <v-text-field
-                        label="Total"
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="12" md="3" sm="6">
-                      <v-text-field
-                        label="Managerial Employees"
-                        required
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="3" sm="6">
-                      <v-text-field
-                        label="Supervisory"
-                        required
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="12" md="3" sm="6">
-                      <v-text-field
-                        label="Rank and File"
-                        required
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="3">
-                      <v-text-field
-                        label="Total"
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-            </v-card>
-
-            <v-btn id="v-btn-c" color="success" @click="e1 = 4">
-              Continue
-            </v-btn>
-            <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
-          </v-stepper-content>
-
-          <!-- Fourth Stepper -->
-          <v-stepper-content step="4">
-            <v-card class="mb-12" color="grey lighten-4">
-              <v-card-text>
-                <v-container fluid>
-                  <v-row>
-                    <v-col cols="12" sm="12" md="12" class="ma-2">
-                      Please indicate the number of reporting workers in the
-                      establishment
-                      <bold class="font-weight-bold"
-                        >upon resumption of operation.</bold
-                      >
-                    </v-col>
-                    <v-col cols="12" sm="12" md="12" class="font-weight-bold">
-                      Number of Workers:
-                    </v-col>
-                    <v-col cols="12" md="4" sm="6">
-                      <v-text-field
-                        label="Male"
-                        required
-                        dense
-                        outlined
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="12" md="4" sm="6">
-                      <v-text-field
-                        label="Female"
-                        required
-                        dense
-                        outlined
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="4">
-                      <v-text-field
-                        label="Total"
-                        outlined
-                        dense
-                        required
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="12" md="3" sm="6">
-                      <v-text-field
-                        label="Managerial Employees"
-                        required
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="3" sm="6">
-                      <v-text-field
-                        label="Supervisory"
-                        required
-                        dense
-                        outlined
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="12" md="3" sm="6">
-                      <v-text-field
-                        label="Rank and File"
-                        required
-                        outlined
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="3">
-                      <v-text-field
-                        label="Total"
-                        outlined
-                        required
-                        dense
-                        type="number"
-                        color="green"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="12" class="font-weight-bold">
-                      Work Arrangement adopted upon resumption of operation of
-                      the Establishment (Please select all applicable):
-                    </v-col>
-                    <v-col>
-                      <v-checkbox-group>
-                        <v-checkbox
-                          label="FULL WORK ARRANGEMENT. The establishment operates in a regular basis and with full workforce"
-                          color="green"
-                        >
-                        </v-checkbox>
-                        <v-checkbox
-                          label="FLEXIBLE WORK ARRANGEMENT. The establishment will adopt FWA such as reduction of normal workdays, forced leave, transfer of employees, etc."
-                          color="green"
-                        >
-                        </v-checkbox>
-                        <v-checkbox
-                          label="TEMPORARY CLOSURE. The establishment will be temporarily be closed"
-                          color="green"
-                        >
-                        </v-checkbox>
-                        <v-checkbox
-                          label="RETRENCHMENT/REDUCTION OF WORKFORCE. The establishment will reduce the number of employees"
-                          color="green"
-                        >
-                        </v-checkbox>
-                      </v-checkbox-group>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-            </v-card>
-
-            <v-btn id="v-btn-c" color="success" @click="e1 = 5">
-              Continue
-            </v-btn>
-            <v-btn @click="e1 = 3" class="ma-2"> Back </v-btn>
-          </v-stepper-content>
-
-          <!-- Fifth Stepper -->
-          <v-stepper-content step="5">
             <v-card class="mb-12" color="grey lighten-4">
               <v-card-text>
                 <v-container fluid>
@@ -663,7 +398,7 @@
             <v-btn id="v-btn-c" color="success" @click.stop="dialog = true">
               Save
             </v-btn>
-            <v-btn @click="e1 = 4" class="ma-2"> Back </v-btn>
+            <v-btn @click="e1 = 2" class="ma-2"> Back </v-btn>
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>
@@ -699,25 +434,23 @@
     </v-col>
   </div>
 </template>
-<script>
+  <script>
 export default {
   components: {},
   data: () => ({
     e1: 1,
     dialog: false,
-
-    btype: ["Main Office", "Branch"],
-    etype: [
-      "Public",
-      "National Government Agency",
-      "Local Government Unit",
-      "Government-owned and Controlled Corporation",
+    title: [
+        "Mr.",
+        "Mrs."
+    ],
+    agency_type: [
       "State/Local University or College",
-      "Private",
-      "Direct Hire",
-      "Local Recruitment Agency",
-      "Overseas Recruitment Agency",
-      "D.O. 174",
+      "National Agency",
+      "Government Office",
+      "Government-owned and Controlled Corporation",
+      "Government Financial Institution",
+      "Infrastructure and Utilities Group",
     ],
     totalworkforce: [
       "Micro (1-9)",
@@ -725,16 +458,7 @@ export default {
       "Medium (100-199)",
       "Large (200 and up)",
     ],
-    natureofwork: [
-      "Permanent",
-      "Contractual",
-      "Project-based",
-      "Internship / OJT",
-      "Part-time",
-      "Work-from-Home / Online Job",
-    ],
-    pwd: ["Visual", "Hearing", "Speech", "Physical", "Mental", "Others"],
   }),
 };
 </script>
-  
+    

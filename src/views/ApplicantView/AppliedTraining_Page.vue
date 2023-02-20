@@ -1,18 +1,14 @@
 <template>
     <v-app>
-      <ApplicantNavbar />
+      <applicant-navbar />
       <v-main>
-      <AppliedTraining />
+      <applied-training />
       </v-main>
     </v-app>
   </template>
   <script>
-  import ApplicantNavbar from "../Navigation/ApplicantNavbar.vue";
-  import AppliedTraining from "../ApplicantView/CardHolder/AppliedTraining.vue"
   export default {
     components: {
-      ApplicantNavbar,
-      AppliedTraining,
     },
   };
   </script>

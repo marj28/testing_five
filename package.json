@@ -10,7 +10,6 @@
   "dependencies": {
     "apexcharts": "^3.36.3",
     "axios": "^1.2.2",
-    "bootstrap": "^5.2.3",
     "core-js": "^3.8.3",
     "firebase": "^9.17.1",
     "vue-apexcharts": "^1.6.2",

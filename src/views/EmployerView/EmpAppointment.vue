@@ -1,22 +1,16 @@
 <template>
     <v-app>
-      <EmployerNavbar />
+      <employer-navbar />
       <v-main >
-        <AppointmentCard />
+        <appointment-card />
       </v-main>
     </v-app>
       
     </template>
     
-    <script>
-    
-  import EmployerNavbar from "../Navigation/EmployerNavbar.vue";
-  import AppointmentCard from "@/views/EmployerView/CardHolder/AppointmentCard.vue";
-  
+    <script>  
     export default {
       components: {
-      EmployerNavbar,
-      AppointmentCard
     },
       data: () => ({
        

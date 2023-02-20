@@ -1,46 +1,31 @@
 <template>
   <v-app id="inspire">
-    <EmployerNavbar />
+    <employer-navbar />
     <v-main>
       <StatusCard />
       <v-divider light class="test"></v-divider>
       <v-row class="pa-1">
         <v-col cols="12" md="6" class="ml-2">
-          <AppointmentCard />
-          <ApplicantCard />
+          <appointment-card />
+          <applicant-card />
         </v-col>
         <v-col>
-          <JobPostingCard />
+          <job-posting-card />
         </v-col>
       </v-row>
     </v-main>
-    <router-view> </router-view>
   </v-app>
 </template>
     
     <script>
-import EmployerNavbar from "../Navigation/EmployerNavbar.vue";
-
 import StatusCard from "@/views/EmployerView/StatusCard.vue";
-
-import AppointmentCard from "@/views/EmployerView/CardHolder/AppointmentCard.vue";
-import JobPostingCard from "@/views/EmployerView/CardHolder/JobPostingCard.vue";
-import ApplicantCard from "@/views/EmployerView/CardHolder/ApplicantCard.vue";
 
 export default {
   components: {
-    EmployerNavbar,
     StatusCard,
-    AppointmentCard,
-    JobPostingCard,
-    ApplicantCard,
   },
 
-  data: () => ({
-    doSomething() {
-      show: false;
-    },
-  }),
+  data: () => ({}),
 };
 </script>
   <style scoped>
