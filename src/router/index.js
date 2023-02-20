@@ -53,7 +53,10 @@ import EmployerList from '../views/AdminView/ListHolder/EmployerList.vue'
 import ApprovalList from '../views/AdminView/ListHolder/ApprovalList.vue'
 import RecommendationList from '../views/AdminView/ListHolder/RecommendationList.vue'
 import ProcessingList from '../views/AdminView/ListHolder/ProcessingList.vue'
+
 import TrainingOffer from '../views/AdminView/StatusCard/TrainingOffer.vue'
+import StudentProgram from '../views/AdminView/StatusCard/StudentProgram.vue'
+
 import OpenJobs from '../views/AdminView/StatusCard/OpenJobs.vue'
 import HiredApplicants from '../views/AdminView/StatusCard/HiredApplicants.vue'
 import DailyApplicants from '../views/AdminView/StatusCard/DailyApplicants.vue'
@@ -268,6 +271,11 @@ const routes = [
     path: '/TrainingOffer',
     name: 'TrainingOffer',
     component: TrainingOffer
+  },
+  {
+    path: '/StudentProgram',
+    name: 'StudentProgram',
+    component: StudentProgram
   },
   {
     path: '/OpenJobs',

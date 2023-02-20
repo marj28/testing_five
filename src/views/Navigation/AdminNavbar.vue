@@ -153,7 +153,12 @@ export default {
           {
             icon: "mdi-clipboard-check-outline",
             text: "Student Programs",
-            route: "/StudentList",
+            route: "/StudentProgram",
+          },
+          {
+            icon: "mdi-clipboard-check-outline",
+            text: "Training Offering",
+            route: "/TrainingOffer",
           },
           {
             icon: "mdi-clipboard-file-outline",
